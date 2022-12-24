@@ -3,4 +3,4 @@ Cosas Python
 # Utilidad del mismo
 Tareas y progreso del mismo
 # Version
-0.1
+0.2
