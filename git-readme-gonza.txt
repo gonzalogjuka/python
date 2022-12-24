@@ -7,3 +7,4 @@
 
 - si venis del branch original hacemos un pull para aplciar cambios del srv al local
 - si queremos cambiar de branch hacemos git checkout *nombre del branch* para aplicar cambios sobre esa branch
+- si queremos traer el repo - git clone en la ubicacion raiz que nesecitemos
