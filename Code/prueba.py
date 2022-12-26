@@ -71,7 +71,7 @@ hello_world_printer
 else if = elif
 
 
-import random -------------->>>> no importa el orde de lectura primero escribimos la funciona luego la ejecucion
+import random -------------->>>> no importa el orden de lectura primero escribimos la funciona luego la ejecucion
 
 def numero(number):
     if number ==1:
@@ -121,20 +121,30 @@ si quiero volver a la funcion original
 fun1()
 printer(number)
 >>> 30
-
-
-
-
-""" 
-
+ 
 def fun1():
-    global number
+    global number --> variable global
     number= 30
 
 
 def fun2(number):
     number +=1
 
-number=30
+number = 30
+print (number)
+>>> 30
+
+fun2(number) ----> siempre el valor por defecto de number va a ser 30 segun lo declarado
 print(number)
-fun2(number)
+>>> 30
+
+def fun2 (number)
+number += 1
+return(number) ----> para reflejar el resultado de la funcion tenemos que devolverlo con return
+
+number = fun2 (number) ----> aca aplicamos el numero de la variable global (30) y lo aplicamos a la funcion pasandoselo como parametro
+                             una vez ejecutada la funciona pasa el numero y lo suma, devolviendo el resultado del mismo
+print(number)
+>>> 31
+
+"""
