@@ -18,4 +18,3 @@ result = number_one + number_two
 a = 3
 b = float (a)
 print(b*a)
-
