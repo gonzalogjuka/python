@@ -1,5 +1,6 @@
 import random  
 # pyright: reportUnboundVariable=false
+# respetar las tabulaciones, 1 tabulacion para cada variable: ej: auto (1 tab) , print (1 tab debajo de auto)
 
 def adivina_numero():
     global guest
@@ -13,13 +14,17 @@ def adivina_numero():
             print('El numero es muy alto')                   
         else:
             break
+   # return guest
+
+def chequeo(guest,secretNumber):
+    if guest == secretNumber:
+        print('Felicidades el numero es el correcto')  
+    else: 
+        print('Segui participando, el numero era: ' + str(secretNumber))
 
 secretNumber = random.randint(1,20)
 print('Estoy pensando un numero')
 
+# guest = adivina_numero() --> otra forma de resolverlo es retornado el resultado y asignandoselo a la funcion
 adivina_numero()
-
-if guest == secretNumber: # type: ignore
-    print('Felicidades el numero es el correcto')  
-else: 
-    print('Segui participando, el numero era: ' + str(secretNumber))
+chequeo(guest,secretNumber)
