@@ -49,11 +49,12 @@ def menu(archivo):
 
 def menus():
   # Esta función crea una nueva ventana con tres botones
-  menu2 = tk.Tk()
-  menu2.title("Nuevo Menu") 
+  ventana_menus = tk.Tk()
+  ventana_menus.title("Nuevo Menu") 
 
   def new_option():
     print("Has seleccionado la opción ejemplo2")
     
-  boton= tk.Button(menu2, text="Nuevo Menu", command=new_option)
+  boton_ejemplo= tk.Button(ventana_menus, text="Nuevo Menu 2", command=new_option)
+  boton_ejemplo.pack()
   
