@@ -57,4 +57,3 @@ def menu2():
     
   boton_ejemplo= tk.Button(menu2, text="Nuevo Menu 2", command=new_option)
   boton_ejemplo.pack()
-  
