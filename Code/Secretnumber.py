@@ -3,7 +3,7 @@ import random
 # respetar las tabulaciones, 1 tabulacion para cada variable: ej: auto (1 tab) , print (1 tab debajo de auto)
 
 def adivina_numero():
-    global guest
+    global guest   
     for i in range(0,4):
         print('Intenta adivinarlo')
         guest= int(input('Ingresa un numero del 1 al 20: '))
