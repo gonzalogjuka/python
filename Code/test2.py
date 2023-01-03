@@ -185,5 +185,47 @@ while pin != 1234:
   if pin == 1234:
     print('PIN accepted!')
 
+for i in range (100):
+  print ("no debo usar snap en clase" )
+  print(i)
+
+
+for i in range (99,0,-1):  # el primer numero del parametro indica el inicio del conteo y el 2do numero es los numeros enteros menores a el y el 3er numero lo que indica es el incremento que se le da cada vez que itera
+  como el parametro va de mayor a menor se le agrega el 3er parametro para que vaya restando ya que no podemos restar cero, por ende la ultima linea de codigo donde resta -1 entonces cuando el for itera hace
+  -1 + -1 = 1 (1 y 2 parametro rangos desde donde queremos incluir los numeros y 3 parametro el incremental si es de mayor a menor resta y si es de menor a mayor suma)
+
+  print(f'{i} bottles of beer on the wall') # el f' es un parametro para colocar la iteracion de STRING con {} , recordemos que lo que cuenta son strings y no INT , por ende nos va a dejar printearlo
+  print(f'{i} bottles of beer')
+  print('Take one down, pass it around')
+  print(f'{i-1} bottles of beer on the wall')
+
+
+for num in range(1,101):
+  if num % 3 == 0 and num % 5 == 0: # 
+    print('FizzBuzz')
+  elif num % 3 == 0:
+    print('Fizz')
+  elif num % 5 == 0:
+    print('Buzz')
+  else:
+    print(num)
+
+    
+for num in range(1, 101):
+  if num % 3 == 0 and num % 5 == 0:
+    print('FizzBuzz')
+  elif num % 3 == 0:
+    print('Fizz')
+  elif num % 5 == 0:
+    print('Buzz')
+  else:
+    print(num)
+
+    for num in range(1,41):
+  if num % 3 == 0: # numero multiplo , es el numero a multiplicar por los numeros naturales (1,2,3,4,5,6) como las tablas
+    print (f'{num} Multiplo')
+  else:
+    print(num)
+
 """
 
