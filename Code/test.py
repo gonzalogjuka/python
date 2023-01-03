@@ -15,6 +15,8 @@ result = number_one + number_two
 """"para concatenar un string con un int o otro tipo de dato, tenemos que convertirlo a string de la siguiente manera"""
 """"print ('El resultado es: ' + str(result))"""
 
+"""
 a = 3
 b = float (a)
 print(b*a)
+"""
