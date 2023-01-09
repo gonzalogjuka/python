@@ -19,4 +19,36 @@ result = number_one + number_two
 a = 3
 b = float (a)
 print(b*a)
+
+horas= int (input('introduzca horas'))
+tarifa= int (input('introduzca tarifa'))
+salario = (horas *  tarifa)
+print(salario)
+
+ancho = 17
+alto = 12.0
+tipo1 = type (ancho/2)
+valor1 = ancho/2
+tipo2 = type (ancho/2.0)
+valor2 = ancho/2.0
+tipo3 = type (alto/3)
+valor3 = alto/3
+tipo4 =  type (1 + 2 * 5)
+valor4 = 1 + 2 * 5
+print (tipo1)
+print (valor1)
+print (tipo2)
+print (valor2)
+print (tipo3)
+print (valor3)
+print (tipo4)
+print (valor4)
+
+
+celcuis = int(input('Ingrese temperatura en grados celcuis: '))
+calculo = celcuis * 1.8 + 32
+redondeo = round (calculo) ---> para redondear el numero
+print (redondeo)
+
 """
+
