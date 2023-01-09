@@ -1,0 +1,15 @@
+Fall2022@1995!
+
+iniciamos el bash con: code
+le damos a init para iniciar el mismo --> primero asegurarse de estar en la ruta donde tenemos los archivos al momento de inciar los mismos
+hacemos un git add . --> hace referencia a todos los archivos del repo iniciando(cuando lo iniciamos vemos donde esta la ruta exacta)
+
+
+- iniciar repo (git init en el repo)
+- verificar status (git status)
+- agregar files o careptas (git add)
+- verificar el agregado (git status)
+- git commit (hacer un comentario en el commmit, sino , no te deja y guardar con el comando :wq!)
+- verificar que haya commiteado correctamente (git status)
+- git push para finalizar
+- verificar en el repo en github.com

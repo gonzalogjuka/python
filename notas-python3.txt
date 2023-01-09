@@ -1,0 +1,30 @@
+para hacer una potencia de un numero o multiplicarlo la cantidad de veces que nesecitemos es con (2**2) = 2*2 	
+																								 (2**4) = 2*2*2*2
+																								 
+para tener numeros enteros en las divisiones usar doble (//) si queremos un numero mas preciso usar solo una (/) 
+
+para hacer multiples operaciones siempre encerrar entre corchetes
+
+para hacer espacio entre los strings solo tipearlo , despues se concatena con el +
+
+cuando solicitamos un input al usuario podemos espesificar o forzar el resultado al tipo de informacion que queremos, si por input pedimos un numero el mismo lo puede tomar como un string, por ende es recomendable ese dato declararlo como un INT
+
+para convertir un resultado String en INT , tenemos que poner el sufijo del tipo de dato que queremos 
+por ej:
+		string1 ='3' 
+		rediseño= int(string1)
+		print('rediseño')
+		3
+		
+	
+	ej2: number_one = input ('pone un numero') --> Aca ingresamos el dato del input como un STRING
+		 number_two = input ('pone un numero') 
+		 
+		 number_one = int(number_one) --> Aca le indicamos al string que el tipo de dato que ingreso es un INT
+		 number_two = int(number_two) 
+		 
+		 resultado = number_one + number_two
+		 print('el resultado es:' + str(resultado)) --> Aca en el abrebiado STR le indicamos a la variable ("resultado") que la informacion que tiene almacenada como INT
+														lo pase a STRING para poder concatenar a el string del print donde indicamos el resultado expresado totalmente como STRING
+		 "el resultado es 15"
+		 
