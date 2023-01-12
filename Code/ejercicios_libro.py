@@ -31,8 +31,8 @@ except:
 
 EJ2:
 
-horas= input('Introduzca horas ')
-tarifa= input('Introduzca tarifa ')
+horas = input('Introduzca horas ')
+tarifa = input('Introduzca tarifa ')
 horas = int(horas)
 tarifa = int(tarifa)
 
@@ -68,5 +68,52 @@ try:
 except:
     print('Puntuacion Incorrecta.')
 
-    
+def consulta():
+    print ('Hola soy el print de la primera funcion')
+
+def consulta_al_cuadrado():
+    consulta()
+    print('Hola estoy llamando a una funcion dentro de otra')
+
+
+print(consulta)
+print(type(consulta))
+consulta_al_cuadrado()
+
+import random
+
+for i in range(10):
+    x = random.random()
+    print(x)
+
+import random
+
+number = random.randint(5,10)
+print(number)
+
+
+def estribillo():
+    print('parte 1')
+    print('parte 2')
+
+repite() ---------------------> para llamar a la funcion primero debe crease, por ende la ejecucion tiene que estar despues que la propia llamada a la misma
+
+def repite():
+    estribillo()
+    estribillo()
+
+repite() --------------> este es el lugar correcto de ejecucion
+
+
+
+def repite():
+    estribillo()
+    estribillo()
+
+def estribillo():
+    print('parte 1')
+    print('parte 2') ----------------> a pesar de que se cambio el orden de las definiciones funciona correctamente cuando hacemos la llamda indirecta o directamente
+
+repite()
+
 """
