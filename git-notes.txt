@@ -1,4 +1,4 @@
-Fall2022@1995!
+
 
 iniciamos el bash con: code
 le damos a init para iniciar el mismo --> primero asegurarse de estar en la ruta donde tenemos los archivos al momento de inciar los mismos
