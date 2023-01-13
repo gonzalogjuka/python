@@ -172,6 +172,8 @@ x = calculo_salario(horas,tarifa) ---> pedimos datos por input, parseamos los da
                                        asignado una variable cualquiera para pasarle la informacion del input como argumentos de la funcion, hacia los parametros de la misma
                                        tomando los datos numericos y ejecutandolos para devolver el resultado por return
 print (x)
-
-
 """
+
+
+
+

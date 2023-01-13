@@ -147,4 +147,20 @@ number = fun2 (number) ----> aca aplicamos el numero de la variable global (30) 
 print(number)
 >>> 31
 
+EXPLICACION CORTA
+
+def fun1():  -----------> Lo que hace el modificador global es crear una variable global. Por lo tanto, 
+                          dado que esa variable es global seguirá existiendo una vez se salga de la función
+                          y por consiguiente puede ser accedida una vez la función ha terminado de ejecutarse.
+    global numero 
+    numero = 30
+
+def fun2 (numero):
+    numero += 1
+    return(numero) 
+
+fun1()  --------> llamamos a la fun1 solamente para declarar el valor de numero
+x = fun2 (numero) 
+print(x)
+
 """
