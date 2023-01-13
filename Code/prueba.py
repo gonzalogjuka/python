@@ -142,9 +142,9 @@ def fun2 (number)
 number += 1
 return(number) ----> para reflejar el resultado de la funcion tenemos que devolverlo con return
 
-number = fun2 (number) ----> aca aplicamos el numero de la variable global (30) y lo aplicamos a la funcion pasandoselo como parametro
+x = fun2 (number) ----> aca aplicamos el numero de la variable global (30) y lo aplicamos a la funcion pasandoselo como parametro
                              una vez ejecutada la funciona pasa el numero y lo suma, devolviendo el resultado del mismo
-print(number)
+print(x)
 >>> 31
 
 EXPLICACION CORTA
