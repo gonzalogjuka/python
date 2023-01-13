@@ -116,4 +116,62 @@ def estribillo():
 
 repite()
 
+michael= 'aguante el gta'
+def llamada(bruce):            -------> esta funcion le asignamos un parametro que se lo pasamos a los print
+                                        cuando hacemos la llamada podemos pasar el parametro o la indicacion que nesecitemos
+                                        tambien, como se muestra el ejemplo podemos crear variables y pasarselas para que las tome como paremetro de nuestra funcion
+    print(bruce)
+    print(bruce)
+
+llamada(michael)
+
+import math
+
+a = math.sqrt(25) ----> raiz cuadrada
+print(a)
+
+def sumados(a,b):
+    suma = a + b
+    return suma ------> devulve la informacion a la funcion
+
+x = sumados(3,5)
+print(x)
+
+def[definicion de funcion] sumados[funcion](a,b[parametros]): 
+    suma[variable local] = a + b
+    return[resultado de funcion] suma ---> al aplicar return le estamos pasado como resultado de la funcion , la variable local "suma" declarada previamente
+
+if(sumados(1,80[argumentos]) > 20):
+    print('cosas locas')
+else:
+    x = sumados(3,5)
+    print(x)
+
+
+RECORDAR: ---> cuando llamamos a una funcion saltea la ejecuccion y cuando termina vuelve desde donde se quedo
+               siempre se crea la funcion y luego la ejecuccion
+
+horas = input('Introduzca horas: ')
+tarifa = input('Introduzca tarifa: ')
+horas = int(horas)
+tarifa = int(tarifa)
+
+def calculo_salario(horas,tarifa):
+    if  horas > 40:
+        horas_extras = horas - 40
+        tarifa_extra = tarifa * 1.5
+        calculo_extras = horas_extras * tarifa_extra
+        salario = tarifa * 40
+        nuevo_salario = salario + calculo_extras
+        return nuevo_salario
+    else:
+        salario_normal = horas * tarifa
+        return salario_normal
+
+x = calculo_salario(horas,tarifa) ---> pedimos datos por input, parseamos los datos a int y luego llamamos a la funcion "calculo_salarial"
+                                       asignado una variable cualquiera para pasarle la informacion del input como argumentos de la funcion, hacia los parametros de la misma
+                                       tomando los datos numericos y ejecutandolos para devolver el resultado por return
+print (x)
+
+
 """
