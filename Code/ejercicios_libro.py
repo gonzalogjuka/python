@@ -172,8 +172,52 @@ x = calculo_salario(horas,tarifa) ---> pedimos datos por input, parseamos los da
                                        asignado una variable cualquiera para pasarle la informacion del input como argumentos de la funcion, hacia los parametros de la misma
                                        tomando los datos numericos y ejecutandolos para devolver el resultado por return
 print (x)
+
+puntaje = input('Introduzca puntuacion: ')
+
+def calcula_calificacion(numeros):
+    try:        
+        puntaje = float(numeros)
+        if puntaje >= 0.9:
+            print('Sobresaliente')
+        elif puntaje >= 0.8:
+            print('Notable')
+        elif puntaje >= 0.7:
+         print('Bien')
+        elif puntaje >= 0.6:
+            print('Suficiente')
+        else:
+            print('Insufuciente')
+    except:
+        print('Puntuacion Incorrecta.')
+
+
+x = calcula_calificacion(puntaje)
+
+n=5
+while n > 0:
+    print(n)
+    n = n-1
+print('Despegue')
+
+while True: -------------------> obtenemos inputs del usuario hasta que escribe fin y sale del bucle
+    linea = input('>')
+    if linea == 'fin':
+        break
+    print(linea)
+
+print('Terminado')
+
+
+while True: 
+    linea = input('>')
+    if linea [0] == '#': -------> cuando escribo algo con # no se imprime por que finaliza la iteracion y salta de nuevo al while omitiendo el resto de las sentencias
+                                  iteracion = vuelta
+        continue
+    if linea == 'fin':
+        break
+    print(linea)
+
+print('Terminado') 
+
 """
-
-
-
-
