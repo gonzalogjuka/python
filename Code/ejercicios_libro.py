@@ -220,4 +220,85 @@ while True:
 
 print('Terminado') 
 
+
+amigos = ['facu','manu','gaty','mati']  -------> lista
+for amigo in amigos: -----------------------> ejecuta una vez para cada amigo que este en la lista de amigos
+    print('Feliz año nuevo' , amigo)
+
+print('Termine')
+
+
+contador = 0
+for valor[variable de iteracion] in [3,41,12,9,74,15](Lista): ------> como no usamos valor lo unico que hace es controlar que el bucle sea ejecutado 
+                                                                      por cada valor de la lista
+    contador = contador + 1
+
+print('numero de elementos: ' , contador)
+
+ej 2 : en vez de usar un sumador podemos usar la variable de iteracion para controlar la cantiad de elementos recorridos en la lista
+
+total=0
+for valor in [3,41,12,9,74,15]:
+    total = total + valor -------> variable de iteracion que suma el numero actual recorrido (3+41+12+9+74+15) = 154
+print('Total: ' , total)
+
+mayor=None
+print('Antes: ' ,mayor)
+for valor in [3,41,12,9,74,15]:
+    if mayor is None or valor > mayor:  -----> en cada iteracion le damos el mayor numero posible a "mayor", siempre comparandolo con "valor"
+        mayor = valor ----------> asignamos el mayor valor a MAYOR hasta ese momento
+    print('Bucle: ' , valor , mayor)
+print('Mayor: ' , mayor)
+
+menor=None
+print('Antes: ' ,menor)
+for valor in [3,41,12,9,74,15]:
+    if mayor is None or valor < menor:  -----> en cada iteracion le damos el menor numero posible a "menor", siempre comparandolo con "valor"
+        menor = valor ----------> asignamos el menor valor a MENOR hasta ese momento
+    print('Bucle: ' , valor , menor)
+print('Menor: ' , menor)
+
+def min(valores):  --------> funcion interna min, sin explicacion [min ya tiene incorporado el print]
+    menor = None
+    for valor in valores:
+        if menor is None or valor < menor:
+            menor = valor
+    return menor
+
+
+        total_numeros = 0 ----> (t)
+        cantiad_numeros = 0 ---> ok (i)
+        media_numeros = total_numeros / cantiad_numeros (m)
+
 """
+
+i = 0
+t = 0
+x2 = 0
+
+try:
+    
+    while True:
+        x=input ('Introduzca un numero: ')
+        if x == 'fin':
+            break       
+
+        for numeros in [x]:
+            i = i + 1
+            x2 = int(x)
+            t = x2
+            print(x) #cambiar
+            
+        
+except:
+            print('Entrada invalida')
+        
+                
+
+print('Cantidad de numeros: ' , i)
+print('Dato almacenado en la lista T: ' ,t)
+                # usar el 'continue' para volver a la iteracion
+                # usar el print para mostar todos los numeros
+                # usar otra variable para sacar la media
+                # solucionar como almacenar los numeros y mostrarlos    
+            
