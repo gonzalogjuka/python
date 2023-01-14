@@ -266,8 +266,8 @@ def min(valores):  --------> funcion interna min, sin explicacion [min ya tiene 
     return menor
 
 
-        total_numeros = 0 ----> (t)
-        cantiad_numeros = 0 ---> ok (i)
+        suma_total_numeros = 0 ----> (t)
+        cantiad_numeros ---> ok (i)
         media_numeros = total_numeros / cantiad_numeros (m)
 
 """
@@ -275,28 +275,33 @@ def min(valores):  --------> funcion interna min, sin explicacion [min ya tiene 
 i = 0
 t = 0
 x2 = 0
+m = 0
+
 
 try:
     
     while True:
         x=input ('Introduzca un numero: ')
         if x == 'fin':
-            break       
+            break        # fijarse como meter el continue apesar del error para volver a iterar
 
         for numeros in [x]:
             i = i + 1
             x2 = int(x)
-            t = x2
-            print(x) #cambiar
+            t = [x2]
+            print(t.append) #cambiar o ver que es
             
         
-except:
-            print('Entrada invalida')
-        
                 
+except:
+
+            print('Entrada invalida')       
+
+
 
 print('Cantidad de numeros: ' , i)
 print('Dato almacenado en la lista T: ' ,t)
+
                 # usar el 'continue' para volver a la iteracion
                 # usar el print para mostar todos los numeros
                 # usar otra variable para sacar la media
