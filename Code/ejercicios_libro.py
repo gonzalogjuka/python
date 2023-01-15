@@ -265,45 +265,50 @@ def min(valores):  --------> funcion interna min, sin explicacion [min ya tiene 
             menor = valor
     return menor
 
-
-        suma_total_numeros = 0 ----> (t)
-        cantiad_numeros ---> ok (i)
-        media_numeros = total_numeros / cantiad_numeros (m)
-
-"""
-
 i = 0
 t = 0
-x2 = 0
-m = 0
 
-
-try:
-    
-    while True:
+while True:
         x=input ('Introduzca un numero: ')
         if x == 'fin':
-            break        # fijarse como meter el continue apesar del error para volver a iterar
+            break
+        try:
+            x2 = float(x)
+        except:
+            print('Numero Incorrecto')
+            continue       
 
-        for numeros in [x]:
-            i = i + 1
-            x2 = int(x)
-            t = [x2]
-            print(t.append) #cambiar o ver que es
-            
-        
-                
-except:
-
-            print('Entrada invalida')       
-
+        i = i + 1 -----> hacemos una varible que cuente la cantidad de inputs generados, siendo que la misma inicia en cero , sumamos su valor mas + 1 de iteracion
+        t = t + x2 ----> hacemos una variable que cuente el total de los numeros, siendo la misma en 0 + los numeros ingresados parseados a INT
 
 
 print('Cantidad de numeros: ' , i)
-print('Dato almacenado en la lista T: ' ,t)
+print('Total: ' ,t)
+print('La media es: ' ,t/i)
 
-                # usar el 'continue' para volver a la iteracion
-                # usar el print para mostar todos los numeros
-                # usar otra variable para sacar la media
-                # solucionar como almacenar los numeros y mostrarlos    
-            
+
+mayor = None
+menor = None
+
+while True:
+    x =input("Ingrese un numero: ")
+    if x == 'fin':break
+    x2 = int(x)
+    try:
+        if mayor is None or x2 > mayor:
+            mayor = x2
+            print(mayor)
+        elif menor is None or x2 < menor:
+            menor = x2
+            print(menor)
+
+    except:
+        print('valor invalido')
+        continue
+
+
+print('El numero maximo es: ' ,mayor)
+print('El numero minimo es: ' ,menor)
+
+"""
+
