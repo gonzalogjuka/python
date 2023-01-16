@@ -82,7 +82,43 @@ for i in range(1,num+1,2):
         print(j,end="\t")
     print("")
 
+
+EJ8
+
+
+contraseña='gonzalo'
+password=""
+while password != contraseña:
+    password=input('Ingrese contraseña: ')
+
+print('Contraseña correcta')
+
+EJ9
+
+n=int(input('Ingrese un numero mayor que 2: '))
+i = 2
+while n % i != 0:
+    i += 1
+if i == n:
+    print(n, ' Es primo')
+else:
+    print(n,' No es primo')
+    
+
+EJ 10
+frase=input('Ingrese una frase: ')
+letra=input('Ingrese una letra dentro de la frase elegida anteriormente ')
+contador = 0
+for i in frase:      -------------------------------------------------------> podemos usar una variable con str en el for
+                                                                              iteramos con una variable local, para recorrer el string letra por letra
+    if i == letra:
+        contador += 1
+print('En tu palabra aparece ' ,contador, ' veces, la letra ' ,letra, ) 
+
 """""
+
+
+
 
 
 
