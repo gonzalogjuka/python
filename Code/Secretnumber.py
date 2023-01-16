@@ -20,7 +20,7 @@ def chequeo(guest,secretNumber):
     if guest == secretNumber:
         print('Felicidades el numero es el correcto')  
     else: 
-        print('Segui participando, el numero era: ' + str(secretNumber))
+        print('Segui participando, el numero era: ' , secretNumber)
 
 secretNumber = random.randint(1,20)
 print('Estoy pensando un numero')
