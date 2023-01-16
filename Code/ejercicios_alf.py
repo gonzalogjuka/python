@@ -58,5 +58,25 @@ for i in range(1,años+1):
    interes_anual = inve
    print('Capital despues del ',i, ' años: ' ,round(interes_anual))
 
+EJ6   
 
+num = int(input('Introduzca un numero '))
+for i in range(num):
+    for j in range(i+1):    --------------------> vectores, lo que hace es iterar la cantidad de veces de I + 1 ya que el otro FOR
+                                                  arranca desde 0
+        print("*" ,end="")
+    print("")
+    
+EJ7
+
+for i in range(1, 11):
+    for j in range(1, 11):
+        print(i*j, end="\t")
+    print("")
+
+    
 """""
+
+
+
+    
