@@ -74,8 +74,16 @@ for i in range(1, 11):
         print(i*j, end="\t")
     print("")
 
-    
+
+num=int(input('Ingrese un numero: '))
+for i in range(1,num+1,2):
+    for j in range(i,0,-2): ----------------> pasamos por i el parametro agregado en +2 
+                                              y en J lo que hacemos es: ir del numero "I" hasta "0" , restando de -2 (hacemos la cuenta inversa en el mismo for)
+        print(j,end="\t")
+    print("")
+
 """""
+
 
 
 
