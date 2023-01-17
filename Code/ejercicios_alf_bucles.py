@@ -115,10 +115,25 @@ for i in frase:      -------------------------------------------------------> po
         contador += 1
 print('En tu palabra aparece ' ,contador, ' veces, la letra ' ,letra, ) 
 
+EJ 11
+
+palabra=''
+exit='salir'
+while palabra != exit:        
+        palabra=input('Ingrese una palabra: ')
+        if palabra == exit:
+            break
+
+while True:
+    frase = input('Ingrese algo: ')
+    if frase == 'salir':
+        break          
+    print(frase)
+
+
 """""
 
-
-
+                
 
 
 
