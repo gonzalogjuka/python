@@ -68,5 +68,18 @@ else:
     print('45%')
 
 EJ8
+puntaje=float(input('Introduza el puntaje: '))
+dinero=2400
+if puntaje < 0.0:
+    bonus = dinero * puntaje
+    print('Nivel Inaceptable, con una mejora salarial de: ' ,bonus)
+elif puntaje < 0.4:
+    bonus = dinero * puntaje
+    print('Nivel Aceptable, con una mejora salarial de:' ,bonus)
+else: 
+    bonus = dinero * puntaje
+    print('Puntaje Meritorio, con una mejora salarial de: ' ,bonus)
+
+EJ9
 """
 
