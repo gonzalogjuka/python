@@ -81,5 +81,32 @@ else:
     print('Puntaje Meritorio, con una mejora salarial de: ' ,bonus)
 
 EJ9
+edad=int(input('Cual es su edad: '))
+if edad < 4:
+    print('Puede pasar gratis!')
+elif edad <= 18:
+    print('Debe pagar 5$')
+else:
+    print('Debe pagar 10$')
+
+EJ10
+pizza=input('Que tipo de pizza va a elegir: \nTipos de pizza:\n\t1- Vegetariana\n\t2- No vegetariana\n ')
+if pizza == '1':
+    ingrediente_vege=input('Eliga un ingrediente para su pizza: \n\t1- Pimiento \n\t2- Tofu\n ')
+    if ingrediente_vege == '1':
+        print('Usted ordeno una pizza vegetariana con pimiento')
+    else:
+        print('Usted ordeno una pizza vegetariana con tofu')
+
+
+if pizza == '2':
+    ingrediente_novegie=input('Eliga un ingrediente para su pizza: \n\t1- Peperoni \n\t2- Jamon \n\t3- Salmon\n ')
+    if ingrediente_novegie == '1':
+        print('Usted ordeno una pizza con peperoni')
+    elif ingrediente_novegie == '2':
+        print('Usted ordeno una pizza con jamon')
+    else:
+        print('Usted ordeno una pizza con salmon')
 """
+
 
