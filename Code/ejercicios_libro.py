@@ -310,6 +310,37 @@ while True:
 print('El numero maximo es: ' ,mayor)
 print('El numero minimo es: ' ,menor)
 
+
+
+fruta = 'banana'
+letra = fruta[1] ----> imprime la letra del espacio 1
+b[0]a[1]n[2]a[3]n[4]a[5]
+print(letra)
+
+fruta = 'banana'
+a= len(fruta) --------> nos indica la cantidad de carecteres en cadena
+print(a)
+
+fruta='banana'
+tamaño= len(fruta)
+ultima= fruta[tamaño-1] = devuelve la ultima letra de la frase ya que len cuenta 6 letras y empieza del 1 y no del 0
+                          por ende al LEN le restamos 1 para imprimir la ultima letra
+print (ultima)
+
+fruta='banana'
+indice = 0 
+while indice < len(fruta):
+    letra = fruta[indice]
+    print(letra)
+    indice = indice + 1
+
 """
+
+fruta='banana'
+indice = 5
+while len(fruta) < indice:
+    letra = fruta[indice]
+    print(letra)
+    indice = indice - 1
 
 
