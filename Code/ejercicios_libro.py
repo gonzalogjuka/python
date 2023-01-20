@@ -344,8 +344,17 @@ while indice < leng:
     indice = indice - 1
     if indice == -1:
         break
+        
+fruta = 'banana'
+print(fruta[:]) ---------> imprime todo de principio a final
+
+def cuenta(a,b):
+    contador = 0
+    for b in a:
+        if b == 'a':
+            contador = contador + 1
+    return contador
+
+print(cuenta('banana','a'))
 """
-
-
-
 
