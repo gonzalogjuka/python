@@ -334,13 +334,18 @@ while indice < len(fruta):
     print(letra)
     indice = indice + 1
 
-"""
-
 fruta='banana'
 indice = 5
-while len(fruta) < indice:
+leng = 6
+while indice < leng:
     letra = fruta[indice]
     print(letra)
+    leng = leng - 1
     indice = indice - 1
+    if indice == -1:
+        break
+"""
+
+
 
 
