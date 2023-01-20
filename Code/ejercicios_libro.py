@@ -356,5 +356,56 @@ def cuenta(a,b):
     return contador
 
 print(cuenta('banana','a'))
+
+#ejemplo in
+#'a' in 'banana'
+#True
+#'semilla' in 'banana'
+#False
+
+
+palabra = 'banana'
+if palabra == 'banana':
+    print('muy bien bananas')
+
+palabra = 'Anana'       ------------------> para ordenar alfabeticamente tambien sirven la comparacion, menor, mayor, ect..
+if  palabra < 'banana' :   
+    print('tu palabra ' + palabra + ' esta antes que banana')
+else:
+    print('tu palabra ' + palabra + ' esta antes que despues')
+
+palabra = 'banana'
+nueva_palabra = palabra.upper() ----------- metodo para pasar todo a mayus
+print(nueva_palabra)
+
+palabra = 'banana'
+indice = palabra.find('a') -----------  metodo para buscar una letra dentro de la cadena expuesta
+print(indice)
+
+palabra = 'banana'
+indice = palabra.find('na',3) ----- tambien puede tomar como 2do parametro la ubicacion de donde empezar a buscar la cadena prevista
+print(indice)
+
+
+palabra = '  Aqui vamos   '
+nueva=palabra.strip() --------------------- para borrar los espacios en blanco o tabs , del princio o final de una oracion
+print(nueva)
+
+palabra = 'Aqui vamos'
+nueva=palabra.startswith('aqui')  --------------------- devuelve un bool si la la cadena se encuentra en la provista antes del metodo
+                                                        este mismo metodo requiere de mayus y minus
+print(nueva)
+x=palabra.startswith('F')
+print(x)
+
+
+palabra = 'Que tengas un buen dia'
+nueva=palabra.startswith('q')
+print(nueva)
+x=palabra.lower()   ------------------------- para pasarla a minus, usamos lower, vemos que al principio por estar en minus no reconoce el bool
+                                              parseamos la palabra a minus y lanzamos el doble parametro dentro de la misma linea y asi lo reconoce
+print(x)
+x=palabra.lower().startswith('q')
+print(x)
 """
 
