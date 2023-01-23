@@ -407,5 +407,21 @@ x=palabra.lower()   ------------------------- para pasarla a minus, usamos lower
 print(x)
 x=palabra.lower().startswith('q')
 print(x)
-"""
 
+
+palabra = 'banana'
+buscador=palabra.count('a'[0:5])
+print(buscador)
+
+camello=42
+x='%d' % camello --------- %d es para pasar el formato a decimal
+print(camello)
+
+camellos=42
+x='yo he visto %d camellos' % camellos
+print(x)
+
+x='En %d años he visto %g %s' % (3,0.1,'camellos')
+print(x)
+
+"""
