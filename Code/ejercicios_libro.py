@@ -413,6 +413,18 @@ palabra = 'banana'
 buscador=palabra.count('a'[0:5])
 print(buscador)
 
+dato='From stephen.marquard@utc.ac.za Sat Jan 5 09:14:16 2008'
+arrobapos= dato.find('@')
+print(arrobapos) ---- 21
+
+espos= dato.find('',arrobapos)
+print(espos) ---------- 31
+
+direccion = dato[arroba+1:espos] ---------- el +1 es para que se muestre el caracter que le sigue al arroba
+print(direccion)
+utc.ac.za
+
+
 camello=42
 x='%d' % camello --------- %d es para pasar el formato a decimal
 print(camello)
@@ -425,3 +437,8 @@ x='En %d años he visto %g %s' % (3,0.1,'camellos')
 print(x)
 
 """
+str='X-DSPAM-Confidence:0.8475'
+cadena= str.find(':')
+print(cadena) # 18
+numero=str.find('5',cadena)
+print(numero) # 24 (19 al 24 son numeros , del 0 al 18 son caracteres)
