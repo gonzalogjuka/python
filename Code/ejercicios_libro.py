@@ -436,9 +436,13 @@ print(x)
 x='En %d años he visto %g %s' % (3,0.1,'camellos')
 print(x)
 
-"""
 str='X-DSPAM-Confidence:0.8475'
 cadena= str.find(':')
-print(cadena) # 18
+print('caracteres hasta el (:)',cadena) # 18
 numero=str.find('5',cadena)
-print(numero) # 24 (19 al 24 son numeros , del 0 al 18 son caracteres)
+print('caracteres hasta el ultimo numero (5)',numero) # 24 (19 al 24 son numeros, para incluir el ultimo numero le tenemos que agregar un numero mas , del 0 al 18 son caracteres)
+mostrar_n=str[19:25]
+print(mostrar_n)
+mostrar_p=str[0:cadena+1]
+print(mostrar_p)
+"""
