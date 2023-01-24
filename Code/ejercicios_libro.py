@@ -451,4 +451,13 @@ Retorna una copia de la cadena con todas las ocurrencias de la cadena old sustit
 
 str.rfind(sub[, start[, end]])
 Retorna el mayor índice dentro de la cadena s donde se puede encontrar la cadena sub, estando sub incluida en s[start:end]. Los parámetros opcionales start y end se interpretan igual que en las operaciones de segmentado. Retorna -1 si no se encuentra sub.
+x=open('a.py') --------------> solo sirve si esta en el mismo directorio raiz
+print(x)
+
+x=open('a.py')
+y = 0
+for linea in x:
+    y = y + 1 
+print('contado de lineas: ',y)
+print(x)
 """
