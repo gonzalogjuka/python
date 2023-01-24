@@ -445,4 +445,10 @@ mostrar_n=str[19:25]
 print(mostrar_n)
 mostrar_p=str[0:cadena+1]
 print(mostrar_p)
+
+str.replace(old, new[, count])
+Retorna una copia de la cadena con todas las ocurrencias de la cadena old sustituidas por new. Si se utiliza el parámetro count, solo se cambian las primeras count ocurrencias.
+
+str.rfind(sub[, start[, end]])
+Retorna el mayor índice dentro de la cadena s donde se puede encontrar la cadena sub, estando sub incluida en s[start:end]. Los parámetros opcionales start y end se interpretan igual que en las operaciones de segmentado. Retorna -1 si no se encuentra sub.
 """
