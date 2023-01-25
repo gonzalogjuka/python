@@ -460,4 +460,59 @@ for linea in x:
     y = y + 1 
 print('contado de lineas: ',y)
 print(x)
+
+x=open('a.py')
+lector = x.read() --------> si el archivo es chico podemos leerlo listando la longitud del mismo y printeandola con los arrays
+print(len(lector))
+print(lector[:52])
+
+# Abrimos el fichero
+fichero = open("a.txt", 'w')
+
+# Tenemos unos datos que queremos guardar
+lista = ["99710"]
+
+# Guardamos la lista en el fichero
+for linea in lista:
+    fichero.write(linea + "\n")
+
+# Cerramos el fichero
+fichero.close()
+
+x=open('pos28.xml')
+print(x)
+y = 0
+for linea in x:
+    if linea.startswith('1'):
+        print(linea)
+
+def buscar_dentro(nombre, texto):
+
+    nro_linea = 0     
+    with open(nombre) as archivo:
+        for linea in archivo.readlines():
+             nro_linea += 1
+             if linea.find(texto) > - 1:
+                break
+        else:
+            nro_linea = 0
+
+    return nro_linea
 """
+
+
+
+nro_linea=0
+with open('pos28.xml') as archivo:
+    for linea in archivo.readlines():
+        nro_linea += 1
+        busqueda = input('Que quiere buscar: ')
+        if linea.find(busqueda) > - 2:
+            print(linea)
+        break
+    else:
+        print('No encontramos nada, maquina del mal')
+    
+
+
+
