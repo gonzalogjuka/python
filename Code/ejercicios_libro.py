@@ -507,7 +507,7 @@ with open('pos28.xml') as archivo:
     for linea in archivo.readlines():
         nro_linea += 1
         busqueda = input('Que quiere buscar: ')
-        if linea.find(busqueda) > - 2:
+        if linea.find(busqueda) > - 1:
             print(linea)
         break
     else:
