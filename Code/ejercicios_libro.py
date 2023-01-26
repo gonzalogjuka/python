@@ -500,18 +500,20 @@ def buscar_dentro(nombre, texto):
     return nro_linea
 """
 
+from tkinter import Tk 
+from tkinter.filedialog import askopenfilename, asksaveasfilename
+
+Tk().withdraw() 
+infile = askopenfilename()
+outfile = asksaveasfilename()
 
 
-nro_linea=0
-with open('pos28.xml') as archivo:
-    for linea in archivo.readlines():
-        nro_linea += 1
-        busqueda = input('Que quiere buscar: ')
-        if linea.find(busqueda) > - 1:
+with open(infile,"r") as archivo, open(outfile,"w") as outf:
+    busqueda = input('Que buscas? ')
+    for linea in archivo:
+        if linea.find(busqueda) > -1:
             print(linea)
-        break
-    else:
-        print('No encontramos nada, maquina del mal')
+            outf.write(linea)
     
 
 
