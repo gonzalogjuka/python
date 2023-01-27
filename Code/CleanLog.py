@@ -12,6 +12,7 @@ db = ["ERROR","N E W "]
 
 with open(infile, "r") as inf, open(outfile, "w") as outf, open(error,"w") as errores:
 
+    # ver el menu de los ejercicios condicionales para hacer un mini menu con numero o sino usar el tkinter
     for line in inf:
         if not any(phrase in line for phrase in clean_phrases):         
             line = line.strip()
