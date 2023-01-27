@@ -29,10 +29,19 @@ por ej:
 		 "el resultado es 15"
 		 
 2. Gonzalo: Programa para lecutra de log NP6:
-   El programa debera leer el log de NP6 para identificar a partir de una base de datos brindada los diferentes errores ya experimentados y luego brindar un resultado indicando cual es la falla, como resolverla y linkeando hacia el procedimiento y caso conocido.
+   El programa debera leer el log de NP6 para identificar a partir de una base de datos brindada los diferentes errores ya experimentados y luego brindar un resultado indicando cual es la falla,
+   como resolverla y linkeando hacia el procedimiento y caso conocido.
+
    Ademas debera brindar el numero de linea del log en que se encontro el error para que en cualquier caso podamos identificarla y analizarla.
-   Lo ideal seria que esta informacion la brinde a travez de una interfaz web que facilite la lectura y el enlace.
-   A este programa se podria sumar el CleanLOG para eliminar las lineas que ya conocemos que son basura para dar la opcion de un mejor analisis en caso de que no se encuentre un error conocido y la posiblidad de insertar nuevas lineas en la base de datos para enseñarle al programa a identificar futuros problemas.
-   Para futuro se puede pensar en que la aplicacion identifique los momentos en que se precionan los botones en las POS para identificar las acciones realizadas traducidas utilizando el screen-db como referencia
+
+   Lo ideal seria que esta informacion la brinde a travez de una interfaz web que facilite la lectura y el enlace.(Se guarda en un archivo que generar el script)
+   
+   A este programa se podria sumar el CleanLOG para eliminar las lineas que ya conocemos que son basura para dar la opcion de un mejor analisis en caso de que no se encuentre un error conocido 
+   y la posiblidad de insertar nuevas lineas en la base de datos para enseñarle al programa a identificar futuros problemas.(OK)
+   
+   Para futuro se puede pensar en que la aplicacion identifique los momentos en que se precionan los botones en las POS para 
+   identificar las acciones realizadas traducidas utilizando el screen-db como referencia
+
    Tambien tener en cuenta sumar la busqueda de problemas en los KVS referentes a ruteos o problemas con el bumpbar / impresora grill, picklist, fiscal
+   
    Tener en cuenta todos los tipos de errores experimentados con NGK, POS, KVS, Impresoras, Biometrico, WAY todo lo que puda existir en un log el cual ya hemos experimentado y documentado.
