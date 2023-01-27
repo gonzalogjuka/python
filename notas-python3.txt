@@ -30,11 +30,11 @@ por ej:
 		 
 2. Gonzalo: Programa para lecutra de log NP6:
    El programa debera leer el log de NP6 para identificar a partir de una base de datos brindada los diferentes errores ya experimentados y luego brindar un resultado indicando cual es la falla,
-   como resolverla y linkeando hacia el procedimiento y caso conocido.
+   como resolverla y linkeando hacia el procedimiento y caso conocido.(hacer un array de problemas conocidos y asignarle una variable a los links para printearlo)
 
-   Ademas debera brindar el numero de linea del log en que se encontro el error para que en cualquier caso podamos identificarla y analizarla.
+   Ademas debera brindar el numero de linea del log en que se encontro el error para que en cualquier caso podamos identificarla y analizarla.(Separado en otro archivo)
 
-   Lo ideal seria que esta informacion la brinde a travez de una interfaz web que facilite la lectura y el enlace.(Se guarda en un archivo que generar el script)
+   Lo ideal seria que esta informacion la brinde a travez de una interfaz web que facilite la lectura y el enlace.(Se guarda en otro archivo)
    
    A este programa se podria sumar el CleanLOG para eliminar las lineas que ya conocemos que son basura para dar la opcion de un mejor analisis en caso de que no se encuentre un error conocido 
    y la posiblidad de insertar nuevas lineas en la base de datos para enseñarle al programa a identificar futuros problemas.(OK)
