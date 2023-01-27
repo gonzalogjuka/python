@@ -13,7 +13,6 @@ db = ["ERROR","N E W "]
 with open(infile, "r") as inf, open(outfile, "w") as outf, open(error,"w") as errores:
 
     for line in inf:
-       # a = line.replace("]"," ")
         if not any(phrase in line for phrase in clean_phrases):         
             line = line.strip()
             outf.write(line + '\n')
