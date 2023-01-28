@@ -15,8 +15,8 @@ with open(infile, "r") as inf, open(outfile, "w") as outf, open(error,"w") as er
     # ver el menu de los ejercicios condicionales para hacer un mini menu con numero o sino usar el tkinter
     for line in inf:
         if not any(phrase in line for phrase in clean_phrases):         
-            line = line.strip()
+            line = line.rstrip()
             outf.write(line + '\n')
         if any(phrase in line for phrase in db):
-            line = line.strip()
+            line = line.rstrip()
             errores.write(line + '\n')
