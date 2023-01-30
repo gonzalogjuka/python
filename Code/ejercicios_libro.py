@@ -528,7 +528,6 @@ archivo2 = open('2.txt', 'w')
 for linea in archivo:    ---------------> para recorrer un string podemos hacerlo sin algun condicional extra
     if linea:       
         archivo2.write(linea.upper())        
-"""
 
 
 lector = input('Introduzca el nombre del archivo: ')
@@ -553,3 +552,7 @@ for linea in archivo2:
 
 promedio=spam_confidence / b
 print('El promedio fue de: ',promedio)
+
+"""
+
+
