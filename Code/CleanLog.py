@@ -17,6 +17,8 @@ with open(infile, "r") as inf, open(outfile, "w") as outf, open(error,"w") as er
         if not any(phrase in line for phrase in clean_phrases):         
             line = line.rstrip()
             outf.write(line + '\n')
+            outf.close()
         if any(phrase in line for phrase in db):
             line = line.rstrip()
             errores.write(line + '\n')
+            errores.close()

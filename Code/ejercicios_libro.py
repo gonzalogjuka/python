@@ -498,7 +498,13 @@ def buscar_dentro(nombre, texto):
             nro_linea = 0
 
     return nro_linea
-"""
+
+
+    s = '1 2\t 3\n 4'
+    print(repr(s))
+
+    camellos=42
+    'yo he visto %d de camellos' % camellos
 
 from tkinter import Tk 
 from tkinter.filedialog import askopenfilename, asksaveasfilename
@@ -511,10 +517,35 @@ outfile = asksaveasfilename()
 with open(infile,"r") as archivo, open(outfile,"w") as outf:
     busqueda = input('Que buscas? ')
     for linea in archivo:
-        if linea.find(busqueda) > -1:
+        if linea.find(busqueda) > -1: ----------------->  find busca una cadena dentro de otra y devuelva la posicion de la cadena
+                                                          o (-1) si la cadena no fue encontrada
             print(linea)
             outf.write(linea)
-    
+
+lector = input('Introduzca el nombre del archivo: ')
+archivo = open(lector,'r')
+archivo2 = open('2.txt', 'w')
+for linea in archivo:    ---------------> para recorrer un string podemos hacerlo sin algun condicional extra
+    if linea:       
+        archivo2.write(linea.upper())        
+"""
 
 
+lector = input('Introduzca el nombre del archivo: ')
+archivo= open(lector,'r')
+archivo2 = open('2.txt','r+')
+stra='X-DSPAM-Confidence:'
+spam_confidence=0
 
+for linea in archivo:
+    if linea.find(stra) > -1:
+       archivo2.write(linea)
+
+for linea in archivo2:
+    a=linea[20:]
+    a = float(a)
+    spam_confidence = spam_confidence + a
+
+
+promedio=round (spam_confidence % 2)
+print('El promedio fue de: ',promedio)
