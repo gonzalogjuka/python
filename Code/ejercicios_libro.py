@@ -533,19 +533,23 @@ for linea in archivo:    ---------------> para recorrer un string podemos hacerl
 
 lector = input('Introduzca el nombre del archivo: ')
 archivo= open(lector,'r')
-archivo2 = open('2.txt','r+')
+archivo2= open('2.txt','w+')
 stra='X-DSPAM-Confidence:'
 spam_confidence=0
+b = 0
 
 for linea in archivo:
     if linea.find(stra) > -1:
        archivo2.write(linea)
+       
+archivo2 = open('2.txt','r+')
 
 for linea in archivo2:
     a=linea[20:]
+    b = b + 1
     a = float(a)
     spam_confidence = spam_confidence + a
 
 
-promedio=round (spam_confidence % 2)
+promedio=spam_confidence / b
 print('El promedio fue de: ',promedio)
