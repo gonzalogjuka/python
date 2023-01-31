@@ -553,6 +553,18 @@ for linea in archivo2:
 promedio=spam_confidence / b
 print('El promedio fue de: ',promedio)
 
+lector = input('Introduzca el nombre del archivo: ')
+contador=0
+
+try:
+    archivo= open(lector,'r')
+    for linea in archivo:
+        if linea:
+            contador = contador + 1
+    print('El texto tiene un total de: ' ,contador,' lineas')
+
+except:
+    print('Archivo inexistente')
 """
 
 
