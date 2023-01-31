@@ -586,7 +586,59 @@ while True:
             numeros[i] = numeros[i]
            
 print(numeros)
+
+t = [1,2,304,4,5,50,1034]
+t.sort() -----------------> ordena de memnor a mayor
+print(t)
+
+t=[1,2,3]
+t2=[4,5,6]
+t.extend(t2) --------> a la lista t le sumamos la lista t2 
+print(t)
+
+t = ['a','b','c']
+eliminar = t.pop(1) ----> metodo para eliminar valor de la lista
+del t[1] ---> lo elimina de una
+t.remove('b') ------> si no sabes el indice del elemento, pero si sabes del dato , podes insertarlo
+del t [0:3] ---> para remover todos los elementos dentro de ese rango, funciona lo mismo que los rebanados
+print(t)
+print(eliminar)
+
+Funciones
+nums=[1,2,3]
+print(len(nums))
+print(max(nums))
+print(min(nums))
+print(sum(nums))
+print(sum(nums)/len(nums))
+
+num=list()
+while(True):
+    inp = input('Ingresa un numero: ')
+    if inp =='fin' : break
+    valor = float(inp)
+    num.append(valor)
+    for i in range(len(num)):          
+            num = num         ---------> anteriormente en el otro ejercicio use la lista en formato [] generalmente se usa cuando sabes la informacion
+                                         en este ejercicio usamos la lista 'Standar' que es () para cuando no sabemos la informacion y tenemos que tomar datos, podemos tener parametros como limites
+
+print(num)
+
+num=list()
+while(True):
+    inp = input('Ingresa un numero: ')
+    if inp =='fin' : break
+    valor = float(inp)
+    num.append(valor)
+
+
+promedio = sum(num) / len(num) --------> en la misma variable usamos la funcion suma y la funcion len para saber cuantos elementos tiene y cual es la suma de ellos
+                                         con esta informacion en la misma variable podemos sacar un promedio facilmente sin tener que recurrir a otra variable para sumar la informacion
+print(promedio)
 """
+ 
 
 
-    
+
+
+
