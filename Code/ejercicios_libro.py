@@ -565,6 +565,29 @@ try:
 
 except:
     print('Archivo inexistente')
+
+numeros =[17,123]
+numeros[1]= 5 --------> cuando el corchete esta adentro de la varible le indica cual es el valor dentro de esa ubicacion a cambiar
+print(numeros)
+
+quesos=['Cheddar','Edam','Gouda']
+a ='Edam' in quesos
+b = 'Gaviota' in quesos
+print(a)
+print(b)
+
+while True:
+    a = input('Ingrese un numero: ')
+    if a == 'fin': break   
+    try:
+        b = int(a)
+        numeros = [b]
+        for i in range(len(numeros)):
+            numeros[i] = numeros[i] * 2
+            print(numeros[i])
+    except:
+        print('Informacion invalidada')
+        continue
 """
 
 
