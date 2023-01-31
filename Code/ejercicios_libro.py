@@ -576,18 +576,17 @@ b = 'Gaviota' in quesos
 print(a)
 print(b)
 
+numeros=[]
 while True:
-    a = input('Ingrese un numero: ')
-    if a == 'fin': break   
-    try:
-        b = int(a)
-        numeros = [b]
-        for i in range(len(numeros)):
-            numeros[i] = numeros[i] * 2
-            print(numeros[i])
-    except:
-        print('Informacion invalidada')
-        continue
+        valor=input('Ingrese un numero: ')
+        if valor == 'fin':break
+        a = int(valor)   
+        numeros.append(a)      
+        for i in range(len(numeros)):          
+            numeros[i] = numeros[i]
+           
+print(numeros)
 """
 
 
+    
