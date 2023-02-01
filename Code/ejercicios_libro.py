@@ -635,10 +635,57 @@ while(True):
 promedio = sum(num) / len(num) --------> en la misma variable usamos la funcion suma y la funcion len para saber cuantos elementos tiene y cual es la suma de ellos
                                          con esta informacion en la misma variable podemos sacar un promedio facilmente sin tener que recurrir a otra variable para sumar la informacion
 print(promedio)
+
+s = 'hola'
+t=list(s)
+print(t) -----------> lista caracter por caracter
+
+f = 'me gusta viciar'
+a = f.split()
+print(a)           --------------> lista palabra por palabra
+
+'me gusta viciar'
+'0   1     2'
+
+print(a[2]) ------> podemos hacer con corchetes a la informacion que nesecitemos , la misma siempre se almacena en formato de lista
+
+s = 'spamfspamfspamfspam'
+delimitador = 'f'
+res = s.split(delimitador) ------------> dentro de una palabra o lista .split puede tomar como parametros delimitadores
+print(res)
+
+t=['hola','yo','soy','goku']
+delimitador = ' ' ---------> space
+a = delimitador.join(t)
+print(a)
+
+x = open ('1.txt')
+for linea in x:
+    linea = linea.rstrip()
+    if not linea.startswith('From '):continue
+    a = linea.split() ---------> de esta manera todas las palabras que empiecen con XXX las podemos separar con split y una vez separadas dentro de una [] elegimos su ubicacion y las printeamos
+    print(a[2])
+
+a ='papa'
+b ='papa'
+a is b
+#True ----> por que apuntan a lo mismo
+
+a=['a','b','c']
+b=['a','b','c']
+a is b
+#False ------> por que son dos objetos diferentes , dos listas (son equivalentes en informacion pero no identicas por que son diferentes objetos)
+
+a = [1,2,3]
+b = a ----> asociacion de variables se llama referencia
+b is a
+#True
+
+b[0] = 17
+print(a)
+#[17,2,3] ----> al ser una referencia de muchos objetos, muta, es decir que los cambios que se efectuen en el mismo afectan a los demas que esten asociados
+# en este ej, a B en el indice 0 le cambiamos el valor por 17
 """
- 
-
-
 
 
 
