@@ -659,12 +659,19 @@ delimitador = ' ' ---------> space
 a = delimitador.join(t)
 print(a)
 
-x = open ('1.txt')
+x = open ('test.txt')
 for linea in x:
     linea = linea.rstrip()
     if not linea.startswith('From '):continue
     a = linea.split() ---------> de esta manera todas las palabras que empiecen con XXX las podemos separar con split y una vez separadas dentro de una [] elegimos su ubicacion y las printeamos
     print(a[2])
+
+
+x = open ('test.txt')
+for linea in x:
+    if not linea.startswith('From '):continue
+    a = linea.split()
+    print(a[2])    
 
 a ='papa'
 b ='papa'
@@ -685,7 +692,34 @@ b[0] = 17
 print(a)
 #[17,2,3] ----> al ser una referencia de muchos objetos, muta, es decir que los cambios que se efectuen en el mismo afectan a los demas que esten asociados
 # en este ej, a B en el indice 0 le cambiamos el valor por 17
+
+t1=[1,2]
+t2 = t1.append(20) ----> lo que le pasas para agregar es consecutivo al indice que le sigue , solo informa el valor por parametro
+print(t1)
+
+t1=[1,2]
+t3= t1 +  [3] --------> y el + crea una lista nueva
+print(t3)
+a = t1 is t3
+print(a)
+
+
+def recortar(x):
+    del x[0:10]
+    return None
+
+def medio(x):
+    return x[1:9]
+    
+
+nums=[1,2,3,4,5,6,7,8,10]
+#a = recortar(nums) -----> hacemos una variable que llame la funcion recortar le pasamos por parametro nuestra lista que la misma es una alias del parametro X que esta en la funcion
+#                          recorta la misma y devulve un NONE
+
+#print(a)                  para printear el resultado llamos a la variable que llama a la funcion (PD= no podemos ejecutar otra funcion con los mismos datos en el orden 
+#                          ya que toma el resultado de lectura de las funciones)
+
+b = medio(nums)
+print(b)
 """
-
-
 
