@@ -23,8 +23,11 @@ elif pregunta == '2':
         for line in inf:
             if any(phrase in line for phrase in db):
                 line = line.rstrip()
-                delimited =' '
-                line = line.split(delimited)
-                errores.write(line[1])
+                f = line.split()
+                del f [0:7]
+                delimited=' '
+                b = delimited.join(f)
+                print(b[10:])
+                errores.write(b + '\n')
                 
 
