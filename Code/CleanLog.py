@@ -16,6 +16,7 @@ if pregunta == '1':
             if not any(phrase in line for phrase in clean_phrases):         
                 line = line.rstrip()
                 outf.write(line + '\n')
+                #Aplicar la funcion de abajo para los demas log's
 elif pregunta == '2':
     infile = askopenfilename()
     error = asksaveasfilename()
