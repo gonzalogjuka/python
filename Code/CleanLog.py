@@ -71,7 +71,7 @@ def generar_menu(nombre,opciones, opcion_salida):
 def menu_principal():
     opciones = {
         '1': ('Resumir Log', busqueda_logs),
-        '2': ('Buscar solo errores >>',sub_menu),
+        '2': ('Buscar de errores >>',sub_menu),
         '3': ('Salir', salir)
     }
     generar_menu('Menu principal',opciones, '3')
