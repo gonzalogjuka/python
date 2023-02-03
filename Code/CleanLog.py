@@ -51,31 +51,38 @@ errors = ["ERROR","N E W ","WARNING","FATAL"]
 not_erros= ["ERROR_LOG","Error de comunicacion","Error executing command","npreFindClose","SendRecvTCPMsg resource","InsertResource resource","WARNING_LOG","COD0028","npreMsg2_SendRecvEx","GetResource:","Configuration parameter","ChangeItemPriceBySaleType","PosShowPrice","PosDoTryGrillEnd","cPosCheckPromotedOrder","PosConvertProduct","The Offers Server took more","sharpmessaging.cpp{DEP}@225","npreMemory.c","npDrvPublEVT.c"]
 Tk().withdraw()
 
-def mostrar_menu(opciones):
-    print('Seleccione una opción:')
-    for clave in sorted(opciones):
-        print(f' {clave}) {opciones[clave][0]}')
+def mostrar_menu(nombre,opciones):
+   print(f'# {nombre}. Seleccione una opción:')
+   for clave in sorted(opciones):
+    print(f' {clave}) {opciones[clave][0]}')
 def leer_opcion(opciones):
     while (a := input('Opción: ')) not in opciones:
         print('Opción incorrecta, vuelva a intentarlo.')
     return a
 def ejecutar_opcion(opcion, opciones):
     opciones[opcion][1]()
-def generar_menu(opciones, opcion_salida):
+def generar_menu(nombre,opciones, opcion_salida):
     opcion = None
     while opcion != opcion_salida:
-        mostrar_menu(opciones)
+        mostrar_menu(nombre, opciones)
         opcion = leer_opcion(opciones)
         ejecutar_opcion(opcion, opciones)
         print()
 def menu_principal():
     opciones = {
         '1': ('Resumir Log', busqueda_logs),
-        '2': ('Buscar solo errores', busqueda_erroresd),
+        '2': ('Buscar solo errores >>',sub_menu),
         '3': ('Salir', salir)
     }
-    generar_menu(opciones, '4')
+    generar_menu('Menu principal',opciones, '3')
+def sub_menu():
+     opciones={
+          '1':('Solo errores', busqueda_errores),
+          '2':('Errores con warnings', ),
+          '3':('Volver al menu principal', salir_menu)
+     }
 
+     generar_menu('Submenu',opciones,'3')
 def busqueda_logs():
             infile = askopenfilename()
             outfile = asksaveasfilename()
@@ -88,7 +95,7 @@ def busqueda_logs():
                             delimited=' '
                             b = delimited.join(f)          
                             outf.write(b + '\n')   
-def busqueda_erroresd():
+def busqueda_errores():
             infile = askopenfilename()
             error = asksaveasfilename()
             with open(infile, "r") as inf, open(error, "w")as errores:
@@ -100,7 +107,8 @@ def busqueda_erroresd():
                                 delimited=' '
                                 b = delimited.join(f)
                                 errores.write(b + '\n')
+def salir_menu():
+     print('Volviendo')
 def salir():
-        exit()
-    
+        exit() 
 menu_principal()
