@@ -730,13 +730,12 @@ lector = open('test.txt','r')
 lista = list()
 for linea in lector:
     separador = linea.split()
-
     for linea in separador:           
-        if lista != separador[:]:
+        if linea not in lista[:]:
             lista.append(linea)               
             print(lista)
-
-            
+        else:
+            print('Palabra repetida')
+        
 lista.sort()
-print(len(lista))
 print(lista)
