@@ -721,5 +721,25 @@ nums=[1,2,3,4,5,6,7,8,10]
 
 b = medio(nums)
 print(b)
+
+holanda =[linea for separdor, linea in (lista) if linea in lista[:linea]]
 """
 
+lector = open('test.txt','r')
+
+lista = list()
+for linea in lector:
+    separador = linea.split()
+    contador = 0
+    for linea in separador:           
+        if linea != lista[:linea]:
+            contador += 1
+            lista.append(linea)               
+            print(lista)
+        else:
+            del lista[contador]
+
+            
+lista.sort()
+print(len(lista))
+print(lista)
