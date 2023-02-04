@@ -730,14 +730,11 @@ lector = open('test.txt','r')
 lista = list()
 for linea in lector:
     separador = linea.split()
-    contador = 0
+
     for linea in separador:           
-        if linea != lista[:linea]:
-            contador += 1
+        if lista != separador[:]:
             lista.append(linea)               
             print(lista)
-        else:
-            del lista[contador]
 
             
 lista.sort()
