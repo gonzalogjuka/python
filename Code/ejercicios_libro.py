@@ -722,9 +722,6 @@ nums=[1,2,3,4,5,6,7,8,10]
 b = medio(nums)
 print(b)
 
-holanda =[linea for separdor, linea in (lista) if linea in lista[:linea]]
-"""
-
 lector = open('test.txt','r')
 
 lista = list()
@@ -739,3 +736,6 @@ for linea in lector:
         
 lista.sort()
 print(lista)
+
+"""
+
