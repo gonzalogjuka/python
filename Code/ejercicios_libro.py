@@ -770,7 +770,9 @@ eng2sp = {'one': 'uno', 'two': 'dos', 'three': 'tres'} # el orden del print pued
 #print(eng2sp['two'])
 a ='one' in eng2sp # nos indica si la clave que le indicamos se encuentra en el diccionario
 print(a)
+
+eng2sp = {'one': 'uno', 'two': 'dos', 'three': 'tres'}
+x=list(eng2sp.values()) # imprime los valores en forma de lista del diccionario
+print(x)
+
 """
-
-
-
