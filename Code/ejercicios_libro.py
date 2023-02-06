@@ -750,7 +750,19 @@ for linea in lector:
 b.sort()
 print(b,"\nHay ",contador," lineas en el archivo con la palabra From")
 
+b = list()
+while True:
+    a = input('Ingrese un numero: ')
+    if a == 'hecho' :break
+    parse = int(a)
+    for i in a:
+        if a not in b[:]:
+            b.append(a)
+            print(b)
+
+print('Minimo: ',min(b))
+print('Maximo: ',max(b))
 """
 
 
-    
+
