@@ -775,4 +775,94 @@ eng2sp = {'one': 'uno', 'two': 'dos', 'three': 'tres'}
 x=list(eng2sp.values()) # imprime los valores en forma de lista del diccionario
 print(x)
 
+palabra = 'cacona'
+d = dict()
+for linea in palabra:
+    if linea not in d: # lo que hace con una palabra es que recorre letra por letra y la asigna en el for, si ya esta asignada lo suma a valor
+        d[linea] = 1
+    else:
+        d[linea] = d[linea]+1
+
+print(d)
+
+palabra = 'cacona'
+d = dict()
+for i in palabra:
+    d[i] = d.get(i,0) + 1 # el metodo get reemplaza al if else, por que si la clave aparece regresa el valor de la misma (si esta declarado)
+                          # en este caso la palabra es cacona por ende si la informacion de I esta devuelve el valor correspondiente, sino suma +1
+                          # pero si la calve no esta regresa el valor por defecto
+print(d)
+
+quest = input('Ingrese nombre del archivo: ')
+try:
+    lector=open(quest)
+except:
+    print('El archivo no se puede abrir ' ,quest)
+    exit()
+
+dic = dict()
+for line in lector:
+    divisor = line.split()
+    for x in divisor:
+        if x not in dic:
+            dic[x] = 1   # lo que hacemos aca es parsear la palabra en linea, la dividimos por palabras
+                         # para luego iterar palabra por palabra, si no esta darle un valor de 1
+                         # y si esta sumarle +1 a esa frase
+        else:
+            dic[x] += 1
+
+print(dic)
+
+contador = {'chuck':1,'annie':42,'jan':100}
+for clave in contador:   # el for recorre claves, no valores
+    if contador[clave] > 10:
+        print(clave,contador[clave])
+
+contadores={'chuck':1,'annie':42,'jan':100}
+lst = list(contadores.keys())
+print(lst)
+lst.sort()
+for clave in lst:
+    print(clave,contadores[clave])
+
+import string
+name = input('Ingrese el nombre del archivo: ')
+try:
+    lector = open(name)
+except:
+    print('El archivo no se encuentra disponible ',name)
+    exit()
+
+dic = dict()
+for line in lector:
+    line = line.rstrip() # quitamos salto de linea
+    line = line.translate(line.maketrans('','',string.punctuation)) # quitamos signos de puntuacion
+    line = line.lower() # quitamos mayuscualas
+    separador = line.split() # separamos la frase en palabras
+    for palabra in separador:
+        if palabra not in dic:
+            dic[palabra] = 1
+        else:
+            dic[palabra] += 1
+
+print(dic)
+
+import string
+
+lector = open('1.txt','r')
+dicio= dict()
+for line in lector:
+    line = line.rstrip() # quitamos salto de linea
+    line = line.translate(line.maketrans('','',string.punctuation)) # quitamos signos de puntuacion
+    line = line.lower() # quitamos mayuscualas
+    divi = line.split() # separamos la frase en palabras
+    for x in divi:
+        dicio[x] = dicio.get(x,0) + 1 # esto remplaza al if,else y al not in 
+                                      # si la clave se encuentra en el diccionario , GET regresa
+                                      # el valor que contiene en el diccionario
+                                      # sino devuelve el valor por defecto "0"
+  
+
+print(dicio)
+
 """
