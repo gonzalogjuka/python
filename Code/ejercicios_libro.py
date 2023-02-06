@@ -739,3 +739,16 @@ print(lista)
 
 """
 
+lector = open('1.txt' , 'r')
+b = list()
+contador = 0
+for linea in lector:
+    x = linea.split()
+    for linea in x:
+        if linea.startswith('From'):
+            contador= contador + 1
+            if x[1] not in b[:]:     
+                b.append(x[1])
+b.sort()
+print(b,"\nHay ",contador," lineas en el archivo con la palabra From")
+    
