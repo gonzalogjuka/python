@@ -762,8 +762,6 @@ while True:
 
 print('Minimo: ',min(b))
 print('Maximo: ',max(b))
-"""
-
 
 #eng2sp = dict ()  # palabra reservada para diccionario
 #eng2sp['one'] = 'uno'  # el primer valor one es el indice ahora llamado clave y el 'uno' es el valor de esa clave 
@@ -772,3 +770,6 @@ eng2sp = {'one': 'uno', 'two': 'dos', 'three': 'tres'} # el orden del print pued
 #print(eng2sp['two'])
 a ='one' in eng2sp # nos indica si la clave que le indicamos se encuentra en el diccionario
 print(a)
+"""
+
+
