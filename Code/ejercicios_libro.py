@@ -737,8 +737,6 @@ for linea in lector:
 lista.sort()
 print(lista)
 
-"""
-
 lector = open('1.txt' , 'r')
 b = list()
 contador = 0
@@ -751,4 +749,8 @@ for linea in lector:
                 b.append(x[1])
 b.sort()
 print(b,"\nHay ",contador," lineas en el archivo con la palabra From")
+
+"""
+
+
     
