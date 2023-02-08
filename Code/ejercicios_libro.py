@@ -894,5 +894,47 @@ for line in lector:
                 diccio[palabra] += 1
 
 print(diccio)
+
+lector = open('1.txt','r')
+diccio = dict()
+for line in lector:
+    if line.startswith('From'):
+        a = line.split()
+        del a [0]
+        del a [1:]
+        for palabra in a:       
+            if palabra not in diccio:
+                diccio[palabra] = 1
+            else:
+                diccio[palabra] += 1               
+
+lst = list(diccio.keys()) # una manera mas comoda de lectura es armar una lista y pasar todo el contenido del diccionario
+                          # para luego orderlarlo y con un for recorrerlo
+                          # el metodo keys obtiene las claves de un diccionario (es decir el valor que se le introduce)
+                          # el diccionario guarda la clave (indice) y el valor del indice 
+lst.sort()
+for clave in lst:
+    print(clave,diccio[clave])
 """
 
+lector = open('1.txt','r')
+diccio = dict()
+for line in lector:
+    if line.startswith('From'):
+        a = line.split()
+        del a [0]
+        del a [1:]
+        for palabra in a:       
+            if palabra not in diccio:
+                diccio[palabra] = 1
+            else:
+                diccio[palabra] += 1               
+
+lst = list(diccio.keys()) 
+lst.sort()
+for clave in lst:
+    print(clave,diccio[clave])
+for clave in lst:
+    f = int(diccio[clave])
+    print(min('Minimo: ',f)) #chequear salida
+    print(max('Minimo: ',f))
