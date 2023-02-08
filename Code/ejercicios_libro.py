@@ -993,3 +993,23 @@ for clave in lst:
     print(clave,diccio[clave])
 """
 
+lector = open('1.txt','r')
+diccio = dict()
+for line in lector:
+    if line.startswith('From'):
+        a = line.split()
+        del a [0]
+        del a [1:]
+        for palabra in a:
+            domain = palabra.split('@')[1] # la mejor manera de hacerlo es un split en el caracter que nesecitemos
+                                            # y el [-1/1] es para acceder al ultimo caracter de la lista, osea si filtramos por @ es el que le sigue ya que el 0 es el primero
+                                            # ej: stephen.mackrut @ uct.ac.za
+            if domain not in diccio:        #            0             1
+                diccio[domain] = 1
+            else:
+                diccio[domain] += 1               
+
+lst = list(diccio.keys()) 
+lst.sort()
+for clave in lst:
+    print(clave,diccio[clave])
