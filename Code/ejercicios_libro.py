@@ -865,8 +865,6 @@ for line in lector:
 
 print(dicio)
 
-"""
-
 lector = open('1.txt','r')
 diccio = dict()
 for line in lector:  
@@ -881,3 +879,20 @@ for line in lector:
                 diccio[palabra] += 1
 
 print(diccio)
+
+lector = open('1.txt','r')
+diccio = dict()
+for line in lector:
+    if line.startswith('From'):
+        a = line.split()
+        del a [0]
+        del a [1:]
+        for palabra in a:       
+            if palabra not in diccio:
+                diccio[palabra] = 1
+            else:
+                diccio[palabra] += 1
+
+print(diccio)
+"""
+
