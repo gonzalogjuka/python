@@ -951,5 +951,25 @@ for clave in diccio:
 
 print('Minimo: ',mayor)
 print('Maximo: ',menor)
+
+lector = open('1.txt','r')
+diccio = dict()
+for line in lector:
+    if line.startswith('From'):
+        a = line.split()
+        del a [0]
+        del a [1:]
+        for palabra in a:
+            palabra[-10:] # lo que hacemos es acceder al string bajo corchetes y con el '-' eliminamos los caracteres que nesecitemos
+                          # en pocas palabras, recortamos un string y lo pasamos
+            if palabra not in diccio:
+                diccio[palabra] = 1
+            else:
+                diccio[palabra] += 1               
+
+lst = list(diccio.keys()) 
+lst.sort()
+for clave in lst:
+    print(clave,diccio[clave])
 """
 
