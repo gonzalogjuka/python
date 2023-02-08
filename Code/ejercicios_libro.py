@@ -982,7 +982,7 @@ for line in lector:
         del a [1:]
         for palabra in a:
             palabra=palabra[-10:] # lo que hacemos es acceder al string bajo corchetes y con el '-' eliminamos los caracteres que nesecitemos
-                          # en pocas palabras, recortamos un string y lo pasamos
+                                  # en pocas palabras, recortamos un string y lo pasamos
             if palabra not in diccio:
                 diccio[palabra] = 1
             else:
