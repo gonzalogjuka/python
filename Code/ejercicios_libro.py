@@ -915,7 +915,7 @@ lst = list(diccio.keys()) # una manera mas comoda de lectura es armar una lista 
 lst.sort()
 for clave in lst:
     print(clave,diccio[clave])
-"""
+
 
 lector = open('1.txt','r')
 diccio = dict()
@@ -934,7 +934,22 @@ lst = list(diccio.keys())
 lst.sort()
 for clave in lst:
     print(clave,diccio[clave])
-for clave in lst:
+
+ 
+mayor=0
+menor=0
+for clave in diccio:
     f = int(diccio[clave])
-    print(min('Minimo: ',f)) #chequear salida
-    print(max('Minimo: ',f))
+    contador = f
+    if mayor is 0 or contador > mayor:
+        mayor = contador
+        
+    elif menor is 0 or contador < menor:
+        menor = contador
+    
+    
+
+print('Minimo: ',mayor)
+print('Maximo: ',menor)
+"""
+
