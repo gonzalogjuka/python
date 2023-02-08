@@ -50,6 +50,8 @@ not_log = ["#####","<?xml","npreMemory.c{DEP}","npDrvPublEVT","npreFindClose","S
 errors = ["ERROR","N E W ","WARNING","FATAL"]
 not_erros= ["ERROR_LOG","Error de comunicacion","Error executing command","npreFindClose","SendRecvTCPMsg resource","InsertResource resource","WARNING_LOG","COD0028","npreMsg2_SendRecvEx","GetResource:","Configuration parameter","ChangeItemPriceBySaleType","PosShowPrice","PosDoTryGrillEnd","cPosCheckPromotedOrder","PosConvertProduct","The Offers Server took more","sharpmessaging.cpp{DEP}@225","npreMemory.c","npDrvPublEVT.c"]
 Tk().withdraw()
+ # tomar informacion de busqueda de archivos externos y no en diccionarios
+ # ordenar vista en HTML y marcar las lineas con errores
 
 def mostrar_menu(nombre,opciones):
    print(f'# {nombre}. Seleccione una opción:')
