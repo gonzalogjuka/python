@@ -52,6 +52,7 @@ not_erros= ["ERROR_LOG","Error de comunicacion","Error executing command","npreF
 Tk().withdraw()
  # tomar informacion de busqueda de archivos externos y no en diccionarios
  # ordenar vista en HTML y marcar las lineas con errores
+ # pintar las linea con referencia a las mismas
 
 def mostrar_menu(nombre,opciones):
    print(f'# {nombre}. Seleccione una opción:')
