@@ -971,7 +971,6 @@ lst = list(diccio.keys())
 lst.sort()
 for clave in lst:
     print(clave,diccio[clave])
-"""
 
 lector = open('1.txt','r')
 diccio = dict()
@@ -992,3 +991,5 @@ lst = list(diccio.keys())
 lst.sort()
 for clave in lst:
     print(clave,diccio[clave])
+"""
+
