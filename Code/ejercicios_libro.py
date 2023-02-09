@@ -1025,7 +1025,3 @@ print(x[1:3]) # 'b' y 'c' - a es el 0 , b el 1 , c el 2 y ya el ultimo elemento 
 x = ('A',) + x[1:]
 print(x)
 """
-
-x = ('A',) + x[1:]
-print(x)
-
