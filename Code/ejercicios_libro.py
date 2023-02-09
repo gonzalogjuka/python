@@ -1012,5 +1012,19 @@ lst = list(diccio.keys())
 lst.sort()
 for clave in lst:
     print(clave,diccio[clave])
+
+x = ('a','b','c','d') #pueden ir sin los parentesis
+t = ('a',) # la tupla de un solo elemento va con la , al final-. Si se la sacamos python la toma como un str
+f = tuple()
+t = tuple('piripitiflautico') # si el argumento es una cadena, lista o tupla. El resultado es una tupla con los elementos en secuencia
+print(t) #('p', 'i', 'r', 'i', 'p', 'i', 't', 'i', 'f', 'l', 'a', 'u', 't', 'i', 'c', 'o')
+print(x[0]) # 'a' , el operador corchete indexa un elemento de la tupla
+print(x[1:3]) # 'b' y 'c' - a es el 0 , b el 1 , c el 2 y ya el ultimo elemento no lo muestra
+              # tambien funciona como rebanador
+# la informacion de la tupla no se puede modificar , pero si se puede reemplazar una tupla por otra
+x = ('A',) + x[1:]
+print(x)
 """
+
+
 
