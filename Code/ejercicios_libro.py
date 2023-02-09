@@ -1024,4 +1024,54 @@ print(x[1:3]) # 'b' y 'c' - a es el 0 , b el 1 , c el 2 y ya el ultimo elemento 
 # la informacion de la tupla no se puede modificar , pero si se puede reemplazar una tupla por otra
 x = ('A',) + x[1:]
 print(x)
+
+# se puede comparar tuplas
+a = (2, 4, 6, 8)
+b = (3, 4, 7, 9)
+a = (0, 1, 2) < (0, 3, 4) # lo ejecuta correctamente
+print(a)
+
+#print ("A is greater than B:", a > b) # a pesar del error lo ejecuta igual
+
+
+#a = sorted([15, 2, 33]) # lo ordena por asendencia, solo funciona en lista
+#a =[(15, 2, 33)] # tupla
+a.sort()
+print(a)
+Omitir el .sort()
+
+txt = 'Pero que luz se deja ver alli'
+palabras = txt.split()
+t = list()
+for palabra in palabras:
+    t.append((len(palabra),palabra)) # genera la tupla donde cada palabra es precedida por su longitud
+
+t.sort(reverse=True) # reserve true indica orden decreciente
+res = list()
+for longitud,palabra  in t: # cuando tenemos una tupla con algun digito precedido, en el for tenemos
+                            # tenemos que utilizar 2 argumentos tal cual como cuando lo agregamos
+                            # el primero sera el digito/valor y el segundo sera la clave
+    res.append(palabra)
+
+print(res)
+
+m = ['pasalo','bien']
+x,y = m # una secuencia la asignamos a 2 variables, estas tambien puede representarse asi
+        # (x,y) = m
+print(x)
+print(y)
+
+# esto se traduce asi, python asigna aproximadamente la sintaxis de asignacion tupla
+
+m = ['pasalo','bien']
+x = m[0]
+y = m[1]
+
+print(x)
+print(y)
+
 """
+
+
+
+
