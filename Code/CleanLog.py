@@ -42,26 +42,28 @@ def sub_menu_errores():
 
      generar_menu('Submenu',opciones,'3')
 def busqueda_logs():
-            bases() # type: ignore
+            bases[0]
+            bases[1]
             infile = askopenfilename()
             outfile = asksaveasfilename()
             with open(infile, "r") as inf, open(outfile, "w") as outf:
                 for line in inf:
-                    if not any(phrase in line for phrase in not_log): 
-                        if any(phrase in line for phrase in log):       
+                    if not any(phrase in line for phrase in bases[0]): 
+                        if any(phrase in line for phrase in bases[1]):       
                             f = line.split()  
                             del f [0:5]
                             delimited=' '
                             b = delimited.join(f)          
                             outf.write(b + '\n')   
 def busqueda_errores():
-            
+            bases[2]
+            bases[3]
             infile = askopenfilename()
             error = asksaveasfilename()
             with open(infile, "r") as inf, open(error, "w")as errores:
                 for line in inf:
-                    if any(phrase in line for phrase in errors):
-                            if not any(phrase in line for phrase in not_erros):  
+                    if any(phrase in line for phrase in bases[2]):
+                            if not any(phrase in line for phrase in bases[3]):  
                                 f = line.split()
                                 del f [0:5]
                                 delimited=' '
