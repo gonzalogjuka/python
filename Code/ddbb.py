@@ -1,8 +1,3 @@
-
-# to do: hacer que las listas se llenen en base a un txt
-# pedir archivo con informacion en txt > parsearlo > pasarlo a una lista > retorna la informacion
-# de momento asi como esta pasa la informacion segun la base, nada mas que la enlista las bases, no toma los nombres
-
 def log():
      archivo = open('log.txt','r')
      lista_log = list()
