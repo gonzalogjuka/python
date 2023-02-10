@@ -61,6 +61,7 @@ def busqueda_logs():
                             outf.write(b + '\n')   
             # ver como pasarlo por un for y ordenarlo en HTML
             # probar de sacar el outfile y verificar si podemos tomar el archivo modificado para .html y continuar O el outfile tirarlo al final de todo
+            # o ver como parsear un log de python a html con el plugin de live server
             # y ver como se pueden marcar las lineas
 
 def busqueda_errores():
