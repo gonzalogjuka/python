@@ -16,4 +16,4 @@ def db():
           x = lista_errores.append(line)
           print(lista_errores)
 
-     db()
+
