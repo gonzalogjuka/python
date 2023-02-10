@@ -57,7 +57,7 @@ def busqueda_logs():
                             f = line.split()  
                             del f [0:5]
                             delimited=' '
-                            b = delimited.join(f)          
+                            b = delimited.join(f)       
                             outf.write(b + '\n')   
             # ver como pasarlo por un for y ordenarlo en HTML
             # probar de sacar el outfile y verificar si podemos tomar el archivo modificado para .html y continuar 
