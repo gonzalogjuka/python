@@ -1,0 +1,24 @@
+npBusCompAdp.cpp@95
+npUpdtUtil.cpp{DEP}@234
+npreMsg.c{DEP}@1690
+npreMsg.c{DEP}@1640
+ERROR_LOG
+Error de comunicacion
+Error executing command
+npreFindClose
+SendRecvTCPMsg resource
+InsertResource resource
+WARNING_LOG
+COD0028
+npreMsg2_SendRecvEx
+GetResource:
+Configuration parameter
+ChangeItemPriceBySaleType
+PosShowPrice
+PosDoTryGrillEnd
+cPosCheckPromotedOrder
+PosConvertProduct
+The Offers Server took more
+sharpmessaging.cpp{DEP}@225
+npreMemory.c
+npDrvPublEVT.c
