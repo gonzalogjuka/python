@@ -1,17 +1,13 @@
 from tkinter import Tk 
 from tkinter.filedialog import askopenfilename, asksaveasfilename
-from ddbb import db,log,not_log,errores,not_errors
+from ddbb import db
 # pyright: reportUnboundVariable=false
 
 bases = db()
-base_log= log()
-base_not_log = not_log()
-base_errores = errores()
-base_not_errors= not_errors()
 Tk().withdraw()
 
  # tomar informacion de busqueda de archivos externos
- # y errores con relaciones de confluence y no en diccionarios - Hecho
+ # y errores con relaciones de confluence y no en diccionarios - Done
 
  # ordenar vista en HTML y marcar las lineas con errores
 
@@ -50,28 +46,28 @@ def sub_menu_errores():
 
      generar_menu('Submenu',opciones,'3')
 def busqueda_logs():
-            base_log[:]
-            base_not_log[:]
+            bases[0]
+            bases[1]
             infile = askopenfilename()
             outfile = asksaveasfilename()
             with open(infile, "r") as inf, open(outfile, "w") as outf:
                 for line in inf:
-                    if not any(phrase in line for phrase in base_log[:]): 
-                        if any(phrase in line for phrase in base_not_log[:]):       
+                    if not any(phrase in line for phrase in bases[0]): 
+                        if any(phrase in line for phrase in bases[1]):       
                             f = line.split()  
                             del f [0:5]
                             delimited=' '
                             b = delimited.join(f)          
                             outf.write(b + '\n')   
 def busqueda_errores():
-            base_errores[:]
-            base_not_errors[:]
+            bases[2]
+            bases[3]
             infile = askopenfilename()
             error = asksaveasfilename()
             with open(infile, "r") as inf, open(error, "w")as errores:
                 for line in inf:
-                    if any(phrase in line for phrase in base_errores[:]):
-                            if not any(phrase in line for phrase in base_not_errors[:]):  
+                    if any(phrase in line for phrase in bases[2]):
+                            if not any(phrase in line for phrase in bases[3]):  
                                 f = line.split()
                                 del f [0:5]
                                 delimited=' '

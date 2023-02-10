@@ -9,7 +9,6 @@ def log():
      for line in archivo:   
           x = line.replace('\n','')
           x = lista_log.append(x)
-     print('Lista parseada de logs')
      return lista_log
 
 def not_log():
@@ -18,7 +17,6 @@ def not_log():
      for line in archivo:   
           x = line.replace('\n','')
           x = lista_not_log.append(x)
-     print('Lista parseada de not_log')
      return lista_not_log
 
 def errores():
@@ -27,7 +25,6 @@ def errores():
      for line in archivo:   
           x = line.replace('\n','')
           x = lista_errors.append(x) 
-     print('Lista parseada de errores')
      return lista_errors
 
 def not_errors():
@@ -36,15 +33,13 @@ def not_errors():
      for line in archivo:   
           x = line.replace('\n','')
           x = lista_not_errors.append(x)  
-     print('Lista parseada de not_errors')
      return lista_not_errors
 
 
 def db():
-     log()
-     not_log()
-     errores()
-     not_errors()
+     log()               # base 0
+     not_log()           # base 1
+     errores()           # base 2
+     not_errors()        # base 3
      return[log(),not_log(),errores(),not_errors()]
 
-db()
