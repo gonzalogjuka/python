@@ -40,7 +40,7 @@ def menu_principal():
 def sub_menu_errores():
      opciones={
           '1':('Solo errores', busqueda_errores),
-          '2':('Errores con warnings', ),
+          '2':('Errores con warnings (En Desarrollo,no usar)', ),
           '3':('Volver al menu principal', salir_menu)
      }
 
@@ -49,7 +49,7 @@ def busqueda_logs():
             bases[0]
             bases[1]
             infile = askopenfilename()
-            outfile = asksaveasfilename(defaultextension='.html',filetypes=[('all files','*.*')])
+            outfile = asksaveasfilename(defaultextension='.html',initialfile = "resultado_log",filetypes=[('all files','*.*')])
             with open(infile, "r") as inf, open(outfile, "w") as outf:
                 for line in inf:
                     if not any(phrase in line for phrase in bases[0]): 
@@ -59,14 +59,14 @@ def busqueda_logs():
                             delimited=' '
                             b = delimited.join(f)          
                             outf.write(b + '\n')   
-            # capturar el nombre del archivo, pasarlo por un for y ordenarlo en HTML
+            # ver como pasarlo por un for y ordenarlo en HTML
             # y ver como se pueden marcar las lineas
 
 def busqueda_errores():
             bases[2]
             bases[3]
             infile = askopenfilename()
-            error = asksaveasfilename(defaultextension='.html',filetypes=[('all files','*.*')])
+            error = asksaveasfilename(defaultextension='.html',initialfile = "resultado_errores",filetypes=[('all files','*.*')])
             with open(infile, "r") as inf, open(error, "w")as errores:
                 for line in inf:
                     if any(phrase in line for phrase in bases[2]):
