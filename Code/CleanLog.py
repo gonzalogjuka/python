@@ -49,7 +49,7 @@ def busqueda_logs():
             bases[0]
             bases[1]
             infile = askopenfilename()
-            outfile = asksaveasfilename()
+            outfile = asksaveasfilename(defaultextension='.html',filetypes=[('all files','*.*')])
             with open(infile, "r") as inf, open(outfile, "w") as outf:
                 for line in inf:
                     if not any(phrase in line for phrase in bases[0]): 
@@ -63,7 +63,7 @@ def busqueda_errores():
             bases[2]
             bases[3]
             infile = askopenfilename()
-            error = asksaveasfilename()
+            error = asksaveasfilename(defaultextension='.html',filetypes=[('all files','*.*')])
             with open(infile, "r") as inf, open(error, "w")as errores:
                 for line in inf:
                     if any(phrase in line for phrase in bases[2]):
