@@ -59,6 +59,9 @@ def busqueda_logs():
                             delimited=' '
                             b = delimited.join(f)          
                             outf.write(b + '\n')   
+            # capturar el nombre del archivo, pasarlo por un for y ordenarlo en HTML
+            # y ver como se pueden marcar las lineas
+
 def busqueda_errores():
             bases[2]
             bases[3]
