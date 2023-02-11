@@ -59,9 +59,7 @@ def busqueda_logs():
                             delimited=' '
                             b = delimited.join(f)       
                             outf.write(b + '\n')   
-            # ver como pasarlo por un for y ordenarlo en HTML
-            # o ver como parsear un log de python a html con el plugin de live server
-            # y ver como se pueden marcar las lineas
+                            # pasar esta informacion al index.html o/a flask
 
 def busqueda_errores():
             bases[2]
