@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,request,redirect,url_for
 from ddbb import db
 from tkinter import Tk 
 from tkinter.filedialog import askopenfilename, asksaveasfilename
@@ -27,7 +27,7 @@ def busqueda_log():
                             delimited=' '
                             b = delimited.join(f)       
                             outf.write(b + '\n')   
-    return render_template('logs.html',informacion = )
+    return render_template('logs.html',informacion = busqueda_log)
 
 @app.route('/errores')
 def busqueda_errores():
