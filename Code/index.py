@@ -12,8 +12,8 @@ def principal():
 @app.route('/logs')
 def busqueda_log():
             bases[0]
-            bases[1] # les pasamos las bases al template
-            return render_template('logs.html',base_0=bases[0],base_1=bases[1]) 
+            bases[1] 
+            return render_template('logs.html',base_0=bases[0],base_1=bases[1]) # les pasamos las bases al template
 
 
 @app.route('/errores')
