@@ -11,7 +11,12 @@ def principal():
     return render_template('index.html')
 
 @app.route('/logs')
-def uploader():
+def busqueda_log():
+    return render_template('logs.html') 
+
+
+@app.route('/errores')
+def busqueda_errores():
     bases[0]
     bases[1]
     if request.method == 'POST':
@@ -21,11 +26,6 @@ def uploader():
     # Guardamos el archivo en el directorio "Archivos_log"
         f.save(os.path.join(app.config['UPLOAD_FOLDER']))
     # Retornamos una respuesta satisfactoria
-    return render_template('logs.html') 
-
-
-@app.route('/errores')
-def busqueda_errores():
     return render_template('errores.html')
 
 if __name__ == '__main__':

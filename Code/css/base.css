@@ -1,7 +1,5 @@
-th,td,h1,h2,h3,h4{
+th,td,h1,h2,form,ol,li,ul,form{
     text-align: center;
     vertical-align: center;
-}
-ol,li,ul{
-    padding-left: 0.3cm;
+    padding-left: 0.5cm;
 }
