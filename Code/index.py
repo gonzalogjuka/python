@@ -27,7 +27,7 @@ def busqueda_log():
                             delimited=' '
                             b = delimited.join(f)       
                             outf.write(b + '\n')   
-    return render_template('logs.html')
+    return render_template('logs.html',informacion = )
 
 @app.route('/errores')
 def busqueda_errores():
