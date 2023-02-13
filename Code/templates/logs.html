@@ -5,21 +5,10 @@
 {% block body %}
         <h1>Busqueda logs</h1>
         <form action="/upload" method="POST" enctype="multipart/form-data">
-            <input type="file" name="log">
+            <input type="file" name="the_file">
         </form>
         <ol>
             <li><a href="{{ url_for('resultado') }}">Resumir log</a></li>
-            {{%            
-                with open(log, "r") as inf, open({{ url_for('resultado') }}, "w") as outf:
-                    for line in inf:
-                        if not any(phrase in line for phrase in bases[0]): 
-                            if any(phrase in line for phrase in bases[1]):       
-                                f = line.split()  
-                                del f [0:5]
-                                delimited=' '
-                                b = delimited.join(f)       
-                                outf.write(b + '\n') 
-            %}}
-            {{% endblock %}}
         </ol>
+        <h3>{{info}}</h3>
 {% endblock %}
