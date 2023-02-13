@@ -1,7 +1,7 @@
 from flask import Flask,render_template,request,redirect,url_for
 from ddbb import db
 from tkinter.filedialog import askopenfilename, asksaveasfilename
-from werkzeug.utils import secure_filename
+import os
 
 
 bases = db()
@@ -12,18 +12,25 @@ app=Flask(__name__)
 def principal():
     return render_template('index.html')
 
-@app.route('/logs',methods=['GET', 'POST'])
-def busqueda_log():
+@app.route('/logs')
+def busqueda_log():   
             bases[0]
-            bases[1]
-            if request.method == 'POST':
-                file = request.files['the_file']
-                x = file.save(f"/saver/Resultado.html")
-            return render_template('logs.html',base_0=bases[0],base_1=bases[1],info = x) # les pasamos las bases al template
+            bases[1] 
+            return render_template('logs.html',base_0=bases[0],base_1=bases[1]) # les pasamos las bases al template
 
 @app.route('/resultado')
 def resultado():
-            #mostrar info aca con los marcadores
+            infile = askopenfilename()         
+            outfile = asksaveasfilename(defaultextension='.html')
+            with open(infile, "r") as inf, open(outfile, "w") as outf:
+                for line in inf:
+                    if not any(phrase in line for phrase in bases[0]): 
+                        if any(phrase in line for phrase in bases[1]):       
+                            f = line.split()  
+                            del f [0:5]
+                            delimited=' '
+                            b = delimited.join(f)       
+                            outf.write(b + '\n')   
             return render_template('resultado.html')
 
 @app.route('/errores')

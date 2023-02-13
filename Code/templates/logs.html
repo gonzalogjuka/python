@@ -4,11 +4,8 @@
 
 {% block body %}
         <h1>Busqueda logs</h1>
-        <form action="/upload" method="POST" enctype="multipart/form-data">
-            <input type="file" name="the_file">
         </form>
         <ol>
             <li><a href="{{ url_for('resultado') }}">Resumir log</a></li>
         </ol>
-        <h3>{{print(info)}}</h3>
 {% endblock %}
