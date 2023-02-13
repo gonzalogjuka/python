@@ -19,6 +19,7 @@ def busqueda_log():
 
 @app.route('/resultado')
 def resultado():
+    #mostrar info aca con los marcadores
     return render_template('resultado.html')
 
 @app.route('/errores')
