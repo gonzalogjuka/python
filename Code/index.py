@@ -19,8 +19,10 @@ def busqueda_log():
 
 @app.route('/resultado',methods=['GET', 'POST'])
 def resultado():
+            bases[0]
+            bases[1] 
             infile = askopenfilename()         
-            outfile = asksaveasfilename(defaultextension='.html')
+            outfile = asksaveasfilename(defaultextension='.xml',initialfile = "archivo")
             with open(infile, "r") as inf, open(outfile, "w") as outf:
                 for line in inf:
                     if not any(phrase in line for phrase in bases[0]): 
