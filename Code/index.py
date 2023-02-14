@@ -7,6 +7,20 @@ import os
 bases = db()
 app=Flask(__name__)
 
+def asd():
+            bases[0]
+            bases[1] 
+            infile = askopenfilename()         
+            outfile = asksaveasfilename(defaultextension='.xml',initialfile = "archivo")
+            with open(infile, "r") as inf, open(outfile, "w") as outf:
+                for line in inf:
+                    if not any(phrase in line for phrase in bases[0]): 
+                        if any(phrase in line for phrase in bases[1]):       
+                            f = line.split()  
+                            del f [0:5]
+                            delimited=' '
+                            b = delimited.join(f)       
+                            outf.write(b + '\n')
 
 @app.route('/')
 def principal():
@@ -20,20 +34,8 @@ def busqueda_log():
 
 @app.route('/resultado')
 def resultado():
-            bases[0]
-            bases[1] 
-            infile = askopenfilename()         
-            outfile = asksaveasfilename(defaultextension='.xml',initialfile = "archivo")
-            with open(infile, "r") as inf, open(outfile, "w") as outf:
-                for line in inf:
-                    if not any(phrase in line for phrase in bases[0]): 
-                        if any(phrase in line for phrase in bases[1]):       
-                            f = line.split()  
-                            del f [0:5]
-                            delimited=' '
-                            b = delimited.join(f)       
-                            outf.write(b + '\n')                             
-            return render_template('resultado.html')
+                contenido_xml = asd()   
+                return Response(contenido_xml, content_type="text/xml")
 
 
 @app.route('/errores')
