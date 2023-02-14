@@ -1,6 +1,7 @@
-from flask import Flask,render_template,request,redirect,url_for
+from flask import Flask,render_template,Response
 from ddbb import db
 from tkinter.filedialog import askopenfilename, asksaveasfilename
+import os
 
 
 bases = db()
@@ -11,13 +12,13 @@ app=Flask(__name__)
 def principal():
     return render_template('index.html')
 
-@app.route('/logs',)
+@app.route('/logs')
 def busqueda_log():   
             bases[0]
             bases[1] 
             return render_template('logs.html',base_0=bases[0],base_1=bases[1]) # les pasamos las bases al template
 
-@app.route('/resultado',methods=['GET', 'POST'])
+@app.route('/resultado')
 def resultado():
             bases[0]
             bases[1] 
@@ -31,8 +32,9 @@ def resultado():
                             del f [0:5]
                             delimited=' '
                             b = delimited.join(f)       
-                            outf.write(b + '\n')   
+                            outf.write(b + '\n')                             
             return render_template('resultado.html')
+
 
 @app.route('/errores')
 def busqueda_errores():
