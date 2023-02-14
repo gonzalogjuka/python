@@ -35,7 +35,7 @@ def resultado():
     with open(contenido_xml,"w") as f:
          for line in f:
               f.write(line)      # a pesar de hacer en un archivo separado no nos soporte la operacion de leer o escribir
-    return Response(contenido_xml, content_type="text")
+    return Response(contenido_xml, content_type="json")
 
 @app.route('/errores')
 def busqueda_errores():
