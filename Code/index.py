@@ -6,7 +6,7 @@ from tkinter.filedialog import askopenfilename, asksaveasfilename
 bases = db()
 app=Flask(__name__)
 
-def asd():
+def parseador():
             bases[0]
             bases[1] 
             infile = askopenfilename()         
@@ -27,12 +27,15 @@ def principal():
 
 @app.route('/logs')
 def busqueda_log():   
-            return render_template('logs.html')
+    return render_template('logs.html')
 
 @app.route('/resultado')
 def resultado():
-                asd()
-                return render_template('resultado.html')
+    contenido_xml = askopenfilename()
+    with open(contenido_xml,"w") as f:
+         for line in f:
+              f.write(line)               # a pesar de hacer en un archivo separado no nos soporte la operacion de leer o escribir
+    return Response(contenido_xml, content_type="text")
 
 @app.route('/errores')
 def busqueda_errores():
