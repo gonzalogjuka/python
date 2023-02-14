@@ -34,7 +34,7 @@ def resultado():
     contenido_xml = askopenfilename()
     with open(contenido_xml,"w") as f:
          for line in f:
-              f.write(line)               # a pesar de hacer en un archivo separado no nos soporte la operacion de leer o escribir
+              f.write(line)      # a pesar de hacer en un archivo separado no nos soporte la operacion de leer o escribir
     return Response(contenido_xml, content_type="text")
 
 @app.route('/errores')
