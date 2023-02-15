@@ -21,7 +21,7 @@ def parseador():
                             del f [0:5]
                             delimited=' '
                             b = delimited.join(f)
-                            outf.write('<h1>' + b + '\n </h1>')
+                            outf.write('<h5>' + b + '\n </h5>')
                 outf.write('{% endblock %}')
                             
 

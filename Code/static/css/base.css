@@ -1,11 +1,12 @@
-th,td,h2,form{
+th,td,form{
     vertical-align: center;
     text-align: center;
     padding-left: 0.5cm;
+    text-decoration: underline
 }
 h1{
+    text-decoration: underline;
     text-align: center;
     padding-left: 0.5cm;
-    color: rgb(16, 105, 156);
-    
+    color: rgb(16, 105, 156);  
 }
