@@ -1,4 +1,4 @@
-from flask import Flask,render_template,Response
+from flask import Flask,render_template
 from ddbb import db
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 
@@ -32,8 +32,7 @@ def busqueda_log():
 
 @app.route('/resultado')
 def resultado():
-    # a pesar de hacer en un archivo separado no nos soporte la operacion de leer o escribir
-    return render_template('contenido_xml.html') # se puede leer si se carga como una pagina
+    return render_template('contenido_xml.html')
 
 @app.route('/errores')
 def busqueda_errores():

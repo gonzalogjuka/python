@@ -9,7 +9,7 @@ Tk().withdraw()
  # tomar informacion de busqueda de archivos externos
  # y errores con relaciones de confluence y no en diccionarios - Done
 
- # ordenar vista en HTML y marcar las lineas con errores
+ # ordenar vista en HTML y marcar las lineas con errores - Done
 
  # pintar las linea con referencia a las mismas
 
