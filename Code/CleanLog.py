@@ -58,8 +58,7 @@ def busqueda_logs():
                             del f [0:5]
                             delimited=' '
                             b = delimited.join(f)       
-                            outf.write(b + '\n')   
-                            # pasar esta informacion al index.html o/a flask
+                            outf.write(b + '\n')                           
 
 def busqueda_errores():
             bases[2]
