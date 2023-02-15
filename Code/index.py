@@ -19,14 +19,15 @@ def parseador():
                             del f [0:5]
                             delimited=' '
                             b = delimited.join(f)       
-                            outf.write(b + '\n' + '<h1></h1>')
+                            outf.write('<h1>' + b + '\n </h1>')
 
 @app.route('/')
 def principal():
     return render_template('index.html')
 
 @app.route('/logs')
-def busqueda_log():   
+def busqueda_log():
+    parseador()
     return render_template('logs.html')
 
 @app.route('/resultado')
