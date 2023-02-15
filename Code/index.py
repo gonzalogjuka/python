@@ -31,11 +31,11 @@ def principal():
 
 @app.route('/logs')
 def busqueda_log():
-    parseador()
     return render_template('logs.html')
 
 @app.route('/resultado')
 def resultado():
+    parseador()
     return render_template('contenido_xml.html')
 
 @app.route('/errores')
