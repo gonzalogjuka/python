@@ -10,8 +10,10 @@ def parseador():
             bases[0]
             bases[1]
             infile = askopenfilename()
+            #plantilla = '{% extends "base.html" %} {% block title %} Welcome Morpheus {% endblock %}'
             outfile = asksaveasfilename(defaultextension='.html',initialfile = "contenido_xml")
             with open(infile, "r") as inf, open(outfile, "w") as outf:
+                #outf.write(plantilla)
                 for line in inf:
                     if not any(phrase in line for phrase in bases[0]): 
                         if any(phrase in line for phrase in bases[1]):
