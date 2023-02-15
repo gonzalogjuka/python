@@ -1,0 +1,10 @@
+th,td,h2,form{
+    vertical-align: center;
+    text-align: center;
+    padding-left: 0.5cm;
+}
+h1{
+    text-align: center;
+    padding-left: 0.5cm;
+    display: flexbox;
+}
