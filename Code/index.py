@@ -38,6 +38,10 @@ def resultado():
     parseador()
     return render_template('contenido_xml.html')
 
+@app.route('/mostrar_resultado')
+def mostrar_resultado():
+    return render_template('contenido_xml.html')
+
 @app.route('/errores')
 def busqueda_errores():
     return render_template('errores.html')

@@ -16,14 +16,14 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="{{ url_for('busqueda_log') }}">Resumir log's<span class="sr-only">(current)</span></a>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('busqueda_log') }}">Resumir log's</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('busqueda_errores') }}">Busqueda de errores</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled Picaron</a>
+                    <a class="nav-link" href="{{ url_for('mostrar_resultado') }}">Mostrar resultado</a>
                   </li>
                 </ul>
               </div>
