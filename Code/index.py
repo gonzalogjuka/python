@@ -32,7 +32,7 @@ def busqueda_log():
 @app.route('/resultado')
 def resultado():
     # a pesar de hacer en un archivo separado no nos soporte la operacion de leer o escribir
-    return render_template('contenido_xml.html')
+    return render_template('contenido_xml.html') # se puede leer si se carga como una pagina
 
 @app.route('/errores')
 def busqueda_errores():
