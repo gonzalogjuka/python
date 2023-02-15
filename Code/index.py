@@ -10,7 +10,7 @@ def parseador():
             bases[0]
             bases[1] 
             infile = askopenfilename()         
-            outfile = asksaveasfilename(defaultextension='.xml',initialfile = "archivo")
+            outfile = asksaveasfilename(defaultextension='.xml',initialfile = "contenido_xml")
             with open(infile, "r") as inf, open(outfile, "w") as outf:
                 for line in inf:
                     if not any(phrase in line for phrase in bases[0]): 
@@ -19,7 +19,7 @@ def parseador():
                             del f [0:5]
                             delimited=' '
                             b = delimited.join(f)       
-                            outf.write(b + '\n')
+                            outf.write(b + '\n' + '<h1></h1>')
 
 @app.route('/')
 def principal():
@@ -31,11 +31,8 @@ def busqueda_log():
 
 @app.route('/resultado')
 def resultado():
-    contenido_xml = askopenfilename()
-    with open(contenido_xml,"w") as f:
-         for line in f:
-              f.write(line)      # a pesar de hacer en un archivo separado no nos soporte la operacion de leer o escribir
-    return Response(contenido_xml, content_type="json")
+    # a pesar de hacer en un archivo separado no nos soporte la operacion de leer o escribir
+    return render_template('contenido_xml.html')
 
 @app.route('/errores')
 def busqueda_errores():
