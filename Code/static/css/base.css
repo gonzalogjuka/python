@@ -10,3 +10,7 @@ h1{
     padding-left: 0.5cm;
     color: rgb(16, 105, 156);  
 }
+h5{
+    text-align: left;
+    padding-bottom: 0.5cm;
+}
