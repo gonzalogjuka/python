@@ -52,15 +52,17 @@ def busqueda_logs():
             infile = askopenfilename()
             outfile = asksaveasfilename(defaultextension='.html',initialfile = "resultado_log",filetypes=[('all files','*.*')])
             with open(infile, "r") as inf, open(outfile, "w") as outf:
+                outf.write('{% extends "base.html" %} {% block title %} Welcome Morpheus {% endblock %}')
+                outf.write('{% block body %}')
                 for line in inf:
                     if not any(phrase in line for phrase in bases[0]): 
-                        if any(phrase in line for phrase in bases[1]):       
-                            f = line.split()  
+                        if any(phrase in line for phrase in bases[1]):
+                            f = line.split()
                             del f [0:5]
                             delimited=' '
-                            marcador = f
-                            b = delimited.join(f)       
-                            outf.write('<h5>' + b + '</h5>') # aislar palabras con <mark>                          
+                            b = delimited.join(f)
+                        for b in 
+                            outf.write('<h5>' + b + '</h5>') # aislar palabras con <mark>
                 outf.write('{% endblock %}')                          
 
 def busqueda_errores():
