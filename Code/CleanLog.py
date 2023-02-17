@@ -54,17 +54,19 @@ def busqueda_logs():
             with open(infile, "r") as inf, open(outfile, "w") as outf:
                 outf.write('{% extends "base.html" %} {% block title %} Welcome Morpheus {% endblock %}')
                 outf.write('{% block body %}')
-                for line in inf:
+                for line in inf:               
                     if not any(phrase in line for phrase in bases[0]): 
-                        if any(phrase in line for phrase in bases[1]):
+                        if any(phrase in line for phrase in bases[1]):                            
                             f = line.split()
                             del f [0:5]
-                            delimited=' '
-                            b = delimited.join(f)
                             for x in f:
                                 if any(pharse in x for pharse in bases[4]):
-                                    outf.write('<mark>' + x + '</mark>')
-                            outf.write('<h5>' + b + '</h5>') # aislar palabras con <mark>
+                                    marcador = ('<mark>' + x + '</mark>')
+                                    f.append(marcador)
+                                    break                                                                                                                           
+                            delimited=' '
+                            b = delimited.join(f)         # pasa la informacion, solo reemplazar              
+                            outf.write('<h5>' + b + '</h5>') 
                 outf.write('{% endblock %}')                          
 
 def busqueda_errores():
