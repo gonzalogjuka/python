@@ -14,6 +14,14 @@ def not_log():
           x = lista_not_log.append(x)
      return lista_not_log
 
+def log_marc():
+     archivo = open('marcador_log.txt','r')
+     lista_marcadora = list ()
+     for line in archivo:
+          x = line.replace('\n','')
+          x = lista_marcadora.append(x)
+     return lista_marcadora
+
 def errores():
      archivo = open('errores.txt','r')
      lista_errors = list()
@@ -30,11 +38,21 @@ def not_errors():
           x = lista_not_errors.append(x)  
      return lista_not_errors
 
+def error_marc():
+     archivo = open('marcador_log.txt','r')
+     lista_marc_error = list ()
+     for line in archivo:
+          x = line.replace('\n','')
+          x = lista_marc_error.append(x)
+     return lista_marc_error
+
 
 def db():
      log()               # base 0
      not_log()           # base 1
      errores()           # base 2
      not_errors()        # base 3
+     log_marc()          # base 4
+     error_marc()        # base 5
      return[log(),not_log(),errores(),not_errors()]
 

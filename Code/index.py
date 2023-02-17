@@ -19,9 +19,13 @@ def parseador():
                         if any(phrase in line for phrase in bases[1]):
                             f = line.split()
                             del f [0:5]
+                            marcador = f
                             delimited=' '
                             b = delimited.join(f)
-                            outf.write('<h5><mark>' + b + '</mark></h5>')
+                            outf.write('<h5>' + b + '</h5>') # aislar palabras con <mark>
+                            for i in marcador:
+                                 if i.startswith('Exception:'):
+                                      outf.write('<mark></mark>')
                 outf.write('{% endblock %}')
                             
 
