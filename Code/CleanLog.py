@@ -57,8 +57,13 @@ def busqueda_logs():
                             f = line.split()  
                             del f [0:5]
                             delimited=' '
+                            marcador = f
                             b = delimited.join(f)       
-                            outf.write(b + '\n')                           
+                            outf.write('<h5>' + b + '</h5>') # aislar palabras con <mark>
+                            for i in marcador:
+                                 if any(phrase in line for phrase in bases[1]):
+                                      outf.write('<mark>'+i+'</mark>')
+                outf.write('{% endblock %}')                          
 
 def busqueda_errores():
             bases[2]
