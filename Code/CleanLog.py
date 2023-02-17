@@ -66,7 +66,7 @@ def busqueda_logs():
                                 f[i] = marcador
                                 break                                                                                                                           
                             delimited=' '
-                            b = delimited.join(f)         # pasa la informacion, solo reemplazar              
+                            b = delimited.join(f)         # pasa la informacion, solo reemplazar  y pasar al otro script            
                             outf.write('<h5>' + b + '</h5>') 
                 outf.write('{% endblock %}')                          
 
