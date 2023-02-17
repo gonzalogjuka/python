@@ -48,6 +48,7 @@ def sub_menu_errores():
 def busqueda_logs():
             bases[0]
             bases[1]
+            bases[4]
             infile = askopenfilename()
             outfile = asksaveasfilename(defaultextension='.html',initialfile = "resultado_log",filetypes=[('all files','*.*')])
             with open(infile, "r") as inf, open(outfile, "w") as outf:
@@ -59,10 +60,7 @@ def busqueda_logs():
                             delimited=' '
                             marcador = f
                             b = delimited.join(f)       
-                            outf.write('<h5>' + b + '</h5>') # aislar palabras con <mark>
-                            for i in marcador:
-                                 if any(phrase in line for phrase in bases[1]):
-                                      outf.write('<mark>'+i+'</mark>')
+                            outf.write('<h5>' + b + '</h5>') # aislar palabras con <mark>                          
                 outf.write('{% endblock %}')                          
 
 def busqueda_errores():

@@ -39,7 +39,7 @@ def not_errors():
      return lista_not_errors
 
 def error_marc():
-     archivo = open('marcador_log.txt','r')
+     archivo = open('marcador_errores.txt','r')
      lista_marc_error = list ()
      for line in archivo:
           x = line.replace('\n','')
@@ -54,5 +54,5 @@ def db():
      not_errors()        # base 3
      log_marc()          # base 4
      error_marc()        # base 5
-     return[log(),not_log(),errores(),not_errors()]
+     return[log(),not_log(),errores(),not_errors(),log_marc(),error_marc()]
 
