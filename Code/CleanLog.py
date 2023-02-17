@@ -61,7 +61,9 @@ def busqueda_logs():
                             del f [0:5]
                             delimited=' '
                             b = delimited.join(f)
-                        for b in 
+                            for x in f:
+                                if any(pharse in x for pharse in bases[4]):
+                                    outf.write('<mark>' + x + '</mark>')
                             outf.write('<h5>' + b + '</h5>') # aislar palabras con <mark>
                 outf.write('{% endblock %}')                          
 
