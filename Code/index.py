@@ -9,23 +9,25 @@ app=Flask(__name__)
 def parseador():
             bases[0]
             bases[1]
+            bases[4]
             infile = askopenfilename()
-            outfile = asksaveasfilename(defaultextension='.html',initialfile = "contenido_xml")
+            outfile = asksaveasfilename(defaultextension='.html',initialfile = "contenido_xml",filetypes=[('all files','*.*')])
             with open(infile, "r") as inf, open(outfile, "w") as outf:
                 outf.write('{% extends "base.html" %} {% block title %} Welcome Morpheus {% endblock %}')
                 outf.write('{% block body %}')
                 for line in inf:
-                    if not any(phrase in line for phrase in bases[0]): 
-                        if any(phrase in line for phrase in bases[1]):
+                    if not any(phrase in line for phrase in bases[0]):
+                        if any(phrase in line for phrase in bases[1]):                  
                             f = line.split()
                             del f [0:5]
-                            marcador = f
+                            for i, palabra in enumerate(f):                                                
+                                if any(pharse in palabra for pharse in bases[4]):
+                                    marcador = ('<mark>' + palabra + '</mark>')
+                                    f[i] = marcador
+                                    break                                                                                                          
                             delimited=' '
                             b = delimited.join(f)
-                            outf.write('<h5>' + b + '</h5>') # aislar palabras con <mark>
-                            for i in marcador:
-                                 if i.startswith('Exception:'):
-                                      outf.write('<mark></mark>')
+                            outf.write('<h5>' + b + '</h5>')
                 outf.write('{% endblock %}')
                             
 

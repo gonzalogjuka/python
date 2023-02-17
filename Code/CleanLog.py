@@ -11,7 +11,7 @@ Tk().withdraw()
 
  # ordenar vista en HTML y marcar las lineas con errores - Done
 
- # pintar las linea con referencia a las mismas
+ # pintar las linea con referencia a las mismas - Done
 
 def mostrar_menu(nombre,opciones):
    print(f'# {nombre}. Seleccione una opción:')
@@ -49,7 +49,6 @@ def busqueda_logs():
             bases[0]
             bases[1]
             bases[4]
-            #x = list()
             infile = askopenfilename()
             outfile = asksaveasfilename(defaultextension='.html',initialfile = "resultado_log",filetypes=[('all files','*.*')])
             with open(infile, "r") as inf, open(outfile, "w") as outf:
@@ -62,11 +61,11 @@ def busqueda_logs():
                             del f [0:5]
                             for i, palabra in enumerate(f):                                                         
                                 if any(pharse in palabra for pharse in bases[4]):
-                                marcador = ('<mark>' + palabra + '</mark>')
-                                f[i] = marcador
-                                break                                                                                                                           
+                                    marcador = ('<mark>' + palabra + '</mark>')
+                                    f[i] = marcador
+                                    break                                                                                                                           
                             delimited=' '
-                            b = delimited.join(f)         # pasa la informacion, solo reemplazar  y pasar al otro script            
+                            b = delimited.join(f)    
                             outf.write('<h5>' + b + '</h5>') 
                 outf.write('{% endblock %}')                          
 
