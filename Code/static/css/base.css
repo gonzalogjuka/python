@@ -7,10 +7,15 @@ th,td,form{
 h1{
     text-decoration: underline;
     text-align: center;
-    padding-left: 0.5cm;
     color: rgb(16, 105, 156);  
 }
 h5{
     text-align: left;
-    padding-bottom: 0.5cm;
+    padding: 0.5em;
+}
+
+mark{
+    padding: 0em;
+    background-color: rgb(198, 70, 35);
+    color:rgb(49, 25, 21)
 }
