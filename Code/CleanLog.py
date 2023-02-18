@@ -13,6 +13,8 @@ Tk().withdraw()
 
  # pintar las linea con referencia a las mismas - Done
 
+ # marcar la linea o palabra segun una base de errores y ponerle la etiqueta de <a href> a confluence con error
+
 def mostrar_menu(nombre,opciones):
    print(f'# {nombre}. Seleccione una opción:')
    for clave in sorted(opciones):
