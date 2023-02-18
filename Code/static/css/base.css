@@ -19,3 +19,25 @@ mark{
     background-color: rgb(198, 70, 35);
     color:rgb(49, 25, 21)
 }
+
+.navbar-brand{
+    border: 4.5px solid rgb(219, 97, 97);
+    padding-bottom: 0cm;
+    padding-top: 0cm;
+    padding-left: 0.1cm;
+    padding-right: 0.1cm;
+    font-style: italic;
+}
+
+.navbar-light .navbar-brand{
+    color:rgb(220, 127, 80);
+}
+
+.bg-primary{
+    background-color: rgb(12, 80, 175) !important;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color:rgb(220, 127, 80) !important;
+    text-decoration: underline;
+}
