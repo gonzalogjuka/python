@@ -62,7 +62,7 @@ def busqueda_log():
     return render_template('logs.html')
 
 @app.route('/resultado')
-def resultado():
+def resultado_log():
     parseador_log()
     return render_template('contenido_logs.html')
 
