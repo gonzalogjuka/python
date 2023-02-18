@@ -13,7 +13,7 @@ Tk().withdraw()
 
  # pintar las linea con referencia a las mismas - Done
 
- # marcar la (linea de error o palabra)(base de datos nueva con algun id o relacion a CONFLUENCE) segun una base de errores y ponerle la etiqueta de <a href> a confluence con error
+ # marcar la (linea de error o palabra)(base de datos nueva con algun id o relacion a CONFLUENCE) segun una base de errores y ponerle la etiqueta de <a href> a confluence con error(Base de links)
 
 def mostrar_menu(nombre,opciones):
    print(f'# {nombre}. Seleccione una opción:')
