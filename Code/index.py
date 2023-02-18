@@ -6,7 +6,7 @@ from tkinter.filedialog import askopenfilename, asksaveasfilename
 bases = db()
 app=Flask(__name__)
 
-def parseador():
+def parseador_log():
             bases[0]
             bases[1]
             bases[4]
@@ -41,7 +41,7 @@ def busqueda_log():
 
 @app.route('/resultado')
 def resultado():
-    parseador()
+    parseador_log()
     return render_template('contenido_xml.html')
 
 @app.route('/mostrar_resultado')
