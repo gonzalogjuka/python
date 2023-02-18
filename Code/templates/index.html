@@ -6,8 +6,9 @@
 <h1>Bienvenidos</h1>
 <ul>
     <li><a href="{{ url_for('busqueda_log') }}">Ir a resumir log's</a></li>
-    <li><a href="{{ url_for('busqueda_errores') }}"">Ir a resumir errores</a></li>
-    <li><a href="{{ url_for('mostrar_resultado') }}"">Mostrar el resultado anterior</a></li>
+    <li><a href="{{ url_for('busqueda_errores') }}">Ir a resumir errores</a></li>
+    <li><a href="{{ url_for('mostrar_log') }}">Volver al resultado del log</a></li>
+    <li><a href="{{ url_for('mostrar_errores') }}">Volver al resultado de errores</a></li>
 </ul>
 
 {% endblock %}
