@@ -13,7 +13,10 @@ Tk().withdraw()
 
  # pintar las linea con referencia a las mismas - Done
 
- # marcar la (linea de error o palabra)(base de datos nueva con algun id o relacion a CONFLUENCE) segun una base de errores y ponerle la etiqueta de <a href> a confluence con error(Base de links)
+ # marcar la linea del error y agregar la etiqueta <a href=""></a>, si lo encuentra
+ # confluence con errores (Base de links) que haga macht con la (Base de errores)  
+ # y cuando inserta la etiqueta <href> pase el link correspondiente, segun el error que encontro en las bases
+ # hacer una comprobacion segun palabra de error y devolver un enlace relativo
 
 def mostrar_menu(nombre,opciones):
    print(f'# {nombre}. Seleccione una opción:')
@@ -70,7 +73,6 @@ def busqueda_logs():
                             b = delimited.join(f)    
                             outf.write('<h5>' + b + '</h5>') 
                 outf.write('{% endblock %}')                          
-
 def busqueda_errores():
             bases[2]
             bases[3]
