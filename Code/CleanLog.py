@@ -74,17 +74,26 @@ def busqueda_logs():
 def busqueda_errores():
             bases[2]
             bases[3]
+            bases[5]
             infile = askopenfilename()
-            error = asksaveasfilename(defaultextension='.html',initialfile = "resultado_errores",filetypes=[('all files','*.*')])
-            with open(infile, "r") as inf, open(error, "w")as errores:
+            outfile = asksaveasfilename(defaultextension='.html',initialfile = "contenido_errores",filetypes=[('all files','*.*')])
+            with open(infile, "r") as inf, open(outfile, "w") as outf:
+                outf.write('{% extends "base.html" %} {% block title %} Welcome Morpheus {% endblock %}')
+                outf.write('{% block body %}')
                 for line in inf:
-                    if any(phrase in line for phrase in bases[2]):
-                            if not any(phrase in line for phrase in bases[3]):  
-                                f = line.split()
-                                del f [0:5]
-                                delimited=' '
-                                b = delimited.join(f)
-                                errores.write(b + '\n')
+                    if not any(phrase in line for phrase in bases[2]):
+                        if any(phrase in line for phrase in bases[3]):                  
+                            f = line.split()
+                            del f [0:5]
+                            for i, palabra in enumerate(f):                                                
+                                if any(pharse in palabra for pharse in bases[5]):
+                                    marcador = ('<mark>' + palabra + '</mark>')
+                                    f[i] = marcador
+                                    break                                                                                                          
+                            delimited=' '
+                            b = delimited.join(f)
+                            outf.write('<h5>' + b + '</h5>')
+                outf.write('{% endblock %}') 
 def salir_menu():
      print('Volviendo')
 def salir():
