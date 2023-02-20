@@ -53,8 +53,10 @@ def parseador_errores():
                                     break                                                                                                          
                             delimited=' '
                             b = delimited.join(f)
-                            if validador == True:                                
-                                outf.write('<h5><a href="#">' + b + '</a></h5>')
+                            if validador == True:
+                                for error in f:       # compara palabras de lectura del split de la linea, BUSCAR COMO SINCRONIZAR LA MARCA CON EL ERROR Y PASARLO POR LA BASE
+                                    if any(pharse in error for pharse in bases[6]):
+                                        outf.write('<h5><a href="'+ error +'">' + b + '</a></h5>')
                             else:
                                 outf.write('<h5>' + b + '</h5>')                            
                 outf.write('{% endblock %}')                           
