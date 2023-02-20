@@ -50,7 +50,8 @@ def base_links():
      archivo = open('confluence_links.txt','r')
      lista_confluence_links = list ()
      for line in archivo:
-          x = line.split()         
+          x = line.split()      
+          x = line.replace('\n','')    
           lista_confluence_links.append(x)         
      return lista_confluence_links
 
