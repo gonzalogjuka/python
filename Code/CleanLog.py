@@ -14,7 +14,8 @@ Tk().withdraw()
  # pintar las linea con referencia a las mismas - Done
 
  # marcar la linea del error y agregar la etiqueta <a href=""></a>, si lo encuentra
- # confluence con errores (Base de links) que haga macht con la (Base de errores)  
+ # confluence con errores (Base de links) que haga macht con la (Base de errores)   - Done
+ 
  # y cuando inserta la etiqueta <href> pase el link correspondiente, segun el error que encontro en las bases
  # hacer una comprobacion segun palabra de error y devolver un enlace relativo
 
