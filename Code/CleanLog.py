@@ -102,7 +102,7 @@ def busqueda_errores():
                                 for error in f: # recorremos el parrafo 
                                     for i,error in enumerate(bases[6]): # recorro y enemuro
                                         if any(pharse in error for pharse in bases[6]): # verifico si la palabra esta dentro de la base de links
-                                            
+                                            # ver como sumar 1 mas al indice del resultado para si coincide la palabra la linea siguiente, sea el link correspondiente
                                             outf.write('<h5><a href="', x ,'">' + b + '</a></h5>') # + a +
                             else:
                                 outf.write('<h5>' + b + '</h5>')                            
