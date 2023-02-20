@@ -17,14 +17,14 @@ def parseador_log():
                 outf.write('{% block body %}')
                 for line in inf:
                     if not any(phrase in line for phrase in bases[0]):
-                        if any(phrase in line for phrase in bases[1]):                  
+                        if any(phrase in line for phrase in bases[1]):        
                             f = line.split()
                             del f [0:5]
-                            for i, palabra in enumerate(f):                                                
+                            for i, palabra in enumerate(f):                                  
                                 if any(pharse in palabra for pharse in bases[4]):
-                                    marcador = ('<mark>' + palabra + '</mark>')
+                                    marcador = ('<mark>' + palabra + '</mark>')                                 
                                     f[i] = marcador
-                                    break                                                                                                          
+                                    break                                                                                 
                             delimited=' '
                             b = delimited.join(f)
                             outf.write('<h5>' + b + '</h5>')
@@ -40,17 +40,22 @@ def parseador_errores():
                 outf.write('{% block body %}')
                 for line in inf:
                     if not any(phrase in line for phrase in bases[2]):
-                        if any(phrase in line for phrase in bases[3]):                  
+                        if any(phrase in line for phrase in bases[3]):
+                            validador = False
                             f = line.split()
                             del f [0:5]
-                            for i, palabra in enumerate(f):                                                
+                            for i, palabra in enumerate(f):
                                 if any(pharse in palabra for pharse in bases[5]):
                                     marcador = ('<mark>' + palabra + '</mark>')
                                     f[i] = marcador
+                                    validador = True
                                     break                                                                                                          
                             delimited=' '
                             b = delimited.join(f)
-                            outf.write('<h5>' + b + '</h5>')
+                            if validador == True:                                
+                                outf.write('<h5><a href="#">' + b + '</a></h5>')
+                            else:
+                                outf.write('<h5>' + b + '</h5>')                            
                 outf.write('{% endblock %}')                           
 
 @app.route('/')
