@@ -1,6 +1,6 @@
 from tkinter import Tk 
 from tkinter.filedialog import askopenfilename, asksaveasfilename
-from ddbb import db
+from ddbb import db,base_links
 # pyright: reportUnboundVariable=false
 
 bases = db()
@@ -99,12 +99,11 @@ def busqueda_errores():
                             delimited=' '
                             b = delimited.join(f)
                             if validador == True:
-                                for error in f:       # compara palabras de lectura del split de la linea, BUSCAR COMO SINCRONIZAR LA MARCA CON EL ERROR Y PASARLO POR LA BASE
-                                    # podemos asignar un valor al link y splitearlo para pasarlo
+                                for error in f: # compara palabras de lectura del split de la linea, BUSCAR COMO SINCRONIZAR LA MARCA CON EL ERROR Y PASARLO POR LA BASE                           
                                             if any(pharse in error for pharse in bases[5]): # buscamos la palabra de erorr en su base
-                                                for i,palabra in enumerate(bases[6]): # recorremos la base de links
-                                                       
-                                                    outf.write('<h5><a href="'+ error +'">' + b + '</a></h5>')
+                                                for palabra in bases[6]: # recorremos la base de links
+                                                    a = bases[6]
+                                                    outf.write('<h5><a href="', a ,'">' + b + '</a></h5>') # + a +
                             else:
                                 outf.write('<h5>' + b + '</h5>')                            
                 outf.write('{% endblock %}')  
