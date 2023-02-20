@@ -100,10 +100,10 @@ def busqueda_errores():
                             b = delimited.join(f)
                             if validador == True:
                                 for error in f: # recorremos el parrafo 
-                                            if any(pharse in error for pharse in bases[5]): # buscamos la palabra de error en su base
-                                                    if any(pharse in error for pharse in bases[6]): # error al parsear no toma como un string, ver la db
-                                                        # ver si podemos hacer que lea la base 6 directo spliteada y ahi hacer las verificaciones
-                                                        outf.write('<h5><a href="', a ,'">' + b + '</a></h5>') # + a +
+                                    for i,error in enumerate(bases[6]): # recorro y enemuro
+                                        if any(pharse in error for pharse in bases[6]): # verifico si la palabra esta dentro de la base de links
+                                            
+                                            outf.write('<h5><a href="', x ,'">' + b + '</a></h5>') # + a +
                             else:
                                 outf.write('<h5>' + b + '</h5>')                            
                 outf.write('{% endblock %}')  
