@@ -102,6 +102,7 @@ def busqueda_errores():
                                 for error in f: # recorremos el parrafo 
                                             if any(pharse in error for pharse in bases[5]): # buscamos la palabra de error en su base
                                                     if any(pharse in error for pharse in bases[6]): # error al parsear no toma como un string, ver la db
+                                                        # ver si podemos hacer que lea la base 6 directo spliteada y ahi hacer las verificaciones
                                                         outf.write('<h5><a href="', a ,'">' + b + '</a></h5>') # + a +
                             else:
                                 outf.write('<h5>' + b + '</h5>')                            
