@@ -101,7 +101,7 @@ def busqueda_errores():
                             if validador == True:
                                 for error in f:       # compara palabras de lectura del split de la linea, BUSCAR COMO SINCRONIZAR LA MARCA CON EL ERROR Y PASARLO POR LA BASE
                                     if any(pharse in error for pharse in bases[5]):# podemos asignar un valor al link y splitearlo para pasarlo
-                                        for i in bases[7]:
+                                        for i in bases[6]:
                                             
                                             outf.write('<h5><a href="'+ error +'">' + b + '</a></h5>')
                             else:

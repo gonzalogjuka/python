@@ -47,7 +47,7 @@ def error_marc():
      return lista_marc_error
 
 def base_links():
-     archivo = open('confluence_links','r')
+     archivo = open('confluence_links.txt','r')
      lista_confluence_links = list ()
      for line in archivo:
           x = line.replace('\n','')
