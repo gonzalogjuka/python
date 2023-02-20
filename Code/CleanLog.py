@@ -75,9 +75,10 @@ def busqueda_logs():
                             outf.write('<h5>' + b + '</h5>') 
                 outf.write('{% endblock %}')                          
 def busqueda_errores():
-            bases[2]
-            bases[3]
-            bases[5]
+            bases[2] # palabras que queremos que esten
+            bases[3] # palabras que no queremos que esten
+            bases[5] # palabras para buscar y marcar con sus links de confluence
+            bases[6] # links de confluence
             infile = askopenfilename()
             outfile = asksaveasfilename(defaultextension='.html',initialfile = "contenido_errores",filetypes=[('all files','*.*')])
             with open(infile, "r") as inf, open(outfile, "w") as outf:
@@ -85,18 +86,28 @@ def busqueda_errores():
                 outf.write('{% block body %}')
                 for line in inf:
                     if not any(phrase in line for phrase in bases[2]):
-                        if any(phrase in line for phrase in bases[3]):                  
+                        if any(phrase in line for phrase in bases[3]):
+                            validador = False
                             f = line.split()
                             del f [0:5]
-                            for i, palabra in enumerate(f):                                                
+                            for i, palabra in enumerate(f):
                                 if any(pharse in palabra for pharse in bases[5]):
                                     marcador = ('<mark>' + palabra + '</mark>')
                                     f[i] = marcador
+                                    validador = True
                                     break                                                                                                          
                             delimited=' '
                             b = delimited.join(f)
-                            outf.write('<h5>' + b + '</h5>')
-                outf.write('{% endblock %}') 
+                            if validador == True:
+                                for error in f:       # compara palabras de lectura del split de la linea, BUSCAR COMO SINCRONIZAR LA MARCA CON EL ERROR Y PASARLO POR LA BASE
+                                    if any(pharse in error for pharse in bases[5]):# podemos asignar un valor al link y splitearlo para pasarlo
+                                        for i in bases[7]:
+                                            
+                                            outf.write('<h5><a href="'+ error +'">' + b + '</a></h5>')
+                            else:
+                                outf.write('<h5>' + b + '</h5>')                            
+                outf.write('{% endblock %}')  
+
 def salir_menu():
      print('Volviendo')
 def salir():

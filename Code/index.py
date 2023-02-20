@@ -55,7 +55,7 @@ def parseador_errores():
                             b = delimited.join(f)
                             if validador == True:
                                 for error in f:       # compara palabras de lectura del split de la linea, BUSCAR COMO SINCRONIZAR LA MARCA CON EL ERROR Y PASARLO POR LA BASE
-                                    if any(pharse in error for pharse in bases[6]):
+                                    if any(pharse in error for pharse in bases[6]): # podemos asignar un valor al link y splitearlo para pasarlo
                                         outf.write('<h5><a href="'+ error +'">' + b + '</a></h5>')
                             else:
                                 outf.write('<h5>' + b + '</h5>')                            
