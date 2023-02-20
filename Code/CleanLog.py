@@ -99,11 +99,10 @@ def busqueda_errores():
                             delimited=' '
                             b = delimited.join(f)
                             if validador == True:
-                                for error in f: # compara palabras de lectura del split de la linea, BUSCAR COMO SINCRONIZAR LA MARCA CON EL ERROR Y PASARLO POR LA BASE                           
-                                            if any(pharse in error for pharse in bases[5]): # buscamos la palabra de erorr en su base
-                                                for palabra in bases[6]: # recorremos la base de links
-                                                    a = bases[6]
-                                                    outf.write('<h5><a href="', a ,'">' + b + '</a></h5>') # + a +
+                                for error in f: # recorremos el parrafo 
+                                            if any(pharse in error for pharse in bases[5]): # buscamos la palabra de error en su base
+                                                    if any(pharse in error for pharse in bases[6]): # error al parsear no toma como un string, ver la db
+                                                        outf.write('<h5><a href="', a ,'">' + b + '</a></h5>') # + a +
                             else:
                                 outf.write('<h5>' + b + '</h5>')                            
                 outf.write('{% endblock %}')  
