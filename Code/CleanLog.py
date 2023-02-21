@@ -99,12 +99,9 @@ def busqueda_errores():
                             delimited=' '
                             b = delimited.join(f)
                             if validador == True:                                                                                                                                         
-                                        for i,error in enumerate(bases[6]): 
-                                            error = palabra # tomamos ok la referencia pero falta la ubicacion del indice
-                                            if any(pharse in error for pharse in bases[6]):                                               
-                                            #else: i+1
-                                                link = base_links(bases[6])[i+1] 
-                                                outf.write('<h5><a href="'+ base_links(bases[6])[link] +'">' + b + '</a></h5>')
+                                        for i,error in enumerate(bases[6]): # tomamos ok la referencia pero falta la ubicacion del indice  
+                                            if error (any pharse in error for pharse in bases[6]):
+                                                
                                             break
                             else:
                                 outf.write('<h5>' + b + '</h5>')                            
