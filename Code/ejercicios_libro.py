@@ -1072,6 +1072,11 @@ print(y)
 
 """
 
+m = ['pasalo','bien']
+x = m[0]
+y = m[1]
 
+print(x)
+print(y)
 
 
