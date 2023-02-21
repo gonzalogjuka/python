@@ -91,18 +91,19 @@ def busqueda_errores():
                             f = line.split()
                             del f [0:5]
                             for i, palabra in enumerate(f):
-                                if any(pharse in palabra for pharse in bases[6]): #5 valor original
+                                if any(pharse in palabra for pharse in bases[6]):
                                     marcador = ('<mark>' + palabra + '</mark>')
                                     f[i] = marcador
                                     validador = True
                                     break                                                                                                          
                             delimited=' '
                             b = delimited.join(f)
-                            if validador == True:                                                                                                                                         
-                                        for i,error in enumerate(bases[6]): # tomamos ok la referencia pero falta la ubicacion del indice  
-                                            if error (any pharse in error for pharse in bases[6]):
-                                                
-                                            break
+                            if validador == True:                                       
+                                error = palabra
+                                if error in bases[6]:
+                                    indice = bases[6].index(palabra) + 1
+                                    resultado = bases[6][indice] #incide ok
+                                    outf.write('<h5><a href="'+ resultado +'">' + b + '</a></h5>')                                
                             else:
                                 outf.write('<h5>' + b + '</h5>')                            
                 outf.write('{% endblock %}')  
