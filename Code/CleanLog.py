@@ -17,7 +17,7 @@ Tk().withdraw()
  # confluence con errores (Base de links) que haga macht con la (Base de errores)   - Done
  
  # y cuando inserta la etiqueta <href> pase el link correspondiente, segun el error que encontro en las bases
- # hacer una comprobacion segun palabra de error y devolver un enlace relativo
+ # hacer una comprobacion segun palabra de error y devolver un enlace relativo                                  - Done
 
 def mostrar_menu(nombre,opciones):
    print(f'# {nombre}. Seleccione una opción:')
