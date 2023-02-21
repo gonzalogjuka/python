@@ -46,7 +46,7 @@ def error_marc():
           x = lista_marc_error.append(x)
      return lista_marc_error
 
-def base_links(lists):
+def base_links():
      archivo = open('confluence_links.txt','r')
      lista_confluence_links = list ()
      for line in archivo:
@@ -62,6 +62,6 @@ def db():
      not_errors()        # base 3
      log_marc()          # base 4
      error_marc()        # base 5  
-     base_links(list)        # base 6
-     return[log(),not_log(),errores(),not_errors(),log_marc(),error_marc(),base_links(list)]
+     base_links()        # base 6
+     return[log(),not_log(),errores(),not_errors(),log_marc(),error_marc(),base_links()]
 

@@ -1,5 +1,5 @@
 from flask import Flask,render_template
-from ddbb import db,base_links
+from ddbb import db
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 # pyright: reportUnboundVariable=false
 
@@ -31,10 +31,10 @@ def parseador_log():
                             outf.write('<h5>' + b + '</h5>')
                 outf.write('{% endblock %}')
 def parseador_errores():
-            bases[2] # palabras que queremos que esten
-            bases[3] # palabras que no queremos que esten
-            bases[5] # palabras para buscar y marcar con sus links de confluence
-            bases[6] # links de confluence
+            bases[2]  # palabras que queremos que esten
+            bases[3]  # palabras que no queremos que esten
+            #bases[5] FUERA DE USO
+            bases[6]  # links de confluence
             infile = askopenfilename()
             outfile = asksaveasfilename(defaultextension='.html',initialfile = "contenido_errores",filetypes=[('all files','*.*')])
             with open(infile, "r") as inf, open(outfile, "w") as outf:
