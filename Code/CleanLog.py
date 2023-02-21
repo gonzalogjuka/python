@@ -98,12 +98,12 @@ def busqueda_errores():
                                     break                                                                                                          
                             delimited=' '
                             b = delimited.join(f)
-                            if validador == True:
-                                for i,error in enumerate(f): # recorro el parrafo y enemuro (ver como parar las iteraciones)                                                                        
-                                    if any(pharse in error for pharse in bases[6]): # verifico si la palabra esta dentro de la base de links                                       
-                                        link = base_links(bases[6])[i+1] # sumamos +1 al indice cuando encuentra el error, la entrada consecuente es el link correspondiente al error en cuestion
-                                        outf.write('<h5><a href="'+ base_links(bases[6])[link] +'">' + b + '</a></h5>')
-                                        break
+                            if validador == True:                                                                                                                                         
+                                        for i,error in enumerate(bases[6]): #pasar marcador para comprobar
+                                            if any(pharse in error for pharse in bases[6]): # verifico si la palabra esta dentro de la base de links                                       
+                                                link = base_links(bases[6])[i+1] # sumamos +1 al indice cuando encuentra el error, la entrada consecuente es el link correspondiente al error en cuestion
+                                                outf.write('<h5><a href="'+ base_links(bases[6])[link] +'">' + b + '</a></h5>')
+                                            break
                             else:
                                 outf.write('<h5>' + b + '</h5>')                            
                 outf.write('{% endblock %}')  
