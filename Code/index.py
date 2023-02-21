@@ -1,5 +1,5 @@
 from flask import Flask,render_template
-from ddbb import db
+from ddbb import db,base_links
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 
 
@@ -54,9 +54,11 @@ def parseador_errores():
                             delimited=' '
                             b = delimited.join(f)
                             if validador == True:
-                                for error in f:       # compara palabras de lectura del split de la linea, BUSCAR COMO SINCRONIZAR LA MARCA CON EL ERROR Y PASARLO POR LA BASE
-                                    if any(pharse in error for pharse in bases[6]): # podemos asignar un valor al link y splitearlo para pasarlo
-                                        outf.write('<h5><a href="'+ error +'">' + b + '</a></h5>')
+                                for i,error in enumerate(base_links(bases[6])): # recorro y enemuro
+                                    if any(pharse in error for pharse in bases[6]): # verifico si la palabra esta dentro de la base de links
+                                        link = base_links(bases[6])[i+1] # sumamos +1 al indice cuando encuentra el error, la entrada consecuente es el link correspondiente al error en cuestion
+                                        outf.write('<h5><a href="'+link+'">' + b + '</a></h5>')
+                                        break
                             else:
                                 outf.write('<h5>' + b + '</h5>')                            
                 outf.write('{% endblock %}')                           
