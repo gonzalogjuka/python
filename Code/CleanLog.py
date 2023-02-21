@@ -101,7 +101,8 @@ def busqueda_errores():
                             if validador == True:                                                                                                                                         
                                         for i,error in enumerate(bases[6]): 
                                             error = palabra # tomamos ok la referencia pero falta la ubicacion del indice
-                                            if any(pharse in error for pharse in bases[6]): 
+                                            if any(pharse in error for pharse in bases[6]):                                               
+                                            #else: i+1
                                                 link = base_links(bases[6])[i+1] 
                                                 outf.write('<h5><a href="'+ base_links(bases[6])[link] +'">' + b + '</a></h5>')
                                             break
