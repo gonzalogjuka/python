@@ -91,7 +91,7 @@ def busqueda_errores():
                             f = line.split()
                             del f [0:5]
                             for i, palabra in enumerate(f):
-                                if any(pharse in palabra for pharse in bases[5]):
+                                if any(pharse in palabra for pharse in bases[6]):
                                     marcador = ('<mark>' + palabra + '</mark>')
                                     f[i] = marcador
                                     validador = True
@@ -100,10 +100,10 @@ def busqueda_errores():
                             b = delimited.join(f)
                             if validador == True:
                                 for error in f: # recorremos el parrafo 
-                                    for i,error in enumerate(bases[6]): # recorro y enemuro
+                                    for i,error in enumerate(base_links(bases[6])): # recorro y enemuro
                                         if any(pharse in error for pharse in bases[6]): # verifico si la palabra esta dentro de la base de links
-                                            # ver como sumar 1 mas al indice del resultado para si coincide la palabra la linea siguiente, sea el link correspondiente
-                                            outf.write('<h5><a href="', x ,'">' + b + '</a></h5>') # + a +
+                                            link = base_links(bases[6])[i+1] # sumamos +1 al indice cuando encuentra el error, la entrada consecuente es el link correspondiente al error en cuestion
+                                            outf.write('<h5><a href="'+link+'">' + b + '</a></h5>') # + a +
                             else:
                                 outf.write('<h5>' + b + '</h5>')                            
                 outf.write('{% endblock %}')  
