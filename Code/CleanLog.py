@@ -103,7 +103,7 @@ def busqueda_errores():
                                 if error in bases[6]:
                                     indice = bases[6].index(palabra) + 1
                                     resultado = bases[6][indice] #incide ok
-                                    outf.write('<h5><a href="'+ resultado +'">' + b + '</a></h5>')                                
+                                    outf.write('<h5><a href="'+ resultado +'">' + b + '</a></h5>')                                                             
                             else:
                                 outf.write('<h5>' + b + '</h5>')                            
                 outf.write('{% endblock %}')  

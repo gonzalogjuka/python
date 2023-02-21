@@ -47,23 +47,22 @@ def parseador_errores():
                             f = line.split()
                             del f [0:5]
                             for i, palabra in enumerate(f):
-                                if any(pharse in palabra for pharse in bases[5]):
+                                if any(pharse in palabra for pharse in bases[6]):
                                     marcador = ('<mark>' + palabra + '</mark>')
                                     f[i] = marcador
                                     validador = True
-                                    break                                                                                                          
+                                    break                                                                           
                             delimited=' '
                             b = delimited.join(f)
                             if validador == True:
                                 error = palabra
                                 if error in bases[6]:
                                     indice = bases[6].index(palabra) + 1
-                                    resultado = bases[6][indice] #indice ok
-                                    outf.write('<h5><a href="'+ resultado +'">' + b + '</a></h5>')                                
-                                    break
+                                    resultado = bases[6][indice]
+                                    outf.write('<h5><a href="'+ resultado +'">' + b + '</a></h5>')
                             else:
-                                outf.write('<h5>' + b + '</h5>')                            
-                outf.write('{% endblock %}')                           
+                                outf.write('<h5>' + b + '</h5>')             
+                outf.write('{% endblock %}')       
 
 @app.route('/')
 def principal():
