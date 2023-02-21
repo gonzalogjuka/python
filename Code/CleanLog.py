@@ -91,7 +91,7 @@ def busqueda_errores():
                             f = line.split()
                             del f [0:5]
                             for i, palabra in enumerate(f):
-                                if any(pharse in palabra for pharse in bases[5]):
+                                if any(pharse in palabra for pharse in bases[6]): #5 valor original
                                     marcador = ('<mark>' + palabra + '</mark>')
                                     f[i] = marcador
                                     validador = True
@@ -99,10 +99,15 @@ def busqueda_errores():
                             delimited=' '
                             b = delimited.join(f)
                             if validador == True:
-                                for i,error in enumerate(base_links(bases[6])): # recorro y enemuro
-                                    if any(pharse in error for pharse in bases[6]): # verifico si la palabra esta dentro de la base de links
-                                        link = base_links(bases[6])[i+1] # sumamos +1 al indice cuando encuentra el error, la entrada consecuente es el link correspondiente al error en cuestion
-                                        outf.write('<h5><a href="'+link+'">' + b + '</a></h5>')
+                                for i,error in enumerate(f): # recorro el parrafo y enemuro
+                                    # verificar las vueltas que recorre para encontrar la palabra
+                                    found_word = set()
+                                    if any(pharse in error for pharse in bases[6]) and error not in found_word: # verifico si la palabra esta dentro de la base de links
+                                        found_word.add(error)
+                                        link = i + 1 if i + 1 < len(base_links(bases[6])) else None
+                                        if link is not None:
+                                        #link = base_links(bases[6])[i+1] # sumamos +1 al indice cuando encuentra el error, la entrada consecuente es el link correspondiente al error en cuestion
+                                            outf.write('<h5><a href="'+ base_links(bases[6])[link] +'">' + b + '</a></h5>')
                                         break
                             else:
                                 outf.write('<h5>' + b + '</h5>')                            
