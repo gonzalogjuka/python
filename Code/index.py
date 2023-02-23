@@ -17,8 +17,8 @@ def parseador_log():
                 outf.write('{% extends "base.html" %} {% block title %} Welcome Morpheus {% endblock %}')
                 outf.write('{% block body %}')
                 for line in inf:
-                    if not any(phrase in line for phrase in bases[0]):
-                        if any(phrase in line for phrase in bases[1]):        
+                    if not any(phrase in line for phrase in bases[1]):
+                        if any(phrase in line for phrase in bases[0]):        
                             f = line.split()
                             del f [0:1][2:6]
                             for i, palabra in enumerate(f):                                  
@@ -41,11 +41,11 @@ def parseador_errores():
                 outf.write('{% extends "base.html" %} {% block title %} Welcome Morpheus {% endblock %}')
                 outf.write('{% block body %}')
                 for line in inf:
-                    if not any(phrase in line for phrase in bases[2]):
-                        if any(phrase in line for phrase in bases[3]):
+                    if not any(phrase in line for phrase in bases[3]):
+                        if any(phrase in line for phrase in bases[2]):
                             validador = False
                             f = line.split()
-                            del f [0:1][2:6]
+                            del f [0:1][2:8]
                             for i, palabra in enumerate(f):
                                 if any(pharse in palabra for pharse in bases[6]):
                                     marcador = ('<mark>' + palabra + '</mark>')
