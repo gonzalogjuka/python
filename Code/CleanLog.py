@@ -52,19 +52,19 @@ def sub_menu_errores():
 
      generar_menu('Submenu',opciones,'3')
 def busqueda_logs():
-            bases[0]
-            bases[1]
-            bases[4]
+            bases[0] # palabras que queremos que esten
+            bases[1] # palabras que no queremos que esten
+            bases[4] # base de marcadores
             infile = askopenfilename()
             outfile = asksaveasfilename(defaultextension='.html',initialfile = "resultado_log",filetypes=[('all files','*.*')])
             with open(infile, "r") as inf, open(outfile, "w") as outf:
                 outf.write('{% extends "base.html" %} {% block title %} Welcome Morpheus {% endblock %}')
                 outf.write('{% block body %}')
                 for line in inf:               
-                    if not any(phrase in line for phrase in bases[0]): 
-                        if any(phrase in line for phrase in bases[1]):                            
+                    if not any(phrase in line for phrase in bases[1]): 
+                        if any(phrase in line for phrase in bases[0]):                            
                             f = line.split()
-                            del f [0:1]
+                            del f [0:1][2:3]
                             for i, palabra in enumerate(f):                                                         
                                 if any(pharse in palabra for pharse in bases[4]):
                                     marcador = ('<mark>' + palabra + '</mark>')
@@ -85,11 +85,11 @@ def busqueda_errores():
                 outf.write('{% extends "base.html" %} {% block title %} Welcome Morpheus {% endblock %}')
                 outf.write('{% block body %}')
                 for line in inf:
-                    if not any(phrase in line for phrase in bases[2]):
-                        if any(phrase in line for phrase in bases[3]):
+                    if not any(phrase in line for phrase in bases[3]):
+                        if any(phrase in line for phrase in bases[2]):
                             validador = False
                             f = line.split()
-                            del f [0:1]
+                            del f [0:1][2:3]
                             for i, palabra in enumerate(f):
                                 if any(pharse in palabra for pharse in bases[6]):
                                     marcador = ('<mark>' + palabra + '</mark>')
