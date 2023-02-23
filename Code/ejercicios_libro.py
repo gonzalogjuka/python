@@ -1070,13 +1070,36 @@ y = m[1]
 print(x)
 print(y)
 
+
+# para intercambiar tuplas podemos asignar los valores asi
+# tupla variable      # tupla de expresiones  
+a,b              =    b,a 
+
+a,b = 1,2,3 #wrong, tiene que ser iguales en cantidad de informacion
+
+dir = 'monty@python.com'
+nombre,dominio = dir.split('@') # crea 2 listas y le pasa como informacion 1 valor a cada una , una antes de split y otra despues
+print (nombre)
+print (dominio)
+
+
+d = {'a':10,'b':1,'c':22}
+t = list(d.items()) # enlistamos la infomacion de un diccionario por items
+t.sort()
+print(t)
+
+d = {'a':10,'b':1,'c':22}
+for clave,valor in list(d.items()): #1ª parametro string , 2do int, ver print
+    print(valor,clave) # esto se imprime por valor almacenado
+
+d = {'a':10,'b':1,'c':22}
+l = list()
+for clave,valor in d.items():
+    l.append((valor,clave))
+
+print(l)
+l.sort(reverse=True)
+print(l)
 """
-
-m = ['pasalo','bien']
-x = m[0]
-y = m[1]
-
-print(x)
-print(y)
 
 
