@@ -20,7 +20,8 @@ def parseador_log():
                     if not any(phrase in line for phrase in bases[1]):
                         if any(phrase in line for phrase in bases[0]):        
                             f = line.split()
-                            del f [0:1][2:6]
+                            del f [0:1]
+                            del f [1:4]
                             for i, palabra in enumerate(f):                                  
                                 if any(pharse in palabra for pharse in bases[4]):
                                     marcador = ('<mark>' + palabra + '</mark>')                                 
@@ -45,7 +46,8 @@ def parseador_errores():
                         if any(phrase in line for phrase in bases[2]):
                             validador = False
                             f = line.split()
-                            del f [0:1][2:8]
+                            del f [0:1]
+                            del f [1:4]
                             for i, palabra in enumerate(f):
                                 if any(pharse in palabra for pharse in bases[6]):
                                     marcador = ('<mark>' + palabra + '</mark>')
