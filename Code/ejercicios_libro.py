@@ -1100,7 +1100,6 @@ for clave,valor in d.items():
 print(l)
 l.sort(reverse=True)
 print(l)
-"""
 
 t = list()
 d = dict()
@@ -1120,6 +1119,9 @@ with open('1.txt', "r") as entrada, open('outfile.txt', "w") as salida:
         t.sort(reverse=True) # si no le pasas por parametro el orden, lo ejecuta por orden de lectura y lo printea
 
 print(t[:1]) # con este parametro mostramos los 10 mas grandes
+"""
+
+
 
 
                 
