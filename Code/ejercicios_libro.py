@@ -1102,4 +1102,8 @@ l.sort(reverse=True)
 print(l)
 """
 
+t = list()
+lector = open('1.txt','r')
+for i in lector:
+    # leer todo el dicioanrio y contar el numero de mensajes de cada user(email)
 
