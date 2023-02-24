@@ -1103,7 +1103,16 @@ print(l)
 """
 
 t = list()
-lector = open('1.txt','r')
-for i in lector:
-    # leer todo el dicioanrio y contar el numero de mensajes de cada user(email)
+d = dict()
+with open('1.txt', "r") as entrada, open('outfile.txt', "w") as salida:
+    for i in entrada:
+        if i.startswith('From:'):
+            i.split(':')
+            for x in i:
+                if i not in d:
+                    d[x] = 1
+                else:
+                    d[x] += 1
 
+    print(d)
+                
