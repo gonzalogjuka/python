@@ -1131,6 +1131,7 @@ with open('1.txt', "r") as entrada, open('outfile.txt', "w") as salida:
         if i.startswith('From'):
             separador=i.split()
             del separador[0:5]
+            del separador[1]
             for x in separador:
                 f = x.split(':')
                 for y in f:
