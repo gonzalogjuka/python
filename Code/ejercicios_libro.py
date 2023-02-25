@@ -1119,31 +1119,33 @@ with open('1.txt', "r") as entrada, open('outfile.txt', "w") as salida:
         t.sort(reverse=True) # si no le pasas por parametro el orden, lo ejecuta por orden de lectura y lo printea
 
 print(t[:1]) # con este parametro mostramos los 10 mas grandes
+
+
+filename = input('Nombre del archivo: ')
+fhand = open(filename,'r')
+d = dict()
+
+for i in fhand:
+    if i.startswith('From '):
+        tiempo = i.split()[3] # por tupla pasamos el parametro a recortar en ves de parsear y deletear el resto
+                              # adicionalmente nos trae la palabra en la ubicacion exacta
+        hora = tiempo.split(':')[0]
+        d[hora] = d.get(hora,0) + 1 # el .get busca en el diccionario y en esta ocacion le pasamos 2 parametros
+                                    # en primer parametro le pasmos la varialbe hora y si la misma es de valor 0 se le suma +1
+                                    # de esta manera se realiza un contador de datos para las lineas leidas
+
+
+t = list(d.items()) #en ves de iterar la lista para obtener los .items()
+                    # se lo podemos pasar como parametro directamente
+t.sort()
+for x in t:
+    print(x[0],x[1]) #podemos valor la clave valor con las ubicaciones de la lista
+#for clave,valor in d.items():
+ #   t.append((clave,valor))
+  #  t.sort(reverse=True)
 """
 
 
 
-t = list()
-d = dict()
-with open('1.txt', "r") as entrada, open('outfile.txt', "w") as salida:
-    
-    for i in entrada:
-        if i.startswith('From'):
-            separador=i.split()
-            del separador[0:5]
-            #del separador[0:1]
-            for x in separador:
-                f = x.split(':')
-                for y in f:
-                    if y not in f:                   
-                        d[y] = 1
-                    else:
-                        d[y] += 1
 
-    for clave,valor in list(d.items()):
-        t.append((valor,clave))
-        t.sort(reverse=True) # si no le pasas por parametro el orden, lo ejecuta por orden de lectura y lo printea
-
-
-print(t)
-                
+     
