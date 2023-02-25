@@ -1144,8 +1144,3 @@ for x in t:
  #   t.append((clave,valor))
   #  t.sort(reverse=True)
 """
-
-
-
-
-     
