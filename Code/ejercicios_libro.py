@@ -1123,5 +1123,26 @@ print(t[:1]) # con este parametro mostramos los 10 mas grandes
 
 
 
+t = list()
+d = dict()
+with open('1.txt', "r") as entrada, open('outfile.txt', "w") as salida:
+    
+    for i in entrada:
+        if i.startswith('From'):
+            separador=i.split()
+            del separador[0:5]
+            for x in separador:
+                f = x.split(':')
+                for y in f:
+                    if y not in f:                   
+                        d[y] = 1
+                    else:
+                        d[y] += 1
 
+    for clave,valor in list(d.items()):
+        t.append((valor,clave))
+        t.sort(reverse=True) # si no le pasas por parametro el orden, lo ejecuta por orden de lectura y lo printea
+
+
+print(t)
                 
