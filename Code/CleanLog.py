@@ -1,6 +1,7 @@
 from tkinter import Tk 
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 from ddbb import db
+import datetime
 # pyright: reportUnboundVariable=false
 
 bases = db()
@@ -64,6 +65,12 @@ def busqueda_logs():
                     if not any(phrase in line for phrase in bases[1]): 
                         if any(phrase in line for phrase in bases[0]):                            
                             f = line.split()
+                            fecha_hora = f[1]
+                            fecha_str, hora_str = fecha_hora.split("T")
+                            fecha = datetime.datetime.strptime(fecha_str, "%Y%m%d").strftime("%Y-%m-%d")
+                            hora = datetime.datetime.strptime(hora_str[:6], "%H%M%S").strftime("%H:%M:%S")
+                            fecha_hora_formateada = fecha + " " + hora
+                            f[1] = fecha_hora_formateada
                             del f [2:3]
                             del f [2:4]
                             for i, palabra in enumerate(f):                                                         
@@ -90,6 +97,12 @@ def busqueda_errores():
                         if any(phrase in line for phrase in bases[2]):
                             validador = False
                             f = line.split()
+                            fecha_hora = f[1]
+                            fecha_str, hora_str = fecha_hora.split("T")
+                            fecha = datetime.datetime.strptime(fecha_str, "%Y%m%d").strftime("%Y-%m-%d")
+                            hora = datetime.datetime.strptime(hora_str[:6], "%H%M%S").strftime("%H:%M:%S")
+                            fecha_hora_formateada = fecha + " " + hora
+                            f[1] = fecha_hora_formateada
                             del f [2:3]
                             del f [2:4]
                             for i, palabra in enumerate(f):
