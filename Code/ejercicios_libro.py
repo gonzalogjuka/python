@@ -1163,12 +1163,36 @@ lst.sort(reverse=True) # ordenamos de mayor a menor
 
 for valor,clave in lst: # recorremos la lista 
     print(clave,valor) # imprimmos la lista con los indicadores donde los nesecitemos
-"""
 
+
+    import re
+man = open('1.txt')
+for linea in man:
+    linea = linea.rstrip()
+    if re.search('^F..m:',linea): #sin el simbolo ^ busca todas las lineas que contengan From:
+        # ^From:
+        # From:
+                                  # con el caret ^ busca todas las lineas que empiezen por From: (alt+94)
+                                  # el .. significa que empieza con F y termina con m, la cantidad de ... representa a cantidad de caracteres
+        print(linea)
+
+        
 import re
 man = open('1.txt')
 for linea in man:
     linea = linea.rstrip()
-    if re.search('^From:',linea): #sin el simbolo ^ busca todas las lineas que contengan From:
-                                  # con el caret ^ busca todas las lineas que empiezen por From: (alt+94)
+    if re.search('^F..m:.+@',linea): # busqueda de lineas que empiezen con from y tengan un @
+                                     # coinciden con 0 o mas caracteres se usa el (.*)          
+                                     # coinciden con 1 o mas caracteres se usa el (.+) 
         print(linea)
+
+"""
+
+import re
+x = 'una nota de csa@umic.edu a asdasd@dwe.edu sobre una reunion @ 2PM'
+lst = re.findall(r'\S+@\S+',x) # para usar las concatenaciones \S+@ \S+ usamos el r antes de las ''
+                               # la \S+ coincide con caracteres distintos de un espacio (no se especifica la busqueda con el +)
+                               # se usa 2 expresionas que buscan cadenas que no sea un espacio en blanco seguido de un @ seguido de otro espacio en blanco
+                               # el \S se usa para espacios en blanco
+                               # el \S+ coincidira con caracteres distintos de un espacio sea posible
+print(lst)
