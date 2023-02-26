@@ -1143,4 +1143,25 @@ for x in t:
 #for clave,valor in d.items():
  #   t.append((clave,valor))
   #  t.sort(reverse=True)
+
+  archivo = open('outfile.txt','r')
+lector = archivo.read()
+diccio = dict()
+alfabeto = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'
+for i in lector.lower(): 
+    for x in alfabeto:
+        diccio[x] = diccio.get(x,0) + 1
+    
+
+print(diccio) 
+
+lst=[]
+for valor,clave in diccio:
+    lst.append((clave,valor)) # recorremos el diccionario y llenamos la lista
+
+lst.sort(reverse=True) # ordenamos de mayor a menor
+
+for valor,clave in lst: # recorremos la lista 
+    print(clave,valor) # imprimmos la lista con los indicadores donde los nesecitemos
 """
+
