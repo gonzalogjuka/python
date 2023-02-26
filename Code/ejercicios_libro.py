@@ -1165,3 +1165,10 @@ for valor,clave in lst: # recorremos la lista
     print(clave,valor) # imprimmos la lista con los indicadores donde los nesecitemos
 """
 
+import re
+man = open('1.txt')
+for linea in man:
+    linea = linea.rstrip()
+    if re.search('^From:',linea): #sin el simbolo ^ busca todas las lineas que contengan From:
+                                  # con el caret ^ busca todas las lineas que empiezen por From: (alt+94)
+        print(linea)
