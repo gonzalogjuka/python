@@ -1186,9 +1186,8 @@ for linea in man:
                                      # coinciden con 1 o mas caracteres se usa el (.+) 
         print(linea)
 
-"""
-
-import re
+        
+        import re
 x = 'una nota de csa@umic.edu a asdasd@dwe.edu sobre una reunion @ 2PM'
 lst = re.findall(r'\S+@\S+',x) # para usar las concatenaciones \S+@ \S+ usamos el r antes de las ''
                                # la \S+ coincide con caracteres distintos de un espacio (no se especifica la busqueda con el +)
@@ -1196,3 +1195,53 @@ lst = re.findall(r'\S+@\S+',x) # para usar las concatenaciones \S+@ \S+ usamos e
                                # el \S se usa para espacios en blanco
                                # el \S+ coincidira con caracteres distintos de un espacio sea posible
 print(lst)
+
+import re
+x = open('1.txt')
+for line in x:
+    line = line.rstrip() # borra los saltos de linea 
+    f = re.findall(r'[a-zA-Z0-9]\S*@\S*[a-zA-Z]', line) # si encuentra una coincidencia lo manda a la lista lo que esta entre []
+                                                    # es el conjunto de caracteres que queres aceptar como coincidencia
+    if len(f) > 0: # si hay informacion en la lista la imprime
+        print(f)
+
+        import re
+x = open('1.txt')
+for line in x:
+    line = line.rstrip()
+    if re.search(r'^X\S*: [0-9.]+',line): # buscamos lineas que comiencen con 'X' seguida de cualquier
+                                        # caracter que no sea espacio y ':' , seguido de un espacio y cualquier numero
+                                        # el numero incluye decimales
+   
+         print(line)
+
+import re
+x = open('1.txt')
+for line in x:
+    line = line.rstrip()
+    f= re.findall(r'^X\S*: ([0-9.]+)',line) # cuando se usa findall(), los parentesis en la expresion regular
+                                             # indica que aun que coincida , solo queremos extraer una parte de la subcadena
+                                             # que coincida con la expresion regular
+    if len(f) > 0:                                  
+        print(f)
+
+        import re
+x = open('1.txt')
+for line in x:
+    line = line.rstrip()
+    f= re.findall(r'^Details:.*rev=([0-9.]+)',line) # cuando se usa el .* o .+ es para indicar cualquier numero de caracter (0 o mas)                                           
+    if len(f) > 0:                                  
+        print(f)
+
+
+"""
+import re
+x = open('1.txt')
+for line in x:
+    line = line.rstrip()
+    f= re.findall(r'^From .* ([0-9][0-9]):([0-9][0-9])',line)
+    if len(f) > 0:
+        print(f[0][0]+':'+f[0][1]) # si tenemos 2 valores en el mismo indice usamos los sub indices como acontinuacion para unirlos o concatenarlos
+                # indice       #subindice         
+
+
