@@ -1134,8 +1134,8 @@ for i in fhand:
                                     # en primer parametro le pasmos la varialbe hora y si la misma es de valor 0 se le suma +1
                                     # de esta manera se realiza un contador de datos para las lineas leidas
 
-
-t = list(d.items()) #en ves de iterar la lista para obtener los .items()
+                                    
+                    t = list(d.items()) #en ves de iterar la lista para obtener los .items()
                     # se lo podemos pasar como parametro directamente
 t.sort()
 for x in t:
@@ -1143,6 +1143,9 @@ for x in t:
 #for clave,valor in d.items():
  #   t.append((clave,valor))
   #  t.sort(reverse=True)
+"""
+
+
 
 
 
