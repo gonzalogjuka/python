@@ -1242,6 +1242,6 @@ for line in x:
     f= re.findall(r'^From .* ([0-9][0-9]):([0-9][0-9])',line)
     if len(f) > 0:
         print(f[0][0]+':'+f[0][1]) # si tenemos 2 valores en el mismo indice usamos los sub indices como acontinuacion para unirlos o concatenarlos
-                # indice       #subindice         
+                # indice       #subindice       ok  
 
 
