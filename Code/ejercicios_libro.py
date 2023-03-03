@@ -1233,8 +1233,6 @@ for line in x:
     if len(f) > 0:                                  
         print(f)
 
-
-"""
 import re
 x = open('1.txt')
 for line in x:
@@ -1243,10 +1241,4 @@ for line in x:
     if len(f) > 0:
         print(f[0][0]+':'+f[0][1]) # si tenemos 2 valores en el mismo indice usamos los sub indices como acontinuacion para unirlos o concatenarlos
                 # indice       #subindice       ok  
-
-
-
-
-
-
-     
+"""
