@@ -1266,5 +1266,9 @@ print(y)
 # \B Concide con una cadena vacía, pero no al comienzo o al final de una palabra.
 # \d Coincide con cualquier dígito decimal; equivalente al conjunto [0-9].
 # \D Coincide con cualquier carácter que no sea un dígito; equivalente al conjunto [ˆ0-9].
+
+import re
+f = dir(re) # salen todos los metodos que se puede usar de la funcion importada
+print(f)
 """
 
