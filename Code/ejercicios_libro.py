@@ -1241,4 +1241,30 @@ for line in x:
     if len(f) > 0:
         print(f[0][0]+':'+f[0][1]) # si tenemos 2 valores en el mismo indice usamos los sub indices como acontinuacion para unirlos o concatenarlos
                 # indice       #subindice       ok  
+
+import re
+x = 'we justo $10.00 for merca'
+y = re.findall('\$[0-9.]+' ,x)   # cuando queremos hacer una coincidencia de caracter le anteponemos la \
+print(y)
+
+# ^ coincide con el comienzo de la linea
+# $ coincide con el final de la linea
+# . coincide con cualquier caracter (comodin)
+# \s coincide con un espacio en blanco
+# \S coincide con un caracter que no sea un espacio en blanco (el opuesto a \s)
+# * se aplica al caracter o caracteres inmediatamente anteriores, indicando que puede coincidir con cero o mas veces
+# *? Se aplica al carácter o caracteres inmediatamente anteriores, indicando quecoinciden cero o más veces en modo “no ambicioso”.
+# + Se aplica al carácter o caracteres inmediatamente anteriores, indicando que pueden coincidir una o más veces.
+# +? Se aplica al carácter o caracteres inmediatamente anteriores, indicando que pueden coincidir una o más veces en modo “no ambicioso”.
+# ? Se aplica al carácter o caracteres inmediatamente anteriores, indicando que puede coincidir cero o una vez.
+# ?? Se aplica al carácter o caracteres inmediatamente anteriores, indicando que puede coincidir cero o una vez en modo “no ambicioso”.
+# [aeiou] Coincide con un solo carácter, siempre que éste se encuentre dentro del conjunto especificado. En este caso, coincidiría con “a”, “e”, “i”, “o”, o “u”, pero no con otros caracteres.
+# [a-z0-9] Se pueden especificar rangos de caracteres utilizando el signo menos. En este caso, sería un solo carácter que debe ser una letra minúscula o un dígito.
+# [ˆA-Za-z] Cuando el primer carácter en la notación del conjunto es “ˆ”, invierte la lógica. En este ejemplo, habría coincidencia con un solo carácter que no sea una letra mayúscula o una letra minúscula.
+# ( ) Cuando se agregan paréntesis a una expresión regular, son ignorados para propósitos de encontrar coincidencias, pero permiten extraer un subconjunto determinado de la cadena en que se encuentra la coincidencia, en lugar de toda la cadena como cuando se utiliza findall().
+# \b Coincide con una cadena vacía, pero solo al comienzo o al final de una palabra.
+# \B Concide con una cadena vacía, pero no al comienzo o al final de una palabra.
+# \d Coincide con cualquier dígito decimal; equivalente al conjunto [0-9].
+# \D Coincide con cualquier carácter que no sea un dígito; equivalente al conjunto [ˆ0-9].
 """
+
