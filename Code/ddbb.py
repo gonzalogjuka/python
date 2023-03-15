@@ -38,14 +38,6 @@ def not_errors():
           x = lista_not_errors.append(x)  
      return lista_not_errors
 
-def error_marc():
-     archivo = open('marcador_errores.txt','r')
-     lista_marc_error = list ()
-     for line in archivo:
-          x = line.replace('\n','')
-          x = lista_marc_error.append(x)
-     return lista_marc_error
-
 def base_links():
      archivo = open('confluence_links.txt','r')
      lista_confluence_links = list ()
@@ -60,8 +52,7 @@ def db():
      not_log()           # base 1
      errores()           # base 2
      not_errors()        # base 3
-     log_marc()          # base 4
-     error_marc()        # base 5  
-     base_links()        # base 6
-     return[log(),not_log(),errores(),not_errors(),log_marc(),error_marc(),base_links()]
+     log_marc()          # base 4 
+     base_links()        # base 5
+     return[log(),not_log(),errores(),not_errors(),log_marc(),base_links()]
 
