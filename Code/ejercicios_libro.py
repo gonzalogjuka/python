@@ -1271,4 +1271,3 @@ import re
 f = dir(re) # salen todos los metodos que se puede usar de la funcion importada
 print(f)
 """
-
