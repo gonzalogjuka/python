@@ -112,4 +112,4 @@ def mostrar_errores():
     return render_template('contenido_errores.html')
      
 if __name__ == '__main__':
-    app.run(debug=True,port=5017)
+    app.run(port=5017)
