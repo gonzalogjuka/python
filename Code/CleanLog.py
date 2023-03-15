@@ -85,8 +85,7 @@ def busqueda_logs():
 def busqueda_errores():
             bases[2]  # palabras que queremos que esten
             bases[3]  # palabras que no queremos que esten
-            #bases[5] FUERA DE USO
-            bases[6]  # links de confluence
+            bases[5]  # links de confluence
             infile = askopenfilename()
             outfile = asksaveasfilename(defaultextension='.html',initialfile = "contenido_errores",filetypes=[('all files','*.*')])
             with open(infile, "r") as inf, open(outfile, "w") as outf:
@@ -106,7 +105,7 @@ def busqueda_errores():
                             del f [2:3]
                             del f [2:4]
                             for i, palabra in enumerate(f):
-                                if any(pharse in palabra for pharse in bases[6]):
+                                if any(pharse in palabra for pharse in bases[5]):
                                     marcador = ('<mark>' + palabra + '</mark>')
                                     f[i] = marcador
                                     validador = True
@@ -115,9 +114,9 @@ def busqueda_errores():
                             b = delimited.join(f)
                             if validador == True:                                       
                                 error = palabra
-                                if error in bases[6]:
-                                    indice = bases[6].index(palabra) + 1
-                                    resultado = bases[6][indice] #incide ok
+                                if error in bases[5]:
+                                    indice = bases[5].index(palabra) + 1
+                                    resultado = bases[5][indice] #incide ok
                                     outf.write('<h5><a href="'+ resultado +'">' + b + '</a></h5>')                                                             
                             else:
                                 outf.write('<h5>' + b + '</h5>')                            

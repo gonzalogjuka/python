@@ -40,9 +40,8 @@ def parseador_log():
                 outf.write('{% endblock %}')
 def parseador_errores():
             bases[2]  # palabras que queremos que esten
-            bases[3]  # palabras que no queremos que esten
-            #bases[5] FUERA DE USO
-            bases[6]  # links de confluence
+            bases[3]  # palabras que no queremos que esten          
+            bases[5]  # links de confluence
             infile = askopenfilename()
             outfile = asksaveasfilename(defaultextension='.html',initialfile = "contenido_errores",filetypes=[('all files','*.*')])
             with open(infile, "r") as inf, open(outfile, "w") as outf:
@@ -62,7 +61,7 @@ def parseador_errores():
                             del f [2:3]
                             del f [2:4]
                             for i, palabra in enumerate(f):
-                                if any(pharse in palabra for pharse in bases[6]):
+                                if any(pharse in palabra for pharse in bases[5]):
                                     marcador = ('<mark>' + palabra + '</mark>')
                                     f[i] = marcador
                                     validador = True
@@ -71,9 +70,9 @@ def parseador_errores():
                             b = delimited.join(f)
                             if validador == True:
                                 error = palabra
-                                if error in bases[6]:
-                                    indice = bases[6].index(palabra) + 1
-                                    resultado = bases[6][indice]
+                                if error in bases[5]:
+                                    indice = bases[5].index(palabra) + 1
+                                    resultado = bases[5][indice]
                                     outf.write('<h5><a href="'+ resultado +'">' + b + '</a></h5>')
                             else:
                                 outf.write('<h5>' + b + '</h5>')             
@@ -112,4 +111,4 @@ def mostrar_errores():
     return render_template('contenido_errores.html')
      
 if __name__ == '__main__':
-    app.run(port=5017)
+    app.run(debug=True,port=5017)
