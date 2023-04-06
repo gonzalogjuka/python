@@ -1,6 +1,6 @@
-# El nombre del repo
-Cosas Python
+# Log Cut
+El cortador de log's
 # Utilidad del mismo
-Tareas y progreso del mismo
+Corta Log's
 # Version
-0. 3
+1.0
