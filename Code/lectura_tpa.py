@@ -19,7 +19,5 @@ while True:
         print('Opción no válida. Por favor, ingrese una opción válida.')
 
 
-
-# hacer una boton de volver
 # una vez que toma la info correcta analizar tpa y anotar evt contarlos y mostrarlos (dar una preview de los eventos)
 # hacer seccion de resultados de los test (si tiene o no el resultado obtenido) y poner ok o fail
