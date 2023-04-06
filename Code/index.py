@@ -95,7 +95,6 @@ def resultado_log():
 def mostrar_log():
     return render_template('contenido_logs.html')
 
-
 @app.route('/errores')
 def busqueda_errores():
     return render_template('errores.html')
@@ -104,7 +103,6 @@ def busqueda_errores():
 def resultado_errores():
     parseador_errores()
     return render_template('contenido_errores.html')
-
 
 @app.route('/mostrar_errores')
 def mostrar_errores():
