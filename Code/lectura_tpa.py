@@ -13,7 +13,7 @@ while True:
         url_pos = "\\" + ip_pos + r"\e$\newpos61\posfile\logs"
         print('La IP elegida es: ' + ip_pos)
     elif opcion == '0':
-        print('Saliendo...')
+        print('Saliendo')
         break
     else:
         print('Opción no válida. Por favor, ingrese una opción válida.')
