@@ -1270,4 +1270,25 @@ print(y)
 import re
 f = dir(re) # salen todos los metodos que se puede usar de la funcion importada
 print(f)
+
+def sum_power(a, b, *, power=False):
+           # posicionales <- nominales
+    if power:
+        a **= 2  # el ** significa que esta elevado al cuadrado
+        b **= 2  # el ** significa que esta elevado al cuadrado
+    return a + b
+
+sum_power(3, 4, power=True)
+
+def sum_power(a, b, /, *, power=False):
+    if power:
+        a **= 2
+        b **= 2
+    return a + b
+
+
+sum_power(3, 4, power=True)  # Único modo posible de llamada
+25
+
 """
+
