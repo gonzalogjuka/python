@@ -1302,4 +1302,51 @@ for line in hand:
 
 print('mbox.txt had', count, 'lines that matched', search)
 
+
+
+import socket
+
+misocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+misocket.connect (('data.pr4e.org', 80)) # conexion al host atravez del puerto 80
+cmd = 'GET http://data.pr4e.org/romeo.txt HTTP/1.0\r\n\r\n' .encode() # el metodo GET requiere que lo enviemos seguido de una linea en blanco por eso los saltos \r\n x2 es equivalente a una linea en blanco
+misocket.send(cmd)
+
+while True:
+    datos = misocket.recv(512) # recie en bucle datos desde el socket en bloques de 512 caracteres
+    if len(datos) < 1:
+        break
+    print(datos.decode(), end='')
+
+misocket.close()
 """
+
+import socket   
+import time
+
+servidor='data.pr4e.org'
+puerto=80
+misock= socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+misock.connect((servidor,puerto))
+misock.sendall(b'GET http://data.pr4e.org/cover3.jpg HTTP/1.0\r\n\r\n')
+contador= 0
+imagen= b""
+
+while True:
+    datos = misock.recv(5120)
+    if len(datos) < 1: break
+    contador = contador + len(datos)
+    print(len(datos),contador)
+    imagen = imagen + datos
+
+misock.close()
+
+#busqueda del final de la cabecera 2 CRLF
+pos=imagen.find(b"\r\n\r\n")
+print('Header length' ,pos)
+print(imagen[:pos].decode())
+
+# ignorar la cabecera y guardar los datos de la imagen
+imagen = imagen[pos+4:]
+fhand = open("cosa.jgp","wb")
+fhand.write(imagen)
+fhand.close()
