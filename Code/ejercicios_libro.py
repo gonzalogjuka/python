@@ -1290,5 +1290,16 @@ def sum_power(a, b, /, *, power=False):
 sum_power(3, 4, power=True)  # Único modo posible de llamada
 25
 
-"""
 
+
+import re
+hand = open('mbox.txt')
+search = input('Enter a regular expression: ')
+count = 0
+for line in hand:
+    line = line.rstrip()
+    if re.search(search, line): count = count + 1
+
+print('mbox.txt had', count, 'lines that matched', search)
+
+"""
