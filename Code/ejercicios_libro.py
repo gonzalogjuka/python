@@ -1318,7 +1318,7 @@ while True:
     print(datos.decode(), end='')
 
 misocket.close()
-"""
+
 
 import socket   
 import time
@@ -1334,6 +1334,7 @@ imagen= b""
 while True:
     datos = misock.recv(5120)
     if len(datos) < 1: break
+    time.sleep(0.25)
     contador = contador + len(datos)
     print(len(datos),contador)
     imagen = imagen + datos
@@ -1350,3 +1351,41 @@ imagen = imagen[pos+4:]
 fhand = open("cosa.jgp","wb")
 fhand.write(imagen)
 fhand.close()
+
+
+import urllib.request
+
+man_a= urllib.request.urlopen('http://data.pr4e.org/romeo.txt')
+for linea in man_a:
+    print(linea.decode().strip())
+
+
+
+import urllib.request,urllib.parse,urllib.error
+
+man_a= urllib.request.urlopen('http://data.pr4e.org/romeo.txt')
+
+contadores=dict()
+for linea in man_a:
+    palabras = linea.decode().split()
+    for palabra in palabras:
+        contadores[palabra] = contadores.get(palabra,0) + 1
+
+print(contadores)
+
+import urllib.request,urllib.parse,urllib.error
+
+img = urllib.request.urlopen('http://data.pr4e.org/cover3.jpg')
+man_a = open('portada.jpg', 'wb')
+tamaño = 0
+while True:
+    info = img.read(100000)
+    if len(info) < 1: break
+    tamaño = tamaño + len(info)
+    man_a.write(info)
+
+print(tamaño,'caracteres copiados')
+man_a.close()
+
+
+"""
