@@ -1401,4 +1401,5 @@ an.grupo() # llama a la funcion
 an.grupo()
 an.grupo()  
 GrupoAnimal.grupo(an) # llama a la funcion de la clase y le pasa como parametro an
+# la palabra CLASS define una plantilla que indica que datos y codigo contendra cada objeto de tipo (GRUPOANIMAL)
    
