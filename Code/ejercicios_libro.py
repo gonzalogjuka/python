@@ -1395,11 +1395,13 @@ class GrupoAnimal:
     def grupo(self):
         self.x=self.x+1
         print("Hasta ahora" , self.x) 
-     
+        #plantilla de como seran los objetos del tipo de clase (GrupoAnimal)
+
+   
 an=GrupoAnimal() # llama a la clase que contiene la funcion
 an.grupo() # llama a la funcion
 an.grupo()
 an.grupo()  
 GrupoAnimal.grupo(an) # llama a la funcion de la clase y le pasa como parametro an
-# la palabra CLASS define una plantilla que indica que datos y codigo contendra cada objeto de tipo (GRUPOANIMAL)
+# la palabra CLASS define una plantilla que indica que datos y codigo contendra cada objeto de tipo (GrupoAnimal)
    
