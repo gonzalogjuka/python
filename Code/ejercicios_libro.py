@@ -1387,21 +1387,22 @@ while True:
 print(tamaño,'caracteres copiados')
 man_a.close()
 
-
-"""
-
 class GrupoAnimal:
     x=0
-    def grupo(self):
+    def grupo(self): # metodo
         self.x=self.x+1
         print("Hasta ahora" , self.x) 
         #plantilla de como seran los objetos del tipo de clase (GrupoAnimal)
 
    
-an=GrupoAnimal() # llama a la clase que contiene la funcion
+an=GrupoAnimal() # crea una objeto usando como plantilla la clase
 an.grupo() # llama a la funcion
 an.grupo()
 an.grupo()  
-GrupoAnimal.grupo(an) # llama a la funcion de la clase y le pasa como parametro an
+GrupoAnimal.grupo(an) # llama al objeto AN de la clase con su #metodo (GrupoAnimal.grupo)
 # la palabra CLASS define una plantilla que indica que datos y codigo contendra cada objeto de tipo (GrupoAnimal)
-   
+# tambien se puede llamar de forma resumida an.grupo() (por que es un objeto de la clase GrupoAnimal)
+
+"""
+
+
