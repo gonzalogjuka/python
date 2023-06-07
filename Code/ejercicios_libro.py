@@ -1405,4 +1405,45 @@ GrupoAnimal.grupo(an) # llama al objeto AN de la clase con su #metodo (GrupoAnim
 
 """
 
+class GrupoAnimal:
+    x=0
 
+    def __init__(self,age): # cuando creamos el objeto podemos configurar valores "iniciales"
+        self.age = age
+        print("Estoy Construido")
+    
+    def grupo(self):
+        self.x = self.x + 1
+        print("Hasta ahora" , self.x)
+
+    def __del__(self): # (Se ejecuta cuando no tiene mas instancias del objeto, este mismo es un finalizador del objeto {no destructor})
+        print("Estoy Destruido", self.x)
+
+
+an = GrupoAnimal(20) # creamos la instancia
+del an # destruimos el instancia
+#an.grupo() # llamada de la instancia ---- Este mismo nos da error ya que destruimos la instancia
+#an.grupo() # llamada de la instancia ---- Este mismo nos da error ya que destruimos la instancia
+an = 42 # asigna un nuevo valor reutilizando la variable, una vez ya destruido/finalizado (con la llamada __del__) el objeto y lo refiere como un tipo int
+print("An contiene", an)
+
+
+
+class GrupoAnimal1:
+    x=0
+
+    def __init__(self,): 
+        print("Estoy Construido") # inicia la configuracion
+    
+    def grupo(self):
+        self.x = self.x + 1
+        print("Hasta ahora" , self.x) # ejecuta la operacion
+
+    def __del__(self): 
+        print("Estoy Destruido", self.x) # finaliza la instancia
+
+an = GrupoAnimal1()
+an.grupo()
+an.grupo()
+an = "le cambio el valor"
+print("An contiene" , an)
