@@ -21,19 +21,18 @@ class VisualInterface:
         self.output_text.pack()
 
     def syntax_check(self):
-        code = self.output_text.get(1.0, tk.END)
+            code = self.output_text.get(1.0, tk.END)
+        
+            try:
+                ast.parse(code)
+                result = "El código tiene una sintaxis válida."
+            except SyntaxError as e:
+                result = f"Error de sintaxis: {str(e)}"
+        
+            self.output_text.delete(1.0, tk.END)
+            self.output_text.insert(tk.END, result)
+            self.output_text.insert(tk.END, "\nSe ha completado el chequeo de sintaxis.")
     
-        try:
-            ast.parse(code)
-            result = "El código tiene una sintaxis válida."
-        except SyntaxError as e:
-            result = f"Error de sintaxis: {str(e)}"
-    
-        self.output_text.delete(1.0, tk.END)
-        self.output_text.insert(tk.END, result)
-    
-        self.output_text.insert(tk.END, "\nSe ha completado el chequeo de sintaxis.")
-
 
     def security_check(self):
         code = self.output_text.get(1.0, tk.END)
