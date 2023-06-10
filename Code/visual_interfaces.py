@@ -1,6 +1,6 @@
 import tkinter as tk
 import tkinter.scrolledtext as scrolledtext
-from RestrictedPython import compile_restricted_exec
+import ast
 
 class VisualInterface:
     def __init__(self):
@@ -22,36 +22,42 @@ class VisualInterface:
 
     def syntax_check(self):
         code = self.output_text.get(1.0, tk.END)
+    
         try:
-            compile(code, filename='<string>', mode='exec')
+            ast.parse(code)
+            result = "El código tiene una sintaxis válida."
+        except SyntaxError as e:
+            result = f"Error de sintaxis: {str(e)}"
+    
+        self.output_text.delete(1.0, tk.END)
+        self.output_text.insert(tk.END, result)
+    
+        self.output_text.insert(tk.END, "\nSe ha completado el chequeo de sintaxis.")
+
+
+    def security_check(self):
+        code = self.output_text.get(1.0, tk.END)
+
+        # Medidas de seguridad a nivel de código
+
+        # 1. Validación de entradas
+        if "import" in code:
+            self.output_text.delete(1.0, tk.END)
+            self.output_text.insert(tk.END, "El código no debe contener la instrucción 'import'.")
+            return
+
+        # 2. Análisis del código utilizando la biblioteca 'ast'
+        try:
+            ast.parse(code)
             self.output_text.delete(1.0, tk.END)
             self.output_text.insert(tk.END, "El código tiene una sintaxis válida.")
         except SyntaxError as e:
             self.output_text.delete(1.0, tk.END)
             self.output_text.insert(tk.END, f"Error de sintaxis: {str(e)}")
 
-    def security_check(self):
-        code = self.output_text.get(1.0, tk.END)
-        
-        # Medidas de seguridad a nivel de código
-        
-        # 1. Validación de entradas
-        if "import" in code:
-            self.output_text.insert(tk.END, "El código no debe contener la instrucción 'import'.\n")
-        
-        # 2. Limitar permisos
-        
-        # 3. Implementar sandboxing
-        try:
-            compiled_code = compile_restricted_exec(code, '<string>')
-            exec(compiled_code.code, {})
-            self.output_text.insert(tk.END, "El código se ejecutó en un entorno aislado.\n")
-        except Exception as e:
-            self.output_text.insert(tk.END, f"Error de seguridad: {str(e)}\n")
-        
-        # 4. Revisiones de código
-        
-        self.output_text.insert(tk.END, "Se ha completado el chequeo de seguridad.\n")
+        # 3. Implementar otras restricciones de seguridad
+
+        self.output_text.insert(tk.END, "\nSe ha completado el chequeo de seguridad.")
 
     def run(self):
         self.window.mainloop()
