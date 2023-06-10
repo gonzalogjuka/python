@@ -5,37 +5,37 @@ import ast
 class VisualInterface:
     def __init__(self):
         self.window = tk.Tk()
-
-        self.menu_bar = tk.Menu(self.window)
-        self.window.config(menu=self.menu_bar)
-
-        self.syntax_menu = tk.Menu(self.menu_bar, tearoff=False)
-        self.menu_bar.add_cascade(label="Chequeo de Sintaxis", menu=self.syntax_menu)
-        self.syntax_menu.add_command(label="Verificar", command=self.syntax_check)
-
-        self.security_menu = tk.Menu(self.menu_bar, tearoff=False)
-        self.menu_bar.add_cascade(label="Chequeo de Seguridad", menu=self.security_menu)
-        self.security_menu.add_command(label="Verificar", command=self.security_check)
-
-        self.output_text = scrolledtext.ScrolledText(self.window, height=10, width=50)
+        self.window.title("Interfaz Visual")
+        self.syntax_checked = False  # Indicador de chequeo de sintaxis realizado
+        self.check_syntax_button = tk.Button(self.window, text="Chequeo de Sintaxis", command=self.syntax_check)
+        self.check_syntax_button.pack()
+        self.check_security_button = tk.Button(self.window, text="Chequeo de Seguridad", command=self.security_check)
+        self.check_security_button.pack()
+        self.run_checks_button = tk.Button(self.window, text="Ejecutar Chequeos", command=self.run_checks)
+        self.run_checks_button.pack()
+        self.output_text = tk.Text(self.window, height=10, width=50)
         self.output_text.pack()
 
     def syntax_check(self):
-            code = self.output_text.get(1.0, tk.END)
-        
+        code = self.get_code_text()
+
+        if self.syntax_checked:
+            self.output_text.delete(1.0, tk.END)
+            self.output_text.insert(tk.END, "El código ya ha sido chequeado.")
+        else:
             try:
-                ast.parse(code)
+                compile(code, "<string>", "exec")
                 result = "El código tiene una sintaxis válida."
             except SyntaxError as e:
                 result = f"Error de sintaxis: {str(e)}"
-        
+
             self.output_text.delete(1.0, tk.END)
-            self.output_text.insert(tk.END, result)
-            self.output_text.insert(tk.END, "\nSe ha completado el chequeo de sintaxis.")
-    
+            self.output_text.insert(tk.END, "Resultado del chequeo de sintaxis" + "\n")
+            self.output_text.insert(tk.END, result + "\n")
+            self.syntax_checked = True
 
     def security_check(self):
-        code = self.output_text.get(1.0, tk.END)
+        code = self.get_code_text()
 
         # Medidas de seguridad a nivel de código
 
@@ -47,7 +47,7 @@ class VisualInterface:
 
         # 2. Análisis del código utilizando la biblioteca 'ast'
         try:
-            ast.parse(code)
+            compile(code, "<string>", "exec")
             self.output_text.delete(1.0, tk.END)
             self.output_text.insert(tk.END, "El código tiene una sintaxis válida.")
         except SyntaxError as e:
@@ -56,11 +56,18 @@ class VisualInterface:
 
         # 3. Implementar otras restricciones de seguridad
 
-        self.output_text.insert(tk.END, "\nSe ha completado el chequeo de seguridad.")
+        result = "Resultado del chequeo de seguridad"
+        self.output_text.insert(tk.END, result + "\n")
+
+    def run_checks(self):
+        self.syntax_check()
+        self.security_check()
 
     def run(self):
         self.window.mainloop()
 
-if __name__ == "__main__":
-    interface = VisualInterface()
-    interface.run()
+    def get_code_text(self):
+        return self.output_text.get(1.0, tk.END).strip()
+
+interface = VisualInterface()
+interface.run()
