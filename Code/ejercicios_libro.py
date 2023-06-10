@@ -1403,7 +1403,7 @@ GrupoAnimal.grupo(an) # llama al objeto AN de la clase con su #metodo (GrupoAnim
 # la palabra CLASS define una plantilla que indica que datos y codigo contendra cada objeto de tipo (GrupoAnimal)
 # tambien se puede llamar de forma resumida an.grupo() (por que es un objeto de la clase GrupoAnimal)
 
-"""
+
 
 class GrupoAnimal:
     x=0
@@ -1447,3 +1447,5 @@ an.grupo()
 an.grupo()
 an = "le cambio el valor"
 print("An contiene" , an)
+
+"""
