@@ -22,12 +22,19 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.tab_widget)
         self.create_menu()
         self.setGeometry(100, 100, 800, 600)
+        self.setWindowTitle("Report-App")
+
 
     def create_menu(self):
         new_action = QAction("Nueva Pestaña", self)
+        new_action2= QAction("Nuevo Menu", self)
+        #arreglar el menu
         new_action.triggered.connect(self.create_new_tab)
+        new_action2.triggered.connect(self.create_menu)
 
         file_menu = self.menuBar().addMenu("Archivo")
+        fila_2 = self.menuBar().addMenu("Scripts")
+        fila_2.addAction(new_action2)
         file_menu.addAction(new_action)
 
     def create_new_tab(self):
