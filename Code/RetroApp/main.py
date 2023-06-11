@@ -2,8 +2,6 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QWidget, QAct
 from PyQt5 import Qsci
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QFrame, QTextEdit
 import sys
-import sqlalchemy
-from sqlalchemy import exc
 import ast
 
 
@@ -64,7 +62,6 @@ class QuerySection(QWidget):
         self.main_layout.addWidget(self.query_editor)
         self.main_layout.addWidget(self.execute_button)
         self.main_layout.addWidget(self.result_viewer)
-
         self.execute_button.clicked.connect(self.execute_query)
 
     def execute_query(self):
@@ -77,7 +74,7 @@ class QuerySection(QWidget):
 
         try:
             # Lógica para ejecutar la consulta y obtener el resultado
-            result = execute_query_function(query)
+            result = execute_query_python(query)
 
             if result is not None:
                 # Mostrar el resultado en la ventana de Resultado
@@ -130,49 +127,20 @@ def is_python_code(code):
         return True
     except SyntaxError:
         return False
+    
+    # SI FALLA QUE no se tilde el sistema y de el codigo de error por la salida
 
 def execute_query_python(code):
     try:
         # Ejecutar el código de Python
         result = eval(code)
-
         return result
 
     except Exception as e:
         # Manejar cualquier error durante la ejecución del código
         raise e
 
-def execute_query_sql(query):
-    try:
-        # Establecer la conexión con la base de datos
-        engine = sqlalchemy.create_engine("your-database-connection-string")
-        connection = engine.connect()
-
-        # Ejecutar la consulta SQL
-        result = connection.execute(query)
-
-        # Obtener los resultados
-        data = result.fetchall()
-
-        # Cerrar la conexión
-        connection.close()
-
-        return data
-
-    except exc.SQLAlchemyError as e:
-        # Manejar cualquier error de SQLAlchemy
-        raise e
-    
-
-
-def execute_query_function(code):
-    if is_python_code(code):
-        # Código de Python
-        return execute_query_python(code)
-    else:
-        # Consulta SQL
-        return execute_query_sql(code)
-
+# Poner un boton para elegir el lenguaje y conectar a la base de datos por medio de ese boton
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

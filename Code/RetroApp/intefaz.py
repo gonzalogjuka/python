@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QWidget, QAct
 from PyQt5 import Qsci
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QFrame, QTextEdit
 import sys
-
+import ast
 
 class CloseableTabWidget(QTabWidget):
     def __init__(self, parent=None):
@@ -15,7 +15,9 @@ class CloseableTabWidget(QTabWidget):
         if widget is not None:
             widget.deleteLater()
         self.removeTab(index)
+        
 class QueryEditor(QWidget):
+
     def __init__(self, parent=None):
         super().__init__(parent)
         self.main_layout = QVBoxLayout(self)
@@ -35,7 +37,9 @@ class QueryEditor(QWidget):
         self.main_layout.addWidget(self.editor)
         self.setFixedHeight(130)  # Establecer la altura deseada
 
-
+    def get_query(self):
+        return self.editor.text()
+    
 class ResultViewer(QFrame):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -50,23 +54,34 @@ class ResultViewer(QFrame):
 class QuerySection(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
-        layout = QVBoxLayout(self)
+        self.main_layout = QVBoxLayout(self)
         self.query_editor = QueryEditor(self)
         self.execute_button = QPushButton("Ejecutar")
         self.result_viewer = ResultViewer(self)
-        layout.addWidget(self.query_editor)
-        layout.addWidget(self.execute_button)
-        layout.addWidget(self.result_viewer)
-
+        self.main_layout.addWidget(self.query_editor)
+        self.main_layout.addWidget(self.execute_button)
+        self.main_layout.addWidget(self.result_viewer)
         self.execute_button.clicked.connect(self.execute_query)
 
-
     def execute_query(self):
-        query = self.query_editor.editor.text()
-        # Aquí puedes realizar la ejecución de la consulta y obtener el resultado
-        result = "Resultado de la consulta"
+        query = self.query_editor.get_query()
 
-        self.result_viewer.result_text.setText(result)
+        if not query:
+            # No se ingresó ninguna consulta
+            self.result_viewer.show_error("Error: No se ingresó ninguna consulta.")
+            return
+
+        try:
+            # Lógica para ejecutar la consulta y obtener el resultado
+            result = execute_query_python(query)
+
+            if result is not None:
+                # Mostrar el resultado en la ventana de Resultado
+                self.result_viewer.show_result(result)
+
+        except Exception as e:
+            # Manejo de errores durante la ejecución de la consulta
+            self.result_viewer.show_error(f"Error: {str(e)}")
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -105,6 +120,26 @@ class MainWindow(QMainWindow):
         if current_index != -1:
             self.tab_widget.close_tab(current_index)
 
+def is_python_code(code):
+    try:
+        ast.parse(code)
+        return True
+    except SyntaxError:
+        return False
+    
+    # SI FALLA QUE no se tilde el sistema y de el codigo de error por la salida
+
+def execute_query_python(code):
+    try:
+        # Ejecutar el código de Python
+        result = eval(code)
+        return result
+
+    except Exception as e:
+        # Manejar cualquier error durante la ejecución del código
+        raise e
+
+# Poner un boton para elegir el lenguaje y conectar a la base de datos por medio de ese boton
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
