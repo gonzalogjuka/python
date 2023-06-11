@@ -1,5 +1,4 @@
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QWidget, QAction, QFileDialog, QVBoxLayout, QVBoxLayout, QPushButton, QLabel
-from PyQt5.QtGui import QColor, QFont
 from PyQt5 import Qsci
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QFrame, QTextEdit
 import sys
@@ -16,19 +15,26 @@ class CloseableTabWidget(QTabWidget):
         if widget is not None:
             widget.deleteLater()
         self.removeTab(index)
-
 class QueryEditor(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.main_layout = QVBoxLayout(self)
         self.editor = Qsci.QsciScintilla(self)
-        self.editor.setLexer(Qsci.QsciLexerPython())  # Establecer corrector de Python
+
+        # Establecer corrector de Python
+        python_lexer = Qsci.QsciLexerPython()
+        self.editor.setLexer(python_lexer)
+        # Establecer corrector de SQL
+        sql_lexer = Qsci.QsciLexerSQL()
+        self.editor.setLexer(sql_lexer)
+
         self.editor.setMarginWidth(0, "000")  # Números de línea a la izquierda
         self.editor.setMarginLineNumbers(0, True)
         self.editor.setFolding(Qsci.QsciScintilla.BoxedFoldStyle)
         self.editor.setBraceMatching(Qsci.QsciScintilla.SloppyBraceMatch)
         self.main_layout.addWidget(self.editor)
-        self.setFixedHeight(150)  # Establecer la altura deseada
+        self.setFixedHeight(130)  # Establecer la altura deseada
+
 
 class ResultViewer(QFrame):
     def __init__(self, parent=None):
