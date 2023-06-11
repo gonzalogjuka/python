@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QWidget, QAction, QFileDialog, QVBoxLayout, QVBoxLayout, QPushButton, QLabel
 from PyQt5.QtGui import QColor, QFont
 from PyQt5 import Qsci
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton
+from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QFrame, QTextEdit
 import sys
 
 
@@ -30,28 +30,30 @@ class QueryEditor(QWidget):
         self.main_layout.addWidget(self.editor)
         self.setFixedHeight(150)  # Establecer la altura deseada
 
-
-class ResultViewer(QWidget):
+class ResultViewer(QFrame):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.main_layout = QVBoxLayout(self)
-        self.result_label = QLabel("Resultado:")
-        self.result_text = QLabel("")
-        self.main_layout.addWidget(self.result_label)
-        self.main_layout.addWidget(self.result_text)
-
+        self.setFrameShape(QFrame.Box)
+        self.setLineWidth(1)
+        layout = QVBoxLayout(self)
+        self.result_label = QLabel("Resultado")
+        self.result_text = QTextEdit()
+        layout.addWidget(self.result_label)
+        layout.addWidget(self.result_text)
 
 class QuerySection(QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.main_layout = QVBoxLayout(self)
+        layout = QVBoxLayout(self)
         self.query_editor = QueryEditor(self)
         self.execute_button = QPushButton("Ejecutar")
         self.result_viewer = ResultViewer(self)
-        self.main_layout.addWidget(self.query_editor)
-        self.main_layout.addWidget(self.execute_button)
-        self.main_layout.addWidget(self.result_viewer)
+        layout.addWidget(self.query_editor)
+        layout.addWidget(self.execute_button)
+        layout.addWidget(self.result_viewer)
+
         self.execute_button.clicked.connect(self.execute_query)
+
 
     def execute_query(self):
         query = self.query_editor.editor.text()
