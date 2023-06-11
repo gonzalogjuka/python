@@ -1,50 +1,44 @@
+from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QVBoxLayout, QWidget, QAction
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QWidget, QVBoxLayout, QTextEdit, QAction
 
 
-class TabWidget(QTabWidget):
-    def __init__(self):
-        super().__init__()
+class CloseableTabWidget(QTabWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setTabsClosable(True)
+        self.tabCloseRequested.connect(self.close_tab)
 
-    def tabCloseRequested(self, index):
-        # Cerrar la pestaña
+    def close_tab(self, index):
+        widget = self.widget(index)
+        if widget is not None:
+            widget.deleteLater()
         self.removeTab(index)
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Retro App")
-        self.setGeometry(100, 100, 800, 600)
-        self.tab_widget = TabWidget()
+        self.tab_widget = CloseableTabWidget()
         self.setCentralWidget(self.tab_widget)
-        self.tab_counter = 1
-
-        self.create_new_tab()  # Crear la primera pestaña al iniciar la aplicación
-
         self.create_menu()
-
-    def create_new_tab(self):
-        # Crear una nueva pestaña
-        tab = QWidget()
-        self.tab_widget.addTab(tab, f'Pestaña {self.tab_counter}')
-
-        # Agregar el contenido a la pestaña
-        layout = QVBoxLayout(tab)
-        text_edit = QTextEdit()
-        layout.addWidget(text_edit)
-
-        # Incrementar el contador de pestañas
-        self.tab_counter += 1
+        self.setGeometry(100, 100, 800, 600)
 
     def create_menu(self):
-        # Crear el menú
-        menubar = self.menuBar()
-        file_menu = menubar.addMenu("Archivo")
-
-        new_action = QAction("Nuevo", self)
+        new_action = QAction("Nueva Pestaña", self)
         new_action.triggered.connect(self.create_new_tab)
+
+        file_menu = self.menuBar().addMenu("Archivo")
         file_menu.addAction(new_action)
+
+    def create_new_tab(self):
+        new_tab = QWidget()
+        layout = QVBoxLayout(new_tab)
+        self.tab_widget.addTab(new_tab, f'Pestaña {self.tab_widget.count()}')
+
+    def close_current_tab(self):
+        current_index = self.tab_widget.currentIndex()
+        if current_index != -1:
+            self.tab_widget.close_tab(current_index)
 
 
 if __name__ == "__main__":
