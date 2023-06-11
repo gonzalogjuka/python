@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QWidget, QAction
+from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QWidget, QAction, QFileDialog
 import sys
 
 
@@ -24,13 +24,12 @@ class MainWindow(QMainWindow):
         self.setGeometry(100, 100, 800, 600)
         self.setWindowTitle("Report-App")
 
-
     def create_menu(self):
-        ventana_archivo= QAction("Nueva Pestaña", self)
-        ventana_script= QAction("Buscar Script", self)
+        ventana_archivo = QAction("Nueva Pestaña", self)
+        ventana_script = QAction("Buscar Script", self)
 
         ventana_archivo.triggered.connect(self.create_new_tab)
-        ventana_script.triggered.connect(self.create_new_tab)
+        ventana_script.triggered.connect(self.open_file_dialog)
 
         file_menu = self.menuBar().addMenu("Archivo")
         fila_2 = self.menuBar().addMenu("Scripts")
@@ -40,8 +39,13 @@ class MainWindow(QMainWindow):
 
     def create_new_tab(self):
         new_tab = QWidget()
-        # layout = QVBoxLayout(new_tab)
         self.tab_widget.addTab(new_tab, f'Pestaña {self.tab_widget.count()}')
+
+    def open_file_dialog(self):
+        file_dialog = QFileDialog()
+        file_path, _ = file_dialog.getOpenFileName(self, "Seleccionar archivo", "", "Archivos de texto (*.txt)")
+        if file_path:
+            print(f"Archivo seleccionado: {file_path}")
 
     def close_current_tab(self):
         current_index = self.tab_widget.currentIndex()
