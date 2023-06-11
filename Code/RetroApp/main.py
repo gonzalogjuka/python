@@ -1,4 +1,6 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QWidget, QAction, QFileDialog
+from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QWidget, QAction, QFileDialog, QGridLayout, QGroupBox, QVBoxLayout, QPushButton, QTextEdit
+from PyQt5.QtGui import QFont
+from PyQt5.Qsci import QsciScintilla, QsciLexerPython
 import sys
 
 
@@ -13,6 +15,16 @@ class CloseableTabWidget(QTabWidget):
         if widget is not None:
             widget.deleteLater()
         self.removeTab(index)
+
+
+class QueryEditor(QsciScintilla):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setLexer(QsciLexerPython())
+        self.setFont(QFont("Courier New", 11))
+        self.setAutoCompletionThreshold(2)
+        self.setAutoCompletionSource(QsciScintilla.AcsAll)
+        self.setAutoCompletionCaseSensitivity(False)
 
 
 class MainWindow(QMainWindow):
@@ -39,6 +51,24 @@ class MainWindow(QMainWindow):
 
     def create_new_tab(self):
         new_tab = QWidget()
+        layout = QGridLayout(new_tab)
+
+        # Crear el grupo para el área de consultas
+        group_box = QGroupBox("Consulta")
+        group_layout = QVBoxLayout()
+        
+        # Crear un área de texto para la consulta
+        text_edit = QTextEdit()
+        group_layout.addWidget(text_edit)
+        
+        # Crear un botón para ejecutar la consulta
+        execute_button = QPushButton("Ejecutar")
+        group_layout.addWidget(execute_button)
+        
+        group_box.setLayout(group_layout)
+
+
+        layout.addWidget(group_box)
         self.tab_widget.addTab(new_tab, f'Pestaña {self.tab_widget.count()}')
 
     def open_file_dialog(self):
