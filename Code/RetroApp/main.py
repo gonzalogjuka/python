@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QVBoxLayout, QWidget, QAction
+from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QWidget, QAction
 import sys
 
 
@@ -26,20 +26,21 @@ class MainWindow(QMainWindow):
 
 
     def create_menu(self):
-        new_action = QAction("Nueva Pestaña", self)
-        new_action2= QAction("Nuevo Menu", self)
-        #arreglar el menu
-        new_action.triggered.connect(self.create_new_tab)
-        new_action2.triggered.connect(self.create_menu)
+        ventana_archivo= QAction("Nueva Pestaña", self)
+        ventana_script= QAction("Buscar Script", self)
+
+        ventana_archivo.triggered.connect(self.create_new_tab)
+        ventana_script.triggered.connect(self.create_new_tab)
 
         file_menu = self.menuBar().addMenu("Archivo")
         fila_2 = self.menuBar().addMenu("Scripts")
-        fila_2.addAction(new_action2)
-        file_menu.addAction(new_action)
+
+        fila_2.addAction(ventana_script)
+        file_menu.addAction(ventana_archivo)
 
     def create_new_tab(self):
         new_tab = QWidget()
-        layout = QVBoxLayout(new_tab)
+        # layout = QVBoxLayout(new_tab)
         self.tab_widget.addTab(new_tab, f'Pestaña {self.tab_widget.count()}')
 
     def close_current_tab(self):
