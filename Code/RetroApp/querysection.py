@@ -1,12 +1,25 @@
-import sqlalchemy,ast
+from PyQt5.QtWidgets import QWidget, QVBoxLayout,QPushButton
+from resultviewer import ResultViewer
+from queryeditor import QueryEditor
+from sqlalchemy import create_engine
 from pymysql import Connection
+import ast
 
 
-class DatabaseManager:
-    def __init__(self):
+class QuerySection(QWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
         self.connection_config = None
         self.engine = None
         self.connection = None
+        self.main_layout = QVBoxLayout(self)
+        self.query_editor = QueryEditor(self)
+        self.execute_button = QPushButton("Ejecutar")
+        self.result_viewer = ResultViewer(self)
+        self.main_layout.addWidget(self.query_editor)
+        self.main_layout.addWidget(self.execute_button)
+        self.main_layout.addWidget(self.result_viewer)
+        self.execute_button.clicked.connect(self.execute_query)
 
     def set_connection_config(self, host, database, username, password):
         self.connection_config = {
@@ -20,7 +33,7 @@ class DatabaseManager:
         if self.connection_config:
             # Crear el objeto Engine y establecer la conexión a la base de datos
             connection_string = f"mysql+pymysql://{self.connection_config['username']}:{self.connection_config['password']}@{self.connection_config['host']}/{self.connection_config['database']}"
-            self.engine = sqlalchemy.create_engine(connection_string)
+            self.engine = create_engine(connection_string)
             self.connection = self.engine.connect()
             print('Conexión exitosa')
         else:
@@ -34,7 +47,9 @@ class DatabaseManager:
             error_message = str(e)
             return error_message
 
-    def execute_query(self, query):
+    def execute_query(self):
+        query = self.query_editor.get_query()
+
         if not query:
             # No se ingresó ninguna consulta
             print("Error: No se ingresó ninguna consulta.")
