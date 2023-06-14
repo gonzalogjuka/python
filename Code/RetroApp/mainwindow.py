@@ -1,6 +1,8 @@
-from PyQt5.QtWidgets import QMainWindow, QTabWidget, QAction, QWidget, QVBoxLayout
+from PyQt5.QtWidgets import QMainWindow, QFileDialog, QAction, QWidget, QVBoxLayout
 from database import DatabaseManager
 from querysection import QuerySection
+from closeabletabwidget import CloseableTabWidget
+
 
 
 class MainWindow(QMainWindow):
