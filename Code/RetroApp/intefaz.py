@@ -1,9 +1,9 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QAction, QFileDialog, QVBoxLayout, QLabel, QWidget, QVBoxLayout, QPushButton, QFrame, QTextEdit,QMessageBox
+from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QAction, QFileDialog, QLabel, QWidget, QVBoxLayout, QFrame, QTextEdit
 from PyQt5 import Qsci
-from PyQt5.QtCore import Qt
-import sys
-import ast,logging
+import sys,ast,sqlalchemy
 from database import DatabaseManager
+from pymysql import Connection
+
 
 class CloseableTabWidget(QTabWidget):
     def __init__(self, parent=None):
@@ -15,7 +15,9 @@ class CloseableTabWidget(QTabWidget):
         widget = self.widget(index)
         if widget is not None:
             widget.deleteLater()
-        self.removeTab(index)       
+        self.removeTab(index)  
+
+
 class QueryEditor(QWidget):
 
     def __init__(self, parent=None):
@@ -39,6 +41,8 @@ class QueryEditor(QWidget):
 
     def get_query(self):
         return self.editor.text()   
+    
+
 class ResultViewer(QFrame):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -49,79 +53,14 @@ class ResultViewer(QFrame):
         self.result_text = QTextEdit()
         layout.addWidget(self.result_label)
         layout.addWidget(self.result_text)
-class QuerySection(QWidget): 
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.main_layout = QVBoxLayout(self)
-        self.query_editor = QueryEditor(self)
-        self.execute_button = QPushButton("Ejecutar")
-        self.result_viewer = ResultViewer(self)
-        self.status_label = QLabel("Listo")
-        self.main_layout.addWidget(self.query_editor)
-        self.main_layout.addWidget(self.execute_button)
-        self.main_layout.addWidget(self.result_viewer)
-        self.main_layout.addWidget(self.status_label)
-        self.execute_button.clicked.connect(self.execute_query)
 
-    def execute_query(self):
-        query = self.query_editor.get_query()
+    def show_result(self, result):
+        self.result_text.setText(result)
 
-        if not query:
-            # No se ingresó ninguna consulta
-            self.result_viewer.show_error("Error: No se ingresó ninguna consulta.")
-            return
+    def clear_result(self):
+        self.result_text.clear()  
 
-        if not is_valid_syntax(query):
-            # La sintaxis de la consulta es inválida
-            self.result_viewer.show_error("Error: Sintaxis inválida en la consulta.")
-            return
 
-        try:
-            # Lógica para ejecutar la consulta y obtener el resultado
-            result = execute_query(query)
-
-            if result is not None:
-                # Mostrar el resultado en la ventana de Resultado
-                self.result_viewer.show_result(result)
-
-            # Actualizar el mensaje de estado
-            self.status_label.setText("Consulta ejecutada correctamente")
-
-        except Exception as e:
-            # Manejo de errores durante la ejecución de la consulta
-            error_message = str(e)
-            self.result_viewer.show_error(f"Error durante la ejecución de la consulta: {error_message}")
-            self.status_label.setText("Error en la consulta")
-
-            # Guardar el error en un log
-            logging.error(f"Error durante la ejecución de la consulta:\n{error_message}")
-
-    def show_error_message(self, message):
-        error_dialog = QMessageBox()
-        error_dialog.setIcon(QMessageBox.Critical)
-        error_dialog.setWindowTitle("Error")
-        error_dialog.setText(message)
-        error_dialog.exec_()
-
-def is_valid_syntax(code):
-    try:
-        ast.parse(code)
-        return True
-    except SyntaxError:
-        return False
-
-def execute_query(query):
-    try:
-        # Lógica para ejecutar la consulta en la base de datos
-        # ...
-
-        # Ejemplo: Simplemente devolver la consulta ejecutada
-        return f"Consulta ejecutada: {query}"
-
-    except Exception as e:
-        # Manejo de errores durante la ejecución de la consulta
-        error_message = str(e)
-        raise Exception(f"Error durante la ejecución de la consulta: {error_message}")
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -179,11 +118,95 @@ class MainWindow(QMainWindow):
         # Conectar a la base de datos
         db_manager.connect()
 
-# SI FALLA QUE no se tilde el sistema y de el codigo de error por la salida
-# Poner un boton para elegir el lenguaje y conectar a la base de datos por medio de ese boton
+
+class QuerySection(QWidget):
+    def __init__(self):
+        self.connection_config = None
+        self.engine = None
+        self.connection = None
+
+    def set_connection_config(self, host, database, username, password):
+        self.connection_config = {
+            'host': host,
+            'database': database,
+            'username': username,
+            'password': password
+        }
+
+    def connect(self):
+        if self.connection_config:
+            # Crear el objeto Engine y establecer la conexión a la base de datos
+            connection_string = f"mysql+pymysql://{self.connection_config['username']}:{self.connection_config['password']}@{self.connection_config['host']}/{self.connection_config['database']}"
+            self.engine = sqlalchemy.create_engine(connection_string)
+            self.connection = self.engine.connect()
+            print('Conexión exitosa')
+        else:
+            print('Configuración de conexión no establecida')
+
+    def is_valid_syntax(self, code):
+        try:
+            ast.parse(code)
+            return True
+        except SyntaxError as e:
+            error_message = str(e)
+            return error_message
+
+    def execute_query(self, query):
+        if not query:
+            # No se ingresó ninguna consulta
+            print("Error: No se ingresó ninguna consulta.")
+            return
+
+        # Verificar la sintaxis de la consulta
+        syntax_error = self.is_valid_syntax(query)
+        if syntax_error:
+            # Mostrar el mensaje de error de sintaxis en la aplicación
+            print(f"Error de sintaxis: {syntax_error}")
+            return
+
+        try:
+            # Lógica para ejecutar la consulta y obtener el resultado
+            result = self.execute_query_python(query)
+
+            if result is not None:
+                # Mostrar el resultado
+                print(result)
+
+        except Exception as e:
+            # Manejo de errores durante la ejecución de la consulta
+            print(f"Error: {str(e)}")
+
+    def execute_query_python(self, query):
+        if isinstance(self.connection, Connection):
+            try:
+                # Crear un cursor para ejecutar consultas
+                cursor = self.connection.cursor()
+
+                # Ejecutar la consulta
+                cursor.execute(query)
+
+                # Obtener el resultado de la consulta
+                result = cursor.fetchall()
+
+                # Cerrar el cursor
+                cursor.close()
+
+                return result
+
+            except Exception as e:
+            # Manejar cualquier error durante la ejecución de la consulta
+                raise Exception(f"Error en la consulta: {str(e)}")
+        else:
+            print('No hay una conexión establecida a la base de datos')
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
     sys.exit(app.exec_())
+
+
+# SI FALLA QUE no se tilde el sistema y de el codigo de error por la salida
+# Poner un boton para elegir el lenguaje
+# conectar a la base de datos por medio de ese boton
