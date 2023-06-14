@@ -7,11 +7,12 @@ import ast
 
 
 class QuerySection(QWidget):
-    def __init__(self, parent=None):
-        super().__init__(parent)
+    def __init__(self, main_window):
+        super().__init__(main_window)
         self.connection_config = None
         self.engine = None
         self.connection = None
+        self.main_window = main_window
         self.main_layout = QVBoxLayout(self)
         self.query_editor = QueryEditor(self)
         self.execute_button = QPushButton("Ejecutar")
@@ -47,9 +48,9 @@ class QuerySection(QWidget):
             error_message = str(e)
             return error_message
 
-    def execute_query(self):
+    def execute_query(self, query):
         query = self.query_editor.get_query()
-
+        
         if not query:
             # No se ingresó ninguna consulta
             print("Error: No se ingresó ninguna consulta.")
@@ -59,7 +60,8 @@ class QuerySection(QWidget):
         syntax_error = self.is_valid_syntax(query)
         if syntax_error:
             # Mostrar el mensaje de error de sintaxis en la aplicación
-            print(f"Error de sintaxis: {syntax_error}")
+            self.main_window.show_error_message(syntax_error)
+            #print(f"Error de sintaxis: {syntax_error}")
             return
 
         try:

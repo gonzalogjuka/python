@@ -1,9 +1,7 @@
-from PyQt5.QtWidgets import QMainWindow, QFileDialog, QAction, QWidget, QVBoxLayout
+from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QAction, QFileDialog, QLabel, QWidget, QVBoxLayout, QFrame, QTextEdit, QStatusBar
 from database import DatabaseManager
 from querysection import QuerySection
 from closeabletabwidget import CloseableTabWidget
-
-
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -13,6 +11,7 @@ class MainWindow(QMainWindow):
         self.create_menu()
         self.setGeometry(100, 100, 800, 600)
         self.setWindowTitle("Report-App")
+        self.statusBar = self.statusBar()
         
     def create_menu(self):
         ventana_archivo = QAction("Nueva Pestaña", self)
@@ -32,14 +31,15 @@ class MainWindow(QMainWindow):
     
     def funcion_opcion_connect_db(self):
         print("Trigger Ok") # testear con la base y el otro script
+        self.statusBar.showMessage("Conexión exitosa")
 
     def create_new_tab(self):
         new_tab = QWidget()
         self.tab_widget.addTab(new_tab, f'Pestaña {self.tab_widget.count()}')
-        query_section = QuerySection(new_tab)
+        query_section = QuerySection(self)
         layout = QVBoxLayout(new_tab)
         layout.addWidget(query_section)
-
+        
     def open_file_dialog(self):
         file_dialog = QFileDialog()
         file_path, _ = file_dialog.getOpenFileName(self, "Seleccionar archivo", "", "Archivos de texto (*.txt)")
@@ -60,3 +60,6 @@ class MainWindow(QMainWindow):
 
         # Conectar a la base de datos
         db_manager.connect()
+
+    def show_error_message(self, message):
+        self.statusBar.showMessage(f"Error: {message}")
