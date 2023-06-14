@@ -1,8 +1,8 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QWidget, QAction, QFileDialog, QVBoxLayout, QVBoxLayout, QPushButton, QLabel
+from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QAction, QFileDialog, QVBoxLayout, QLabel, QWidget, QVBoxLayout, QPushButton, QFrame, QTextEdit,QMessageBox
 from PyQt5 import Qsci
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QFrame, QTextEdit,QMessageBox
+from PyQt5.QtCore import Qt
 import sys
-import ast
+import ast,logging
 from database import DatabaseManager
 
 class CloseableTabWidget(QTabWidget):
@@ -15,8 +15,7 @@ class CloseableTabWidget(QTabWidget):
         widget = self.widget(index)
         if widget is not None:
             widget.deleteLater()
-        self.removeTab(index)
-        
+        self.removeTab(index)       
 class QueryEditor(QWidget):
 
     def __init__(self, parent=None):
@@ -39,8 +38,7 @@ class QueryEditor(QWidget):
         self.setFixedHeight(130)  # Establecer la altura deseada
 
     def get_query(self):
-        return self.editor.text()
-    
+        return self.editor.text()   
 class ResultViewer(QFrame):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -51,17 +49,18 @@ class ResultViewer(QFrame):
         self.result_text = QTextEdit()
         layout.addWidget(self.result_label)
         layout.addWidget(self.result_text)
-
-class QuerySection(QWidget):
+class QuerySection(QWidget): 
     def __init__(self, parent=None):
         super().__init__(parent)
         self.main_layout = QVBoxLayout(self)
         self.query_editor = QueryEditor(self)
         self.execute_button = QPushButton("Ejecutar")
         self.result_viewer = ResultViewer(self)
+        self.status_label = QLabel("Listo")
         self.main_layout.addWidget(self.query_editor)
         self.main_layout.addWidget(self.execute_button)
         self.main_layout.addWidget(self.result_viewer)
+        self.main_layout.addWidget(self.status_label)
         self.execute_button.clicked.connect(self.execute_query)
 
     def execute_query(self):
@@ -72,24 +71,30 @@ class QuerySection(QWidget):
             self.result_viewer.show_error("Error: No se ingresó ninguna consulta.")
             return
 
+        if not is_valid_syntax(query):
+            # La sintaxis de la consulta es inválida
+            self.result_viewer.show_error("Error: Sintaxis inválida en la consulta.")
+            return
+
         try:
-            # Verificar la sintaxis del código
-            ast.parse(query)
-
             # Lógica para ejecutar la consulta y obtener el resultado
-            #result = is_valid_syntax(query)
+            result = execute_query(query)
 
-            #if result is not None:
+            if result is not None:
                 # Mostrar el resultado en la ventana de Resultado
-             #   self.result_viewer.show_result(result)
+                self.result_viewer.show_result(result)
 
-        except SyntaxError as e:
-            # Error de sintaxis en el código
-            self.show_error_message(f"Error de sintaxis en el código:\n{str(e)}")
+            # Actualizar el mensaje de estado
+            self.status_label.setText("Consulta ejecutada correctamente")
 
         except Exception as e:
-            # Manejo de otros errores durante la ejecución de la consulta
-            self.show_error_message(f"Error durante la ejecución del código:\n{str(e)}")
+            # Manejo de errores durante la ejecución de la consulta
+            error_message = str(e)
+            self.result_viewer.show_error(f"Error durante la ejecución de la consulta: {error_message}")
+            self.status_label.setText("Error en la consulta")
+
+            # Guardar el error en un log
+            logging.error(f"Error durante la ejecución de la consulta:\n{error_message}")
 
     def show_error_message(self, message):
         error_dialog = QMessageBox()
@@ -98,6 +103,25 @@ class QuerySection(QWidget):
         error_dialog.setText(message)
         error_dialog.exec_()
 
+def is_valid_syntax(code):
+    try:
+        ast.parse(code)
+        return True
+    except SyntaxError:
+        return False
+
+def execute_query(query):
+    try:
+        # Lógica para ejecutar la consulta en la base de datos
+        # ...
+
+        # Ejemplo: Simplemente devolver la consulta ejecutada
+        return f"Consulta ejecutada: {query}"
+
+    except Exception as e:
+        # Manejo de errores durante la ejecución de la consulta
+        error_message = str(e)
+        raise Exception(f"Error durante la ejecución de la consulta: {error_message}")
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
