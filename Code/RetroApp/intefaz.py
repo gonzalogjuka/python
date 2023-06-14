@@ -3,6 +3,7 @@ from PyQt5 import Qsci
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QFrame, QTextEdit
 import sys
 import ast
+from database import DatabaseManager
 
 class CloseableTabWidget(QTabWidget):
     def __init__(self, parent=None):
@@ -91,16 +92,26 @@ class MainWindow(QMainWindow):
         self.create_menu()
         self.setGeometry(100, 100, 800, 600)
         self.setWindowTitle("Report-App")
+        
 
     def create_menu(self):
         ventana_archivo = QAction("Nueva Pestaña", self)
         ventana_script = QAction("Buscar Script", self)
         ventana_archivo.triggered.connect(self.create_new_tab)
         ventana_script.triggered.connect(self.open_file_dialog)
+
         file_menu = self.menuBar().addMenu("Archivo")
         fila_2 = self.menuBar().addMenu("Scripts")
+
+        opcion_connect_db = QAction("Conectar Base de datos", self)
+        opcion_connect_db.triggered.connect(self.funcion_opcion_connect_db)
+
         fila_2.addAction(ventana_script)
         file_menu.addAction(ventana_archivo)
+        file_menu.addAction(opcion_connect_db)
+    
+    def funcion_opcion_connect_db(self):
+        print("Trigger Ok") # testear con la base y el otro script
 
     def create_new_tab(self):
         new_tab = QWidget()
@@ -120,14 +131,17 @@ class MainWindow(QMainWindow):
         if current_index != -1:
             self.tab_widget.close_tab(current_index)
 
-def is_python_code(code):
-    try:
-        ast.parse(code)
-        return True
-    except SyntaxError:
-        return False
-    
-    # SI FALLA QUE no se tilde el sistema y de el codigo de error por la salida
+    def connect_to_database(self):
+        # Crear una instancia de la clase DatabaseManager
+        db_manager = DatabaseManager()
+
+        # Establecer la configuración de conexión a la base de datos
+        db_manager.set_connection_config('localhost', 'mydatabase', 'username', 'password')
+
+        # Conectar a la base de datos
+        db_manager.connect()
+
+
 
 def execute_query_python(code):
     try:
@@ -138,7 +152,15 @@ def execute_query_python(code):
     except Exception as e:
         # Manejar cualquier error durante la ejecución del código
         raise e
+    
+def is_python_code(code):
+    try:
+        ast.parse(code)
+        return True
+    except SyntaxError:
+        return False
 
+# SI FALLA QUE no se tilde el sistema y de el codigo de error por la salida
 # Poner un boton para elegir el lenguaje y conectar a la base de datos por medio de ese boton
 
 if __name__ == "__main__":
