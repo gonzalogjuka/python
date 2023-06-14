@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QWidget, QAction, QFileDialog, QVBoxLayout, QVBoxLayout, QPushButton, QLabel
 from PyQt5 import Qsci
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QFrame, QTextEdit
+from PyQt5.QtWidgets import QWidget, QVBoxLayout, QPushButton, QFrame, QTextEdit,QMessageBox
 import sys
 import ast
 from database import DatabaseManager
@@ -73,16 +73,30 @@ class QuerySection(QWidget):
             return
 
         try:
-            # Lógica para ejecutar la consulta y obtener el resultado
-            result = execute_query_python(query)
+            # Verificar la sintaxis del código
+            ast.parse(query)
 
-            if result is not None:
+            # Lógica para ejecutar la consulta y obtener el resultado
+            #result = is_valid_syntax(query)
+
+            #if result is not None:
                 # Mostrar el resultado en la ventana de Resultado
-                self.result_viewer.show_result(result)
+             #   self.result_viewer.show_result(result)
+
+        except SyntaxError as e:
+            # Error de sintaxis en el código
+            self.show_error_message(f"Error de sintaxis en el código:\n{str(e)}")
 
         except Exception as e:
-            # Manejo de errores durante la ejecución de la consulta
-            self.result_viewer.show_error(f"Error: {str(e)}")
+            # Manejo de otros errores durante la ejecución de la consulta
+            self.show_error_message(f"Error durante la ejecución del código:\n{str(e)}")
+
+    def show_error_message(self, message):
+        error_dialog = QMessageBox()
+        error_dialog.setIcon(QMessageBox.Critical)
+        error_dialog.setWindowTitle("Error")
+        error_dialog.setText(message)
+        error_dialog.exec_()
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -140,25 +154,6 @@ class MainWindow(QMainWindow):
 
         # Conectar a la base de datos
         db_manager.connect()
-
-
-
-def execute_query_python(code):
-    try:
-        # Ejecutar el código de Python
-        result = eval(code)
-        return result
-
-    except Exception as e:
-        # Manejar cualquier error durante la ejecución del código
-        raise e
-    
-def is_python_code(code):
-    try:
-        ast.parse(code)
-        return True
-    except SyntaxError:
-        return False
 
 # SI FALLA QUE no se tilde el sistema y de el codigo de error por la salida
 # Poner un boton para elegir el lenguaje y conectar a la base de datos por medio de ese boton
