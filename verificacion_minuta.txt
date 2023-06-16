@@ -1,143 +1,38 @@
-************* Module CleanLog
-Code\Archivo\CleanLog.py:1:22: C0303: Trailing whitespace (trailing-whitespace)
-Code\Archivo\CleanLog.py:19:0: C0303: Trailing whitespace (trailing-whitespace)
-Code\Archivo\CleanLog.py:20:0: C0301: Line too long (109/100) (line-too-long)
-Code\Archivo\CleanLog.py:21:0: C0301: Line too long (118/100) (line-too-long)
-Code\Archivo\CleanLog.py:24:0: W0311: Bad indentation. Found 3 spaces, expected 4 (bad-indentation)
-Code\Archivo\CleanLog.py:25:0: W0311: Bad indentation. Found 3 spaces, expected 4 (bad-indentation)
-Code\Archivo\CleanLog.py:26:0: W0311: Bad indentation. Found 4 spaces, expected 8 (bad-indentation)
-Code\Archivo\CleanLog.py:48:0: W0311: Bad indentation. Found 5 spaces, expected 4 (bad-indentation)
-Code\Archivo\CleanLog.py:54:0: W0311: Bad indentation. Found 5 spaces, expected 4 (bad-indentation)
-Code\Archivo\CleanLog.py:56:0: W0311: Bad indentation. Found 12 spaces, expected 4 (bad-indentation)
-Code\Archivo\CleanLog.py:57:0: W0311: Bad indentation. Found 12 spaces, expected 4 (bad-indentation)
-Code\Archivo\CleanLog.py:58:0: W0311: Bad indentation. Found 12 spaces, expected 4 (bad-indentation)
-Code\Archivo\CleanLog.py:59:0: W0311: Bad indentation. Found 12 spaces, expected 4 (bad-indentation)
-Code\Archivo\CleanLog.py:60:0: C0301: Line too long (127/100) (line-too-long)
-Code\Archivo\CleanLog.py:60:0: W0311: Bad indentation. Found 12 spaces, expected 4 (bad-indentation)
-Code\Archivo\CleanLog.py:61:0: W0311: Bad indentation. Found 12 spaces, expected 4 (bad-indentation)
-Code\Archivo\CleanLog.py:62:0: C0301: Line too long (105/100) (line-too-long)
-Code\Archivo\CleanLog.py:62:0: W0311: Bad indentation. Found 16 spaces, expected 8 (bad-indentation)
-Code\Archivo\CleanLog.py:63:0: W0311: Bad indentation. Found 16 spaces, expected 8 (bad-indentation)
-Code\Archivo\CleanLog.py:64:32: C0303: Trailing whitespace (trailing-whitespace)
-Code\Archivo\CleanLog.py:64:0: W0311: Bad indentation. Found 16 spaces, expected 8 (bad-indentation)
-Code\Archivo\CleanLog.py:65:70: C0303: Trailing whitespace (trailing-whitespace)
-Code\Archivo\CleanLog.py:65:0: W0311: Bad indentation. Found 20 spaces, expected 12 (bad-indentation)
-Code\Archivo\CleanLog.py:66:70: C0303: Trailing whitespace (trailing-whitespace)
-Code\Archivo\CleanLog.py:66:0: W0311: Bad indentation. Found 24 spaces, expected 16 (bad-indentation)
-Code\Archivo\CleanLog.py:67:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:68:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:69:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:70:0: C0301: Line too long (104/100) (line-too-long)
-Code\Archivo\CleanLog.py:70:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:71:0: C0301: Line too long (106/100) (line-too-long)
-Code\Archivo\CleanLog.py:71:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:72:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:73:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:74:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:75:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:76:59: C0303: Trailing whitespace (trailing-whitespace)
-Code\Archivo\CleanLog.py:76:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:77:0: W0311: Bad indentation. Found 32 spaces, expected 24 (bad-indentation)
-Code\Archivo\CleanLog.py:78:0: W0311: Bad indentation. Found 36 spaces, expected 28 (bad-indentation)
-Code\Archivo\CleanLog.py:78:0: C0325: Unnecessary parens after '=' keyword (superfluous-parens)
-Code\Archivo\CleanLog.py:79:0: W0311: Bad indentation. Found 36 spaces, expected 28 (bad-indentation)
-Code\Archivo\CleanLog.py:80:41: C0303: Trailing whitespace (trailing-whitespace)
-Code\Archivo\CleanLog.py:80:0: W0311: Bad indentation. Found 36 spaces, expected 28 (bad-indentation)
-Code\Archivo\CleanLog.py:81:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:82:49: C0303: Trailing whitespace (trailing-whitespace)
-Code\Archivo\CleanLog.py:82:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:83:60: C0303: Trailing whitespace (trailing-whitespace)
-Code\Archivo\CleanLog.py:83:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:84:44: C0303: Trailing whitespace (trailing-whitespace)
-Code\Archivo\CleanLog.py:84:0: W0311: Bad indentation. Found 16 spaces, expected 8 (bad-indentation)
-Code\Archivo\CleanLog.py:86:0: W0311: Bad indentation. Found 12 spaces, expected 4 (bad-indentation)
-Code\Archivo\CleanLog.py:87:0: W0311: Bad indentation. Found 12 spaces, expected 4 (bad-indentation)
-Code\Archivo\CleanLog.py:88:0: W0311: Bad indentation. Found 12 spaces, expected 4 (bad-indentation)
-Code\Archivo\CleanLog.py:89:0: W0311: Bad indentation. Found 12 spaces, expected 4 (bad-indentation)
-Code\Archivo\CleanLog.py:90:0: C0301: Line too long (131/100) (line-too-long)
-Code\Archivo\CleanLog.py:90:0: W0311: Bad indentation. Found 12 spaces, expected 4 (bad-indentation)
-Code\Archivo\CleanLog.py:91:0: W0311: Bad indentation. Found 12 spaces, expected 4 (bad-indentation)
-Code\Archivo\CleanLog.py:92:0: C0301: Line too long (105/100) (line-too-long)
-Code\Archivo\CleanLog.py:92:0: W0311: Bad indentation. Found 16 spaces, expected 8 (bad-indentation)
-Code\Archivo\CleanLog.py:93:0: W0311: Bad indentation. Found 16 spaces, expected 8 (bad-indentation)
-Code\Archivo\CleanLog.py:94:0: W0311: Bad indentation. Found 16 spaces, expected 8 (bad-indentation)
-Code\Archivo\CleanLog.py:95:0: W0311: Bad indentation. Found 20 spaces, expected 12 (bad-indentation)
-Code\Archivo\CleanLog.py:96:0: W0311: Bad indentation. Found 24 spaces, expected 16 (bad-indentation)
-Code\Archivo\CleanLog.py:97:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:98:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:99:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:100:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:101:0: C0301: Line too long (104/100) (line-too-long)
-Code\Archivo\CleanLog.py:101:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:102:0: C0301: Line too long (106/100) (line-too-long)
-Code\Archivo\CleanLog.py:102:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:103:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:104:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:105:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:106:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:107:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:108:0: W0311: Bad indentation. Found 32 spaces, expected 24 (bad-indentation)
-Code\Archivo\CleanLog.py:109:0: W0311: Bad indentation. Found 36 spaces, expected 28 (bad-indentation)
-Code\Archivo\CleanLog.py:109:0: C0325: Unnecessary parens after '=' keyword (superfluous-parens)
-Code\Archivo\CleanLog.py:110:0: W0311: Bad indentation. Found 36 spaces, expected 28 (bad-indentation)
-Code\Archivo\CleanLog.py:111:0: W0311: Bad indentation. Found 36 spaces, expected 28 (bad-indentation)
-Code\Archivo\CleanLog.py:112:41: C0303: Trailing whitespace (trailing-whitespace)
-Code\Archivo\CleanLog.py:112:0: W0311: Bad indentation. Found 36 spaces, expected 28 (bad-indentation)
-Code\Archivo\CleanLog.py:113:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:114:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:115:49: C0303: Trailing whitespace (trailing-whitespace)
-Code\Archivo\CleanLog.py:115:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:116:0: W0311: Bad indentation. Found 32 spaces, expected 24 (bad-indentation)
-Code\Archivo\CleanLog.py:117:0: W0311: Bad indentation. Found 32 spaces, expected 24 (bad-indentation)
-Code\Archivo\CleanLog.py:118:0: W0311: Bad indentation. Found 36 spaces, expected 28 (bad-indentation)
-Code\Archivo\CleanLog.py:119:0: W0311: Bad indentation. Found 36 spaces, expected 28 (bad-indentation)
-Code\Archivo\CleanLog.py:120:98: C0303: Trailing whitespace (trailing-whitespace)
-Code\Archivo\CleanLog.py:120:0: W0311: Bad indentation. Found 36 spaces, expected 28 (bad-indentation)
-Code\Archivo\CleanLog.py:121:0: W0311: Bad indentation. Found 28 spaces, expected 20 (bad-indentation)
-Code\Archivo\CleanLog.py:122:64: C0303: Trailing whitespace (trailing-whitespace)
-Code\Archivo\CleanLog.py:122:0: W0311: Bad indentation. Found 32 spaces, expected 24 (bad-indentation)
-Code\Archivo\CleanLog.py:123:44: C0303: Trailing whitespace (trailing-whitespace)
-Code\Archivo\CleanLog.py:123:0: W0311: Bad indentation. Found 16 spaces, expected 8 (bad-indentation)
-Code\Archivo\CleanLog.py:126:0: W0311: Bad indentation. Found 5 spaces, expected 4 (bad-indentation)
-Code\Archivo\CleanLog.py:128:14: C0303: Trailing whitespace (trailing-whitespace)
-Code\Archivo\CleanLog.py:128:0: W0311: Bad indentation. Found 8 spaces, expected 4 (bad-indentation)
-Code\Archivo\CleanLog.py:129:0: C0304: Final newline missing (missing-final-newline)
-Code\Archivo\CleanLog.py:1:0: C0114: Missing module docstring (missing-module-docstring)
-Code\Archivo\CleanLog.py:1:0: C0103: Module name "CleanLog" doesn't conform to snake_case naming style (invalid-name)
-Code\Archivo\CleanLog.py:23:0: C0116: Missing function or method docstring (missing-function-docstring)
-Code\Archivo\CleanLog.py:27:0: C0116: Missing function or method docstring (missing-function-docstring)
-Code\Archivo\CleanLog.py:28:11: C0103: Variable name "a" doesn't conform to snake_case naming style (invalid-name)
-Code\Archivo\CleanLog.py:31:0: C0116: Missing function or method docstring (missing-function-docstring)
-Code\Archivo\CleanLog.py:33:0: C0116: Missing function or method docstring (missing-function-docstring)
-Code\Archivo\CleanLog.py:40:0: C0116: Missing function or method docstring (missing-function-docstring)
-Code\Archivo\CleanLog.py:47:0: C0116: Missing function or method docstring (missing-function-docstring)
-Code\Archivo\CleanLog.py:55:0: C0116: Missing function or method docstring (missing-function-docstring)
-Code\Archivo\CleanLog.py:55:0: R0914: Too many local variables (17/15) (too-many-locals)
-Code\Archivo\CleanLog.py:56:12: W0104: Statement seems to have no effect (pointless-statement)
-Code\Archivo\CleanLog.py:57:12: W0104: Statement seems to have no effect (pointless-statement)
-Code\Archivo\CleanLog.py:58:12: W0104: Statement seems to have no effect (pointless-statement)
-Code\Archivo\CleanLog.py:61:17: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
-Code\Archivo\CleanLog.py:61:43: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
-Code\Archivo\CleanLog.py:67:28: C0103: Variable name "f" doesn't conform to snake_case naming style (invalid-name)
-Code\Archivo\CleanLog.py:82:28: C0103: Variable name "b" doesn't conform to snake_case naming style (invalid-name)
-Code\Archivo\CleanLog.py:85:0: C0116: Missing function or method docstring (missing-function-docstring)
-Code\Archivo\CleanLog.py:85:0: R0914: Too many local variables (21/15) (too-many-locals)
-Code\Archivo\CleanLog.py:86:12: W0104: Statement seems to have no effect (pointless-statement)
-Code\Archivo\CleanLog.py:87:12: W0104: Statement seems to have no effect (pointless-statement)
-Code\Archivo\CleanLog.py:88:12: W0104: Statement seems to have no effect (pointless-statement)
-Code\Archivo\CleanLog.py:91:17: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
-Code\Archivo\CleanLog.py:91:43: W1514: Using open without explicitly specifying an encoding (unspecified-encoding)
-Code\Archivo\CleanLog.py:98:28: C0103: Variable name "f" doesn't conform to snake_case naming style (invalid-name)
-Code\Archivo\CleanLog.py:114:28: C0103: Variable name "b" doesn't conform to snake_case naming style (invalid-name)
-Code\Archivo\CleanLog.py:115:31: C0121: Comparison 'validador == True' should be 'validador is True' if checking for the singleton value True, or 'validador' if testing for truthiness (singleton-comparison)
-Code\Archivo\CleanLog.py:116:40: W0631: Using possibly undefined loop variable 'palabra' (undefined-loop-variable)
-Code\Archivo\CleanLog.py:118:60: W0631: Using possibly undefined loop variable 'palabra' (undefined-loop-variable)
-Code\Archivo\CleanLog.py:125:0: C0116: Missing function or method docstring (missing-function-docstring)
-Code\Archivo\CleanLog.py:127:0: C0116: Missing function or method docstring (missing-function-docstring)
-Code\Archivo\CleanLog.py:128:8: R1722: Consider using 'sys.exit' instead (consider-using-sys-exit)
-Code\Archivo\CleanLog.py:4:0: C0411: standard import "import datetime" should be placed before "from ddbb import db" (wrong-import-order)
+************* Module blocks
+Code\Archivo\blocks.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+
+Explicación para C0114:
+ - Categoría: convention
+ - Descripción: Missing module docstring
+ - Archivo: Code\Archivo\blocks.py
+ - Línea: 1
+ - Columna: 0
+Code\Archivo\blocks.py:1:0: C0115: Missing class docstring (missing-class-docstring)
+
+Explicación para C0115:
+ - Categoría: convention
+ - Descripción: Missing class docstring
+ - Archivo: Code\Archivo\blocks.py
+ - Línea: 1
+ - Columna: 0
+Code\Archivo\blocks.py:6:4: C0116: Missing function or method docstring (missing-function-docstring)
+
+Explicación para C0116:
+ - Categoría: convention
+ - Descripción: Missing function or method docstring
+ - Archivo: Code\Archivo\blocks.py
+ - Línea: 6
+ - Columna: 4
+Code\Archivo\blocks.py:10:4: C0116: Missing function or method docstring (missing-function-docstring)
+
+Explicación para C0116:
+ - Categoría: convention
+ - Descripción: Missing function or method docstring
+ - Archivo: Code\Archivo\blocks.py
+ - Línea: 10
+ - Columna: 4
 
 Recursos adicionales:
-- Documentación oficial de Python: https://docs.python.org/
-- Stack Overflow: https://stackoverflow.com/
-- Tutorial de Python: https://www.learnpython.org/
+- Documentación oficial de Python: https://docs.python.org/es/
+- Stack Overflow: https://es.stackoverflow.com/
+- Tutorial de Python: https://www.learnpython.org/es/

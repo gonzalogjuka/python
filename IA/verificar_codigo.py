@@ -32,7 +32,13 @@ class MinutaReporter(TextReporter):
             for suggestion in suggestions:
                 self.out.write(f" - {suggestion}\n")
 
-        # No agregar los enlaces aquí
+        # Agregar explicación detallada para cada error
+        self.out.write(f"\nExplicación para {msg.msg_id}:\n")
+        self.out.write(f" - Categoría: {msg.category}\n")
+        self.out.write(f" - Descripción: {msg.msg}\n")
+        self.out.write(f" - Archivo: {msg.path}\n")
+        self.out.write(f" - Línea: {msg.line}\n")
+        self.out.write(f" - Columna: {msg.column}\n")
 
     def display_messages(self):
         super().display_messages(None)
@@ -56,9 +62,9 @@ def verificar_codigo():
 
         # Agregar enlaces al final del reporte
         reporter.out.write("\nRecursos adicionales:")
-        reporter.out.write("\n- Documentación oficial de Python: https://docs.python.org/")
-        reporter.out.write("\n- Stack Overflow: https://stackoverflow.com/")
-        reporter.out.write("\n- Tutorial de Python: https://www.learnpython.org/")
+        reporter.out.write("\n- Documentación oficial de Python: https://docs.python.org/es/")
+        reporter.out.write("\n- Stack Overflow: https://es.stackoverflow.com/")
+        reporter.out.write("\n- Tutorial de Python: https://www.learnpython.org/es/")
 
     # Mostrar la cantidad de objetos llamativos encontrados
     print(f"Se encontraron {reporter.llamativos} objetos llamativos en el código.")
