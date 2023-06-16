@@ -71,3 +71,6 @@ def verificar_codigo():
 
 # Llamar a la función principal
 verificar_codigo()
+
+
+# agregar solo los de tipo error que eviten la ejecucion y no todo lo demas

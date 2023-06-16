@@ -1,4 +1,12 @@
 ************* Module blocks
+Code\Archivo\blocks.py:14:0: C0304: Final newline missing (missing-final-newline)
+
+Explicación para C0304:
+ - Categoría: convention
+ - Descripción: Final newline missing
+ - Archivo: Code\Archivo\blocks.py
+ - Línea: 14
+ - Columna: 0
 Code\Archivo\blocks.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 
 Explicación para C0114:
@@ -31,6 +39,22 @@ Explicación para C0116:
  - Archivo: Code\Archivo\blocks.py
  - Línea: 10
  - Columna: 4
+Code\Archivo\blocks.py:14:0: W0104: Statement seems to have no effect (pointless-statement)
+
+Explicación para W0104:
+ - Categoría: warning
+ - Descripción: Statement seems to have no effect
+ - Archivo: Code\Archivo\blocks.py
+ - Línea: 14
+ - Columna: 0
+Code\Archivo\blocks.py:14:0: E0602: Undefined variable 'xccvx' (undefined-variable)
+
+Explicación para E0602:
+ - Categoría: error
+ - Descripción: Undefined variable 'xccvx'
+ - Archivo: Code\Archivo\blocks.py
+ - Línea: 14
+ - Columna: 0
 
 Recursos adicionales:
 - Documentación oficial de Python: https://docs.python.org/es/
