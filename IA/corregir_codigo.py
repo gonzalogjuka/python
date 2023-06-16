@@ -22,30 +22,32 @@ def corregir_codigo():
     with open(archivo_origen, 'r') as file:
         lineas_codigo = file.readlines()
 
+    # Diccionario para almacenar las acciones a ejecutar según el disparador (categoría del error)
+    acciones = {
+        'Missing module docstring': corregir_falta_docstring_modulo,
+        'Missing class docstring': corregir_falta_docstring_clase,
+        'Missing function or method docstring': corregir_falta_docstring_funcion,
+        # Agrega más disparadores y funciones de corrección según sea necesario
+    }
+
     # Realizar las correcciones en el código según los errores y sugerencias
-    for i, linea_error in enumerate(lineas_errores):
+    for linea_error in lineas_errores:
         if linea_error.startswith('Code'):
             partes = linea_error.strip().split(':')
             if len(partes) >= 4:
-                archivo = partes[0].strip()
                 categoria = partes[3].strip()
 
-                # Obtener la línea y columna del error
-                linea = int(partes[1].strip().split('\\')[-1])
-                columna = int(partes[2].strip())
+                # Verificar si la categoría del error tiene una acción asociada en el diccionario
+                if categoria in acciones:
+                    # Obtener la línea y columna del error
+                    linea = int(partes[1].strip().split('\\')[-1])
+                    columna = int(partes[2].strip())
 
-                # Realizar acciones en función de la categoría del error
-                if categoria == 'Missing module docstring':
-                    # Aplicar corrección para el error de falta de docstring del módulo
-                    lineas_codigo[linea - 1] = '# Documentación del módulo\n' + lineas_codigo[linea - 1]
-                elif categoria == 'Missing class docstring':
-                    # Aplicar corrección para el error de falta de docstring de la clase
-                    lineas_codigo[linea - 1] = '# Documentación de la clase\n' + lineas_codigo[linea - 1]
-                elif categoria == 'Missing function or method docstring':
-                    # Aplicar corrección para el error de falta de docstring de la función o método
-                    lineas_codigo[linea - 1] = '# Documentación de la función o método\n' + lineas_codigo[linea - 1]
+                    # Llamar a la función de corrección asociada a la categoría del error
+                    acciones[categoria](lineas_codigo, linea, columna)
+
                 else:
-                    print(f"Categoría de error desconocida en la línea {i + 1} del archivo de errores.")
+                    print(f"Categoría de error desconocida en el archivo de errores: {categoria}")
 
     # Generar el archivo de salida con las modificaciones realizadas
     archivo_salida = archivo_origen.replace('.py', '_corregido.py')
@@ -55,7 +57,19 @@ def corregir_codigo():
     # Mostrar un mensaje de confirmación al usuario
     print(f"El archivo corregido ha sido generado: {archivo_salida}")
 
+def corregir_falta_docstring_modulo(lineas_codigo, linea, columna):
+    # Aplicar corrección para el error de falta de docstring del módulo
+    lineas_codigo[linea - 1] = '# Documentación del módulo\n' + lineas_codigo[linea - 1]
+
+def corregir_falta_docstring_clase(lineas_codigo, linea, columna):
+    # Aplicar corrección para el error de falta de docstring de la clase
+    lineas_codigo[linea - 1] = '# Documentación de la clase\n' + lineas_codigo[linea - 1]
+
+def corregir_falta_docstring_funcion(lineas_codigo, linea, columna):
+    # Aplicar corrección para el error de falta de docstring de la función o método
+    lineas_codigo[linea - 1] = '# Documentación de la función o método\n' + lineas_codigo[linea - 1]
 
 # Llamar a la función principal
 corregir_codigo()
+
 
