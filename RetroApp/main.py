@@ -11,4 +11,4 @@ if __name__ == "__main__":
 
 
 
-# Poner un boton para elegir el lenguaje
+# Poner un boton para elegir el lenguaje.
