@@ -64,3 +64,15 @@ class MainWindow(QMainWindow):
     def show_error_message(self, message):
         self.status_bar.showMessage(f"Error: {message}")
 
+    def execute_query(self):
+        current_index = self.tab_widget.currentIndex()
+        if current_index != -1:
+            query_section = self.tab_widget.widget(current_index).layout().itemAt(0).widget()
+            query_text = query_section.get_query_text()
+
+            if query_text.startswith("SELECT"):
+             self.status_bar.showMessage("Lenguaje: SQL")
+            elif query_text.startswith("print("):
+                self.status_bar.showMessage("Lenguaje: Python")
+            else:
+                self.status_bar.showMessage("Lenguaje desconocido")
