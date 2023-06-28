@@ -11,8 +11,8 @@ class MainWindow(QMainWindow):
         self.create_menu()
         self.setGeometry(100, 100, 800, 600)
         self.setWindowTitle("Report-App")
-        self.statusBar = self.statusBar()
-        
+        self.status_bar = self.statusBar()
+
     def create_menu(self):
         ventana_archivo = QAction("Nueva Pestaña", self)
         ventana_script = QAction("Buscar Script", self)
@@ -28,10 +28,10 @@ class MainWindow(QMainWindow):
         fila_2.addAction(ventana_script)
         file_menu.addAction(ventana_archivo)
         file_menu.addAction(opcion_connect_db)
-    
+
     def funcion_opcion_connect_db(self):
-        print("Trigger Ok") # testear con la base y el otro script
-        self.statusBar.showMessage("Conexión exitosa")
+        print("Trigger Ok")  # testear con la base y el otro script
+        self.status_bar.showMessage("Conexión exitosa")
 
     def create_new_tab(self):
         new_tab = QWidget()
@@ -39,7 +39,7 @@ class MainWindow(QMainWindow):
         query_section = QuerySection(self)
         layout = QVBoxLayout(new_tab)
         layout.addWidget(query_section)
-        
+
     def open_file_dialog(self):
         file_dialog = QFileDialog()
         file_path, _ = file_dialog.getOpenFileName(self, "Seleccionar archivo", "", "Archivos de texto (*.txt)")
@@ -62,4 +62,5 @@ class MainWindow(QMainWindow):
         db_manager.connect()
 
     def show_error_message(self, message):
-        self.statusBar.showMessage(f"Error: {message}")
+        self.status_bar.showMessage(f"Error: {message}")
+

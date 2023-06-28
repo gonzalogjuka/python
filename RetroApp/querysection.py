@@ -97,4 +97,4 @@ class QuerySection(QWidget):
                 # Manejar cualquier error durante la ejecución de la consulta
                 raise Exception(f"Error en la consulta: {str(e)}")
         else:
-            print('No hay una conexión establecida a la base de datos')
+            print('No hay una conexión establecida a la base de datos')    
