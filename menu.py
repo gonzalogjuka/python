@@ -31,7 +31,6 @@ def eliminar_archivos_temporales():
     print("Archivos temporales eliminados correctamente.")
     input("Presiona Enter para continuar...")
 
-
 # Función para obtener programas de inicio (mantenida para completar el ejemplo)
 def obtener_programas_inicio():
     startup_programs = []
@@ -84,20 +83,8 @@ def mostrar_menu():
         print("0. Salir")
         opcion = input("Selecciona una opción: ")
 
-
-        if opcion == 1:
-            print("1. Liberar memoria virtual")
-            print("2. Eliminar archivos temporales")
-            subopcion = int(input("Selecciona una subopción: "))
-            if subopcion == 1:
-                liberar_memoria_virtual()
-            if subopcion == 2:
-                eliminar_archivos_temporales()
-            else:
-                print("Subopción no válida.")
-        elif opcion == 2:
-            if opcion == '1.1':
-                eliminar_archivos_temporales()
+        if opcion == '1.1':
+            eliminar_archivos_temporales()
         elif opcion == '1.2':
             liberar_memoria_virtual()
         elif opcion == '2':
@@ -111,4 +98,3 @@ def mostrar_menu():
 
 # Llamada a la función principal del menú
 mostrar_menu()
-
