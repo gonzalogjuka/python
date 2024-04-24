@@ -1,4 +1,5 @@
 import os
+import shutil
 import winreg
 
 # Función para liberar memoria virtual
@@ -9,27 +10,48 @@ def liberar_memoria_virtual():
     input("Presiona Enter para continuar...")
 
 # Función para eliminar archivos temporales de Windows
+# Función para eliminar archivos temporales de Windows
 def eliminar_archivos_temporales():
     print("Eliminando archivos temporales de Windows...")
 
     # Rutas de los directorios de archivos temporales comunes en Windows
     temp_paths = [
-        os.path.join(os.environ['SystemRoot'], 'Temp', '*'),
-        os.path.join(os.environ['SystemRoot'], 'Prefetch', '*'),
-        os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Temp', '*')
+        os.path.join(os.environ['SystemRoot'], 'Temp'),
+        os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Temp'),
+        os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local'),
+        os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Microsoft', 'Windows', 'INetCache'),
+        os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Microsoft', 'Windows', 'Temporary Internet Files'),
+        os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Microsoft', 'Windows', 'Caches')
     ]
 
     total_archivos_eliminados = 0  # Contador para archivos eliminados
 
     for path in temp_paths:
-        # Verificar que la ruta exista antes de eliminar archivos
-        if os.path.exists(path):
-            archivos_eliminados = os.system(f"del /f /q {path}")  # Ejecutar el comando para eliminar archivos
-            total_archivos_eliminados += archivos_eliminados
+        # Debug: imprimir la ruta antes de eliminar archivos
+        print(f"Buscando archivos y carpetas en la ruta: {path}")
 
-    print(f"Se eliminaron {total_archivos_eliminados} archivos temporales.")
-    print("Archivos temporales eliminados correctamente.")
+        # Verificar que la ruta exista antes de eliminar archivos y carpetas
+        if os.path.exists(path):
+            for root, dirs, files in os.walk(path, topdown=False):
+                for file in files:
+                    file_path = os.path.join(root, file)
+                    try:
+                        os.remove(file_path)
+                        total_archivos_eliminados += 1
+                    except Exception as e:
+                        print(f"No se pudo eliminar el archivo {file_path}: {e}")
+                for dir_name in dirs:
+                    dir_path = os.path.join(root, dir_name)
+                    try:
+                        shutil.rmtree(dir_path)
+                        total_archivos_eliminados += 1
+                    except Exception as e:
+                        print(f"No se pudo eliminar la carpeta {dir_path}: {e}")
+
+    print(f"Se eliminaron {total_archivos_eliminados} archivos y carpetas temporales.")
+    print("Archivos y carpetas temporales eliminados correctamente.")
     input("Presiona Enter para continuar...")
+
 
 # Función para obtener programas de inicio (mantenida para completar el ejemplo)
 def obtener_programas_inicio():
