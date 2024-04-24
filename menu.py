@@ -1,6 +1,12 @@
 import os
 import winreg
 
+# Función para liberar memoria virtual
+def liberar_memoria_virtual():
+    print("Liberando memoria virtual...")
+    os.system("wmic os set AutomaticManagedPagefile=True")
+    print("Memoria virtual liberada correctamente.")
+
 # Función para eliminar archivos temporales de Windows
 def eliminar_archivos_temporales():
     print("Eliminando archivos temporales de Windows...")
@@ -18,6 +24,7 @@ def eliminar_archivos_temporales():
             os.system(f"del /f /q {path}")
 
     print("Archivos temporales eliminados correctamente.")
+    
 
 # Función para obtener programas de inicio
 def obtener_programas_inicio():
@@ -59,19 +66,26 @@ def mostrar_programas_inicio():
         print("Opción no válida. Inténtalo de nuevo.")
         mostrar_programas_inicio()
 
-# Función principal del menú (mantenida para completar el ejemplo)
+# Función principal del menú
 def mostrar_menu():
     while True:
         os.system("cls" if os.name == "nt" else "clear")
         print("=== Menú ===")
-        print("1. Optimizar sistema (Eliminar archivos temporales)")
+        print("1. Optimizar sistema")
         print("2. Mostrar programas de inicio y deshabilitar")
         print("0. Salir")
         opcion = int(input("Selecciona una opción: "))
 
         if opcion == 1:
-            eliminar_archivos_temporales()
-            input("Presiona Enter para continuar...")
+            print("1. Liberar memoria virtual")
+            print("2. Eliminar archivos temporales")
+            subopcion = int(input("Selecciona una subopción: "))
+            if subopcion == 1:
+                liberar_memoria_virtual()
+            if subopcion == 2:
+                eliminar_archivos_temporales()
+            else:
+                print("Subopción no válida.")
         elif opcion == 2:
             mostrar_programas_inicio()
         elif opcion == 0:
@@ -83,4 +97,5 @@ def mostrar_menu():
 
 # Llamada a la función principal del menú
 mostrar_menu()
+
 
