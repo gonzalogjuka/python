@@ -16,19 +16,38 @@ def eliminar_archivos_temporales():
 
     # Rutas de los directorios de archivos temporales comunes en Windows
     temp_paths = [
+<<<<<<< HEAD
         os.path.join(os.environ['SystemRoot'], 'Temp'),
         os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Temp'),
         os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local'),
         os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Microsoft', 'Windows', 'INetCache'),
         os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Microsoft', 'Windows', 'Temporary Internet Files'),
         os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Microsoft', 'Windows', 'Caches')
+=======
+        os.path.join(os.environ['SystemRoot'], 'Temp', '*'),
+        os.path.join(os.environ['SystemRoot'], 'Prefetch', '*'),
+        os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Temp', '*'),
+        os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Microsoft', 'Windows', 'INetCache', '*'),
+        os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Microsoft', 'Windows', 'Temporary Internet Files', '*'),
+        os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Microsoft', 'Windows', 'Caches', '*')
+     
+>>>>>>> 1082b532b44778435b88d033966831390798d83a
     ]
+
 
     total_archivos_eliminados = 0  # Contador para archivos eliminados
 
     for path in temp_paths:
+<<<<<<< HEAD
         # Debug: imprimir la ruta antes de eliminar archivos
         print(f"Buscando archivos y carpetas en la ruta: {path}")
+=======
+        # Verificar que la ruta exista antes de eliminar archivos
+        if os.path.exists(path):
+            print(f"Buscando archivos en la ruta: {path}")  # Debug: imprimir la ruta antes de eliminar archivos
+            archivos_eliminados = os.system(f"del /f /q {path}")  # Ejecutar el comando para eliminar archivos
+            total_archivos_eliminados += archivos_eliminados
+>>>>>>> 1082b532b44778435b88d033966831390798d83a
 
         # Verificar que la ruta exista antes de eliminar archivos y carpetas
         if os.path.exists(path):
