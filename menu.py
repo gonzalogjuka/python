@@ -7,6 +7,7 @@ def liberar_memoria_virtual():
     os.system("wmic os set AutomaticManagedPagefile=True")
     print("Memoria virtual liberada correctamente.")
     input("Presiona Enter para continuar...")
+>>>>>>>>> Temporary merge branch 2
 
 # Función para eliminar archivos temporales de Windows
 def eliminar_archivos_temporales():
@@ -29,7 +30,11 @@ def eliminar_archivos_temporales():
 
     print(f"Se eliminaron {total_archivos_eliminados} archivos temporales.")
     print("Archivos temporales eliminados correctamente.")
+<<<<<<<<< Temporary merge branch 1
+    
+=========
     input("Presiona Enter para continuar...")
+>>>>>>>>> Temporary merge branch 2
 
 # Función para obtener programas de inicio (mantenida para completar el ejemplo)
 def obtener_programas_inicio():
@@ -77,17 +82,34 @@ def mostrar_menu():
         os.system("cls" if os.name == "nt" else "clear")
         print("=== Menú ===")
         print("1. Optimizar sistema")
+<<<<<<<<< Temporary merge branch 1
+=========
         print("    1.1 Eliminar archivos temporales")
         print("    1.2 Liberar memoria virtual")
+>>>>>>>>> Temporary merge branch 2
         print("2. Mostrar programas de inicio y deshabilitar")
         print("0. Salir")
         opcion = input("Selecciona una opción: ")
 
+<<<<<<<<< Temporary merge branch 1
+        if opcion == 1:
+            print("1. Liberar memoria virtual")
+            print("2. Eliminar archivos temporales")
+            subopcion = int(input("Selecciona una subopción: "))
+            if subopcion == 1:
+                liberar_memoria_virtual()
+            if subopcion == 2:
+                eliminar_archivos_temporales()
+            else:
+                print("Subopción no válida.")
+        elif opcion == 2:
+=========
         if opcion == '1.1':
             eliminar_archivos_temporales()
         elif opcion == '1.2':
             liberar_memoria_virtual()
         elif opcion == '2':
+>>>>>>>>> Temporary merge branch 2
             mostrar_programas_inicio()
         elif opcion == '0':
             break
