@@ -1,10 +1,23 @@
 import os
 import winreg
 
-# Función para eliminar archivos temporales de Windows (mantenida para completar el ejemplo)
+# Función para eliminar archivos temporales de Windows
 def eliminar_archivos_temporales():
     print("Eliminando archivos temporales de Windows...")
-    # Lógica para eliminar archivos temporales aquí
+    
+    # Rutas de los directorios de archivos temporales comunes en Windows
+    temp_paths = [
+        os.path.join(os.environ['SystemRoot'], 'Temp', '*'),
+        os.path.join(os.environ['SystemRoot'], 'Prefetch', '*'),
+        os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Temp', '*')
+    ]
+
+    for path in temp_paths:
+        # Verificar que la ruta exista antes de eliminar archivos
+        if os.path.exists(path):
+            os.system(f"del /f /q {path}")
+
+    print("Archivos temporales eliminados correctamente.")
 
 # Función para obtener programas de inicio
 def obtener_programas_inicio():
@@ -19,7 +32,7 @@ def obtener_programas_inicio():
     winreg.CloseKey(key)
     return startup_programs
 
-# Función para mostrar programas de inicio y deshabilitarlos
+# Función para mostrar programas de inicio y deshabilitarlos (mantenida para completar el ejemplo)
 def mostrar_programas_inicio():
     print("Programas que se ejecutan al inicio:")
     startup_programs = obtener_programas_inicio()
@@ -46,7 +59,7 @@ def mostrar_programas_inicio():
         print("Opción no válida. Inténtalo de nuevo.")
         mostrar_programas_inicio()
 
-# Función principal del menú
+# Función principal del menú (mantenida para completar el ejemplo)
 def mostrar_menu():
     while True:
         os.system("cls" if os.name == "nt" else "clear")
@@ -58,12 +71,15 @@ def mostrar_menu():
 
         if opcion == 1:
             eliminar_archivos_temporales()
+            input("Presiona Enter para continuar...")
         elif opcion == 2:
             mostrar_programas_inicio()
         elif opcion == 0:
             break
         else:
             print("Opción no válida. Inténtalo de nuevo.")
+
+    print("Hasta luego.")
 
 # Llamada a la función principal del menú
 mostrar_menu()
