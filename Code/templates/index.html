@@ -1,14 +1,27 @@
-{% extends 'base.html' %}
-
-{% block title %} Welcome Morpheus {% endblock %}
-
-{% block body %}
-<h1>Bienvenidos</h1>
-<ul>
-    <li><a href="{{ url_for('busqueda_log') }}">Ir a resumir log's</a></li>
-    <li><a href="{{ url_for('busqueda_errores') }}">Ir a resumir errores</a></li>
-    <li><a href="{{ url_for('mostrar_log') }}">Volver al resultado del log</a></li>
-    <li><a href="{{ url_for('mostrar_errores') }}">Volver al resultado de errores</a></li>
-</ul>
-
-{% endblock %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ta-Te-Ti</title>
+</head>
+<body>
+    <h1>Ta-Te-Ti</h1>
+    <p>Turno: {{ simbolo_actual }}</p>
+    <table border="1">
+        {% for fila in tablero %}
+        <tr>
+            {% for casilla in fila %}
+            <td>{{ casilla }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+    {% if ganador_actual %}
+    <h2>¡Ganó {{ ganador_actual }}!</h2>
+    {% else %}
+    <form action="/jugar" method="post">
+        <input type="number" name="posicion" placeholder="Ingrese la posición (1-9)">
+        <input type="submit" value="Jugar">
+    </form>
+    {% endif %}
+</body>
+</html>
