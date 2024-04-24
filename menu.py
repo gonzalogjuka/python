@@ -1,10 +1,17 @@
 import os
 import winreg
 
+# Función para liberar memoria virtual
+def liberar_memoria_virtual():
+    print("Liberando memoria virtual...")
+    os.system("wmic os set AutomaticManagedPagefile=True")
+    print("Memoria virtual liberada correctamente.")
+    input("Presiona Enter para continuar...")
+
 # Función para eliminar archivos temporales de Windows
 def eliminar_archivos_temporales():
     print("Eliminando archivos temporales de Windows...")
-    
+
     # Rutas de los directorios de archivos temporales comunes en Windows
     temp_paths = [
         os.path.join(os.environ['SystemRoot'], 'Temp', '*'),
@@ -12,14 +19,19 @@ def eliminar_archivos_temporales():
         os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Temp', '*')
     ]
 
+    total_archivos_eliminados = 0  # Contador para archivos eliminados
+
     for path in temp_paths:
         # Verificar que la ruta exista antes de eliminar archivos
         if os.path.exists(path):
-            os.system(f"del /f /q {path}")
+            archivos_eliminados = os.system(f"del /f /q {path}")  # Ejecutar el comando para eliminar archivos
+            total_archivos_eliminados += archivos_eliminados
 
+    print(f"Se eliminaron {total_archivos_eliminados} archivos temporales.")
     print("Archivos temporales eliminados correctamente.")
+    input("Presiona Enter para continuar...")
 
-# Función para obtener programas de inicio
+# Función para obtener programas de inicio (mantenida para completar el ejemplo)
 def obtener_programas_inicio():
     startup_programs = []
     key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, r"Software\Microsoft\Windows\CurrentVersion\Run")
@@ -59,22 +71,25 @@ def mostrar_programas_inicio():
         print("Opción no válida. Inténtalo de nuevo.")
         mostrar_programas_inicio()
 
-# Función principal del menú (mantenida para completar el ejemplo)
+# Función principal del menú
 def mostrar_menu():
     while True:
         os.system("cls" if os.name == "nt" else "clear")
         print("=== Menú ===")
-        print("1. Optimizar sistema (Eliminar archivos temporales)")
+        print("1. Optimizar sistema")
+        print("    1.1 Eliminar archivos temporales")
+        print("    1.2 Liberar memoria virtual")
         print("2. Mostrar programas de inicio y deshabilitar")
         print("0. Salir")
-        opcion = int(input("Selecciona una opción: "))
+        opcion = input("Selecciona una opción: ")
 
-        if opcion == 1:
+        if opcion == '1.1':
             eliminar_archivos_temporales()
-            input("Presiona Enter para continuar...")
-        elif opcion == 2:
+        elif opcion == '1.2':
+            liberar_memoria_virtual()
+        elif opcion == '2':
             mostrar_programas_inicio()
-        elif opcion == 0:
+        elif opcion == '0':
             break
         else:
             print("Opción no válida. Inténtalo de nuevo.")
