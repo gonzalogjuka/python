@@ -1,4 +1,9 @@
 {
     "python.analysis.typeCheckingMode": "basic",
-    "editor.lineNumbers": "off"
+    "editor.lineNumbers": "off",
+    "C_Cpp.default.compilerPath": "/home/gonza/Documentos/repositorios/python/Code/codigo_c/colour_.h",
+    "C_Cpp.errorSquiggles": "disabled",
+    "C_Cpp.codeAnalysis.clangTidy.checks.disabled": [
+        "clang-diagnostic-error"
+    ]
 }
