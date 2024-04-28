@@ -1,13 +1,21 @@
 import os
 import shutil
 import winreg
+import ctypes
+import sys
+import psutil
 
 # Función para liberar memoria virtual
 def liberar_memoria_virtual():
-    print("Liberando memoria virtual...")
-    os.system("wmic os set AutomaticManagedPagefile=True")
-    print("Memoria virtual liberada correctamente.")
-    input("Presiona Enter para continuar...")
+        memoria_libre_antes = psutil.virtual_memory().free
+        print(f"Memoria libre antes de liberar: {memoria_libre_antes} bytes")
+        kernel32 = ctypes.windll.kernel32
+        process = kernel32.GetCurrentProcess()
+        kernel32.SetProcessWorkingSetSize(process, -1, -1)
+        print("Liberando memoria virtual...")
+        memoria_libre_despues = psutil.virtual_memory().free
+        print(f"Memoria libre después de liberar: {memoria_libre_despues} bytes")
+        input("Presiona Enter para continuar...")
 
 # Función para eliminar archivos temporales de Windows
 def eliminar_archivos_temporales():
@@ -16,9 +24,7 @@ def eliminar_archivos_temporales():
     # Rutas de los directorios de archivos temporales comunes en Windows
     temp_paths = [
         os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Temp'),
-        os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Microsoft', 'Windows', 'INetCache'),
-        os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Microsoft', 'Windows', 'Temporary Internet Files'),
-        os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Microsoft', 'Windows', 'Caches')
+        os.path.join(os.environ['USERPROFILE'], 'AppData', 'Local', 'Roaming')
     ]
 
     total_archivos_eliminados = 0  # Contador para archivos eliminados
@@ -51,7 +57,6 @@ def eliminar_archivos_temporales():
     print(f"Se eliminaron {total_archivos_eliminados} archivos y carpetas temporales.")
     print("Archivos y carpetas temporales eliminados correctamente.")
     input("Presiona Enter para continuar...")
-
 
 # Función para obtener programas de inicio (mantenida para completar el ejemplo)
 def obtener_programas_inicio():
