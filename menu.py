@@ -2,7 +2,6 @@ import os
 import shutil
 import winreg
 import ctypes
-import sys
 import psutil
 
 # Función para liberar memoria virtual
@@ -103,18 +102,17 @@ def mostrar_menu():
     while True:
         os.system("cls" if os.name == "nt" else "clear")
         print("=== Menú ===")
-        print("1. Optimizar sistema")
-        print("    1.1 Eliminar archivos temporales")
-        print("    1.2 Liberar memoria virtual")
-        print("2. Mostrar programas de inicio y deshabilitar")
+        print("1. Eliminar archivos temporales")
+        print("2. Liberar memoria virtual")
+        print("3. Mostrar programas de inicio y deshabilitar")
         print("0. Salir")
         opcion = input("Selecciona una opción: ")
 
-        if opcion == '1.1':
+        if opcion == '1':
             eliminar_archivos_temporales()
-        elif opcion == '1.2':
-            liberar_memoria_virtual()
         elif opcion == '2':
+            liberar_memoria_virtual()
+        elif opcion == '3':
             mostrar_programas_inicio()
         elif opcion == '0':
             break
