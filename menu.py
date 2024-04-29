@@ -2,7 +2,6 @@ import os
 import shutil
 import winreg
 import ctypes
-import sys
 import psutil
 
 # Función para liberar memoria virtual
