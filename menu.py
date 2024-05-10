@@ -3,6 +3,7 @@ import shutil
 import winreg
 import ctypes
 import psutil
+import subprocess
 
 # Función para liberar memoria virtual
 def liberar_memoria_virtual():
@@ -97,6 +98,11 @@ def mostrar_programas_inicio():
         print("Opción no válida. Inténtalo de nuevo.")
         mostrar_programas_inicio()
 
+# Función para limpiar el registro de Windows
+def limpiar_registro():
+        print("Eliminando elementos temporales del registro de software...")
+        subprocess.run(["powershell", "Remove-ItemProperty", "-Path", "HKCU:\\Software\\Temp", "-Name", "*", "-ErrorAction", "SilentlyContinue"], capture_output=True)
+        print("Elementos temporales del registro de software eliminados correctamente.")
 # Función principal del menú
 def mostrar_menu():
     while True:
@@ -105,6 +111,7 @@ def mostrar_menu():
         print("1. Eliminar archivos temporales")
         print("2. Liberar memoria virtual")
         print("3. Mostrar programas de inicio y deshabilitar")
+        print("4. Limpiar registros")
         print("0. Salir")
         opcion = input("Selecciona una opción: ")
 
@@ -114,6 +121,8 @@ def mostrar_menu():
             liberar_memoria_virtual()
         elif opcion == '3':
             mostrar_programas_inicio()
+        elif opcion == '4':
+            limpiar_registro()
         elif opcion == '0':
             break
         else:
